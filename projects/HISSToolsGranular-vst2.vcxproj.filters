@@ -128,7 +128,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="IPlug">

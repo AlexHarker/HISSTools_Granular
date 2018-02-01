@@ -205,6 +205,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
 </Project>

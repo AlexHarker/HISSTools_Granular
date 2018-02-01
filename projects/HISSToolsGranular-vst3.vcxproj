@@ -417,7 +417,7 @@
     <ClCompile Include="HISSToolsGranular.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\IPlug\IPlugVST3.def" />
