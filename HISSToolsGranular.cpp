@@ -233,6 +233,8 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
   const double offsetRand = GetParam(kOffsetRand)->GetNormalized(dragLimit);
   SetParameterFromUI(kOffset, lo);
   SetParameterFromUI(kOffsetRand, offsetRand);
+  GetGUI()->SetParameterFromGUI(kOffset, lo);
+  GetGUI()->SetParameterFromGUI(kOffsetRand, offsetRand);
 }
 
 void HISSToolsGranular::OnParamChange(int paramIdx)
