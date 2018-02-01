@@ -290,8 +290,8 @@ void HISSToolsGranular::OnParamChange(int paramIdx)
     {
       double center = GetParam(kWindowBias)->GetNormalized();
       double variation = GetParam(kWindowBiasRand)->GetNormalized();
-      double lo = std::max(0.0, std::min(center - variation, 1.0)) * 2.0;
-      double hi = std::max(0.0, std::min(center + variation, 1.0)) * 2.0;
+      double lo = std::max(0.0, std::min(center - variation, 1.0)) * 4.0 - 2.0;
+      double hi = std::max(0.0, std::min(center + variation, 1.0)) * 4.0 - 2.0;
       mGranular.setWindowBias(lo, hi);
     }
     break;

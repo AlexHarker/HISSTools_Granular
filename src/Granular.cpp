@@ -193,7 +193,7 @@ Grain::Grain()
 
 void Grain::init(StereoBuffer *buffer,
                  Window *window,
-                 double windowPow,
+                 double windowFactor,
                  double offset,
                  double phaseIncr,
                  double offsetIncr,
@@ -209,7 +209,8 @@ void Grain::init(StereoBuffer *buffer,
 {
     mBuffer = buffer;
     mWindow = window;
-    mWindowPow = windowPow;
+    mWindowPow = fabs(windowFactor);
+    mWindowBiasDirection = windowFactor > 0;
     mPhase = 0.0;
     mPhaseIncr = phaseIncr;
     mOffset = offset;
@@ -350,7 +351,7 @@ void Granular::initGrain(std::vector<Grain>::iterator grain, double sampleRate)
     
     // Engine Values
     
-    const double windowPow = exp2(windowBias);
+    const double windowFactor = copysign(exp2(fabs(windowBias)), windowBias);
     const double speed = pitchToSpeed(pitch);
     const double offset = calcOffset(time);
     const double phaseIncr = calcPhaseIncr(duration, sampleRate);
@@ -370,7 +371,8 @@ void Granular::initGrain(std::vector<Grain>::iterator grain, double sampleRate)
         case Window::kKaiser:       window = &mKaiserWindow;    break;
         case Window::kTukey:        window = &mTukeyWindow;     break;
     }
-    grain->init(&mBuffer, window, windowPow, offset, phaseIncr, offsetIncr, offsetIncrMul, amp, mNonlinearType, gain, mFilterType, freq, res, pan, sampleRate);
+    
+    grain.init(&mBuffer, window, windowFactor, offset, phaseIncr, offsetIncr, offsetIncrMul, amp, mNonlinearType, gain, mFilterType, freq, res, pan, sampleRate);
 }
 
 void Granular::reset(double sampleRate)

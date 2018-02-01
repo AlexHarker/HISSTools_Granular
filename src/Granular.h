@@ -149,6 +149,7 @@ private:
     Filter mFilters[2];
     
     double mWindowPow;
+    bool mWindowBiasDirection;
     
     double mPhase;
     double mPhaseIncr;
