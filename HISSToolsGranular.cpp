@@ -94,7 +94,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   
   GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms");
   GetParam(kRate)->SetShape(2.0);
-  GetParam(kRateRand)->InitDouble("Rand Rate", 20.0, 0.0, 4000.0, 0.1, "ms");
+  GetParam(kRateRand)->InitDouble("Rand Rate", 10.0, 0.0, 4000.0, 0.1, "ms");
   GetParam(kRateRand)->SetShape(2.0);
   
   GetParam(kOffset)->InitDouble("Offset", 0.0, 0.0, 100.0, 0.1, "%");
