@@ -92,7 +92,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
 
   GetParam(kMaxVoices)->InitInt("Max Voices", 50, 1, 100);
   
-  GetParam(kRate)->InitDouble("Rate", 100.0, 0.1, 2000.0, 0.1, "ms");
+  GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms");
   GetParam(kRate)->SetShape(2.0);
   GetParam(kRateRand)->InitDouble("Rand Rate", 20.0, 0.0, 4000.0, 0.1, "ms");
   GetParam(kRateRand)->SetShape(2.0);
