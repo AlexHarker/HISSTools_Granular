@@ -147,6 +147,12 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   
   mSelector = new HISSTools_FileSelector(this, kSelect, &mVecLib, kCol4X, kRow3Y, kOpenW, kValueH, EFileAction::kFileOpen, "", "aif wav", "", &designScheme);
 
+  mWaveformL = new Waveform(*this, &mVecLib, 20, 570, 500, 50);
+  mWaveformR = new Waveform(*this, &mVecLib, 20, 620, 500, 50);
+  
+  pGraphics->AttachControl(mWaveformL);
+  pGraphics->AttachControl(mWaveformR);
+  
   AddDualControl(pGraphics, kCol1X, kRow1Y, kOffset, kOffsetRand, "1");
   AddDualControl(pGraphics, kCol2X, kRow1Y, kDuration, kDurationRand, "1");
   AddBiPolarDualControl(pGraphics, kCol3X, kRow1Y, kPitch, kPitchRand, "2");
@@ -194,6 +200,16 @@ void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFra
   mParams_mutex.Leave();
 
 }
+
+void HISSToolsGranular::GUIUpdateSelection()
+{
+  double L = GetParam(kOffset)->Value() / 100.0;
+  double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
+  
+  mWaveformL->SetSelect(L, R);
+  mWaveformR->SetSelect(L, R);
+}
+
 
 void HISSToolsGranular::OnParamChange(int paramIdx)
 {
@@ -333,6 +349,9 @@ void HISSToolsGranular::OnParamChange(int paramIdx)
     case kSelect:
       mSelector->GetLastSelectedFileForPlug(&str);
       mGranular.load(str.Get());
+      mGranular.setWaveformL(mWaveformL);
+      mGranular.setWaveformR(mWaveformR);
+      GUIUpdateSelection();
       break;
   }
   

@@ -10,6 +10,7 @@
 #include "SallenAndKey.h"
 #include "FrameLib_RandGen.h"
 #include "IPlugStructs.h"
+#include "Waveform.h"
 
 // Filter Class
 
@@ -103,6 +104,9 @@ public:
     void save(IByteChunk &storage);
     int recall(IByteChunk &storage, int pos);
     
+    void setWaveformL(Waveform *waveform)    { waveform->Set(mBuffers[0].data(), mBuffers[0].getSize()); }
+    void setWaveformR(Waveform *waveform)    { waveform->Set(mBuffers[1].data(), mBuffers[1].getSize()); }
+
 private:
     
     double mSampleRate;
@@ -198,6 +202,11 @@ public:
     {
         mBuffer.load(path);
     }
+
+    void setWaveformL(Waveform *waveform)    { mBuffer.setWaveformL(waveform); }
+    void setWaveformR(Waveform *waveform)    { mBuffer.setWaveformR(waveform); }
+ 
+    double getBufferDuration() { return mBuffer.getDuration(); }
     
     bool save(IByteChunk& chunk);
     int recall(IByteChunk& chunk, int pos);

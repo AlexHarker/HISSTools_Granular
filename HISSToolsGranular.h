@@ -4,6 +4,7 @@
 #include "IControls.h"
 #include "src/Granular.h"
 #include "HISSTools_Controls.hpp"
+#include "Waveform.h"
 
 const int kNumPrograms = 1;
 
@@ -40,7 +41,7 @@ enum EParams
 enum ELayout
 {
   kWidth = 940,
-  kHeight = 440,
+  kHeight = 740,
   
   kCol1X = 50,
   kCol2X = 220,
@@ -71,10 +72,13 @@ public:
 
 private:
   
+  void GUIUpdateSelection();
   void AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options);
   void AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions = "");
 
   HISSTools_VecLib mVecLib;
   HISSTools_FileSelector* mSelector;
+  Waveform* mWaveformL;
+  Waveform* mWaveformR;
   Granular mGranular;
 };
