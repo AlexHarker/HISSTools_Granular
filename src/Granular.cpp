@@ -73,14 +73,27 @@ void Nonlinear::process(double* io, int numSamps)
 
 // Panner Class
 
+void scale(double x, double& a, double& b)
+{
+    double scaleFactor = ( a || b) ? x / (a + b) : 0.0;
+    a *= scaleFactor;
+    b *= scaleFactor;
+}
+     
 void Panner::init(double pan)
 {
+    double c = cos(pan * M_PI * 0.5) * 2.0 * M_SQRT1_2;
+    double s = sin(pan * M_PI * 0.5) * 2.0 * M_SQRT1_2;
+    
     pan *= 2.0;
     
     mLL = std::min(2.0 - pan, 1.0);
     mRL = std::max(1.0 - pan, 0.0);
+    scale(c, mLL, mRL);
+   
     mLR = std::max(pan - 1.0, 0.0);
     mRR = std::min(pan, 1.0);
+    scale(s, mLR, mRR);
 }
 
 void Panner::process(double *ioL, double* ioR, double numSamps)
