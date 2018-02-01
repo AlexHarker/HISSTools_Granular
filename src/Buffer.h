@@ -3,6 +3,7 @@
 #define BUFFER_H
 
 #include "TableReader.hpp"
+#include "IPlugStructs.h"
 
 // Buffer
 
@@ -46,7 +47,22 @@ public:
         mSize = length;
     }
     
-    int getSize() { return mSize; }
+    int getSize() const { return mSize; }
+    
+    void save(IByteChunk &storage)
+    {
+        storage.Put(&mSize);
+        storage.PutBytes(data(), mSize * sizeof(float));
+    }
+    
+    int recall(IByteChunk &storage, int pos)
+    {
+        int size;
+        
+        pos = storage.Get(&size, pos);
+        resize(size);
+        return storage.GetBytes(data(), size * sizeof(T), pos);
+    }
     
 private:
     
