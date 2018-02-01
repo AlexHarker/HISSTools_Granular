@@ -177,17 +177,11 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
 
   pGraphics->AttachControl(mSelector);
   
-//  pGraphics->AttachControl(new ITextControl(*this, IRECT(kTextX, kTextY, 290, kTextY+10), DEFAULT_TEXT, GetBuildInfoStr()));
-
-  WDL_String buildInfo;
-  GetBuildInfoStr(buildInfo);
-  printf("%s", buildInfo.Get());
 
   pGraphics->HandleMouseOver(true);
   
   AttachGraphics(pGraphics);
   
-  //MakePreset("preset 1", ... );
   MakeDefaultPreset("-", kNumPrograms);
 }
 
