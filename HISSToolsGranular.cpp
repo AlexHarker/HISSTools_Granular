@@ -82,6 +82,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   mVecLib.setSize(kWidth, kHeight);
   
   GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%");
+  GetParam(kDensity)->SetShape(2.0);
 
   GetParam(kOffset)->InitDouble("Offset", 0.0, 0.0, 100.0, 0.1, "%");
   GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms");
@@ -92,14 +93,15 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms");
   GetParam(kDurationRand)->SetShape(2.0);
 
-  GetParam(kPitch)->InitDouble("Pitch", 0.0, -48.0, 48.0, 0.1, "st");
-  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.1, "st");
+  GetParam(kPitch)->InitDouble("Pitch", 0.0, -36.0, 36.0, 0.01, "st");
+  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st");
+  GetParam(kPitchRand)->SetShape(2.0);
 
-  GetParam(kGliss)->InitDouble("Gliss Speed", 0.0, -32.0, 32, 0.1, "st/s");
-  GetParam(kGlissRand)->InitDouble("Rand Gliss", 0.0, 0.0, 32.0, 0.1, "st/s");
+  GetParam(kGliss)->InitDouble("Gliss Speed", 0.0, -36.0, 36, 0.01, "st/s");
+  GetParam(kGlissRand)->InitDouble("Rand Gliss", 0.0, 0.0, 36.0, 0.01, "st/s");
 
   GetParam(kVol)->InitDouble("Volume", -15.0, -60.0, 10.0, 0.1, "dB");
-  GetParam(kVolRand)->InitDouble("Rand Vol", 10.0, 0.0, 40.0, 0.1, "dB");
+  GetParam(kVolRand)->InitDouble("Rand Vol", 5.0, 0.0, 20.0, 0.1, "dB");
 
   GetParam(kPan)->InitDouble("Pan", 0.0, -100.0, 100.0, 0.1, "");
   GetParam(kPanRand)->InitDouble("Rand Pan", 20.0, 0.0, 100.0, 0.1, "");
@@ -123,7 +125,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kDistortionType)->SetDisplayText(5, "Poly");
   
   GetParam(kGain)->InitDouble("Drive", 0.0, -20.0, 50.0, 0.1, "dB");
-  GetParam(kGainRand)->InitDouble("Rand Drive", 10.0, 0.0, 40.0, 0.1, "dB");
+  GetParam(kGainRand)->InitDouble("Rand Drive", 5.0, 0.0, 20.0, 0.1, "dB");
   
   GetParam(kFilterType)->InitEnum("Filter Type", 0, 4);
   GetParam(kFilterType)->SetDisplayText(0, "Off");
@@ -286,7 +288,7 @@ void HISSToolsGranular::OnParamChange(int paramIdx)
     break;
       
     case kWindowType:
-      mGranular.setWindowType((Window::Type) GetParam(kWindowType)->GetNormalized());
+      mGranular.setWindowType((Window::Type) GetParam(kWindowType)->Int());
       break;
       
     case kWindowBias:
@@ -340,8 +342,8 @@ void HISSToolsGranular::OnParamChange(int paramIdx)
     {
       double center = GetParam(kFilterResonance)->GetNormalized();
       double variation = GetParam(kFilterResonanceRand)->GetNormalized();
-      double lo = std::max(0.0, std::min(center - variation, 0.99));
-      double hi = std::max(0.0, std::min(center + variation, 0.99));
+      double lo = std::max(0.0, std::min(center - variation, 0.9995));
+      double hi = std::max(0.0, std::min(center + variation, 0.9995));
       mGranular.setFilterResonance(lo, hi);
     }
     break;
