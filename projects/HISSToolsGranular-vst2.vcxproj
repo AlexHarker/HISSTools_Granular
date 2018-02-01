@@ -338,7 +338,7 @@
     <ClCompile Include="..\HISSToolsGranular.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

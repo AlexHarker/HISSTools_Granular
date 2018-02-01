@@ -161,7 +161,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\AAX_SDK\Libs\Debug\AAXLibrary_x64_D.lib">

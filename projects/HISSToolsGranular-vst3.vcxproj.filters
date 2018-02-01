@@ -478,7 +478,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc" />
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\VST3_SDK\public.sdk\source\main\winexport.def">

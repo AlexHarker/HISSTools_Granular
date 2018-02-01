@@ -41,6 +41,9 @@
     <ClCompile Include="..\..\..\IPlug\IPlugBase.cpp">
       <Filter>IPlug</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugBaseGraphics.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_hdr.h">
@@ -154,6 +157,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="IPlug">
       <UniqueIdentifier>{20cdefb5-7c25-480a-824a-67a1c597035b}</UniqueIdentifier>
     </Filter>
@@ -163,10 +169,5 @@
     <Filter Include="Source">
       <UniqueIdentifier>{436d905c-83e8-4cc7-bb66-3cf25db925cf}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="HISSToolsGranular.rc">
-      <Filter>Source</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>
