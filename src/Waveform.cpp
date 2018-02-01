@@ -1,6 +1,7 @@
 
 #include "Waveform.h"
 #include <algorithm>
+#include "HISSToolsGranular.h"
 
 void Waveform::Draw(IGraphics& graphics)
 {
@@ -89,4 +90,21 @@ void Waveform::SetSelect(double L, double R)
     
     SetDirty();
 }
+
+void Waveform::OnMouseDown(float x, float y, const IMouseMod& mod)
+{
+    mClickedX = std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W()));
+}
+
+
+void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod& mod)
+{
+    double dragX = std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W()));
+    
+    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
+    
+    if (plug)
+        plug->SelectFromGUI(mClickedX, dragX);
+}
+
 

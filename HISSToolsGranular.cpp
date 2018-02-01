@@ -226,6 +226,14 @@ void HISSToolsGranular::GUIUpdateSelection()
   mWaveformR->SetSelect(L, R);
 }
 
+void HISSToolsGranular::SelectFromGUI(double click, double drag)
+{
+  const double dragLimit = std::min(fabs(click - drag) * 1000.0 * mGranular.getBufferDuration(), GetParam(kOffsetRand)->GetMax());
+  const double lo = click > drag ? click - (dragLimit / (mGranular.getBufferDuration() * 1000.0)) : click;
+  const double offsetRand = GetParam(kOffsetRand)->GetNormalized(dragLimit);
+  SetParameterFromUI(kOffset, lo);
+  SetParameterFromUI(kOffsetRand, offsetRand);
+}
 
 void HISSToolsGranular::OnParamChange(int paramIdx)
 {

@@ -17,6 +17,9 @@ public:
         SetSelect(0., 0.);
     }
     
+    void OnMouseDown(float x, float y, const IMouseMod& mod) override;
+    void OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod& mod) override;
+    
     void Draw(IGraphics& graphics) override;
     
     void Set(const float *data, int dataSize);
@@ -28,6 +31,7 @@ private:
     std::vector<float> mData;
     double mSelectL;
     double mSelectR;
+    double mClickedX;
     cairo_pattern_t* mCache;
     bool mWaveformNeedsRedraw;
 };

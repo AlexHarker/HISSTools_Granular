@@ -75,6 +75,8 @@ public:
   bool SerializeState(IByteChunk& chunk) override;
   int UnserializeState(IByteChunk& chunk, int pos) override;
 
+  void SelectFromGUI(double click, double drag);
+  
 private:
   
   void GUIUpdateSelection();
