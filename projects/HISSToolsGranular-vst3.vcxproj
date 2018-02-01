@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <UsingTask TaskName="PaceFixLogs" AssemblyFile="$(PACE_FUSION_HOME)PaceFusionUi2013.dll" />
   <ItemGroup Label="ProjectConfigurations">
@@ -29,8 +29,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{079FC65A-F0E5-4E97-B318-A16D1D0B89DF}</ProjectGuid>
-    <RootNamespace>IPlugEffect</RootNamespace>
-    <ProjectName>IPlugEffect-vst3</ProjectName>
+    <RootNamespace>HISSToolsGranular</RootNamespace>
+    <ProjectName>HISSToolsGranular-vst3</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,27 +78,27 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="IPlugEffect.props" />
+    <Import Project="HISSToolsGranular.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -369,7 +369,7 @@
     <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstsinglecomponenteffect.h" />
     <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstspeakerarray.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="IPlugEffect.h" />
+    <ClInclude Include="HISSToolsGranular.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\IPlug\Hosts.cpp" />
@@ -414,10 +414,10 @@
     <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstpresetfile.cpp" />
     <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstrepresentation.cpp" />
     <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstsinglecomponenteffect.cpp" />
-    <ClCompile Include="IPlugEffect.cpp" />
+    <ClCompile Include="HISSToolsGranular.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="IPlugEffect.rc" />
+    <ResourceCompile Include="HISSToolsGranular.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\IPlug\IPlugVST3.def" />
