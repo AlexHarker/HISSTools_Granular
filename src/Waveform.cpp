@@ -94,6 +94,11 @@ void Waveform::SetSelect(double L, double R)
 void Waveform::OnMouseDown(float x, float y, const IMouseMod& mod)
 {
     mClickedX = std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W()));
+    
+    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
+    
+    if (plug)
+        plug->SelectFromGUI(mClickedX, mClickedX);
 }
 
 
