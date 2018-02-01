@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cassert>
 #include <vector>
+#include <algorithm>
 
 #define WORK_LOOP_SIZE 1024
 

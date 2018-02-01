@@ -4,7 +4,7 @@
 #include "IControls.h"
 #include "src/Granular.h"
 #include "HISSTools_Controls.hpp"
-#include "Waveform.h"
+#include "src/Waveform.h"
 
 const int kNumPrograms = 1;
 
