@@ -4,7 +4,7 @@
     <Import Project="$(SolutionDir)..\..\common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <BINARY_NAME>IPlugEffect</BINARY_NAME>
+    <BINARY_NAME>HISSToolsGranular</BINARY_NAME>
     <AAX_BUNDLE>$(SolutionDir)build-win\aax\bin\$(BINARY_NAME).aaxplugin</AAX_BUNDLE>
     <EXTRA_DEBUG_DEFS />
     <EXTRA_RELEASE_DEFS />
@@ -21,7 +21,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(EXTRA_INC_PATHS);$(IGRAPHICS_PATH);$(LICE_PATH);$(NANOSVG_PATH);;$(NANOVG_PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>$(ALL_DEFS);%(PreprocessorDefinitions);_USE_MATH_DEFINES</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ALL_DEFS);%(PreprocessorDefinitions);_USE_MATH_DEFINES;IGRAPHICS_CAIRO</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>lice.lib;wininet.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
