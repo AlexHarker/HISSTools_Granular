@@ -14,13 +14,14 @@
   <PropertyGroup>
     <TargetName>$(BINARY_NAME)</TargetName>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath); $(VC_SourcePath)..\..\HISSTools_Plugin_Common\HISSTools_UI;$(VC_SourcePath)..\..\HISSTools_Plugin_Common\HISSTools_Graphics;$(VC_SourcePath)..\..\..\WDL\SWELL; </IncludePath>
     <VcpkgTriplet Condition="'$(Platform)'=='Win32'">x86-windows-static</VcpkgTriplet>
     <VcpkgTriplet Condition="'$(Platform)'=='x64'">x64-windows-static</VcpkgTriplet>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(EXTRA_INC_PATHS);$(IGRAPHICS_PATH);$(LICE_PATH);$(NANOSVG_PATH);;$(NANOVG_PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>$(EXTRA_ALL_DEFS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(ALL_DEFS);%(PreprocessorDefinitions);_USE_MATH_DEFINES</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>lice.lib;wininet.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
