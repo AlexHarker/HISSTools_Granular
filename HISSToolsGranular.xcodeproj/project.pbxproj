@@ -22,6 +22,18 @@
 			name = All;
 			productName = "AllOSX_32&64_intel";
 		};
+		B85F1E4C202234F2002D5102 /* AU and VSTs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B85F1E50202234F2002D5102 /* Build configuration list for PBXAggregateTarget "AU and VSTs" */;
+			buildPhases = (
+			);
+			dependencies = (
+				B85F1E56202234FF002D5102 /* PBXTargetDependency */,
+				B85F1E52202234F9002D5102 /* PBXTargetDependency */,
+			);
+			name = "AU and VSTs";
+			productName = "AU and VSTs";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -208,6 +220,14 @@
 		4FF142D31FD4A61E00A65575 /* IGraphicsLice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF1427C1FD4A61E00A65575 /* IGraphicsLice.h */; };
 		4FF142D61FD4A61E00A65575 /* IPopupMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF1427E1FD4A61E00A65575 /* IPopupMenu.h */; };
 		4FF142D71FD4A61E00A65575 /* IPopupMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF1427E1FD4A61E00A65575 /* IPopupMenu.h */; };
+		B85F1E5920228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5A20228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5B20228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5C20228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5D20228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5E20228761002D5102 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85F1E5720228761002D5102 /* Waveform.cpp */; };
+		B85F1E5F20228761002D5102 /* Waveform.h in Headers */ = {isa = PBXBuildFile; fileRef = B85F1E5820228761002D5102 /* Waveform.h */; };
+		B85F1E6020228761002D5102 /* Waveform.h in Headers */ = {isa = PBXBuildFile; fileRef = B85F1E5820228761002D5102 /* Waveform.h */; };
 		B86D20EE201870140062CEC9 /* AH_Rand_Seed.h in Headers */ = {isa = PBXBuildFile; fileRef = B86D20B9201870130062CEC9 /* AH_Rand_Seed.h */; };
 		B86D20EF201870140062CEC9 /* AH_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = B86D20BA201870130062CEC9 /* AH_Types.h */; };
 		B86D20F0201870140062CEC9 /* AH_Win_Complex_Math.h in Headers */ = {isa = PBXBuildFile; fileRef = B86D20BB201870130062CEC9 /* AH_Win_Complex_Math.h */; };
@@ -415,6 +435,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC045055464E500DB518D;
 			remoteInfo = lice;
+		};
+		B85F1E51202234F9002D5102 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F20EEC8132C69FE0030E34C;
+			remoteInfo = VST2;
+		};
+		B85F1E55202234FF002D5102 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F3AE17812C0E5E2001FD7A4;
+			remoteInfo = AU;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -642,6 +676,8 @@
 		52FBBED00D0CF139001C8B8A /* HISSToolsGranular.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; path = HISSToolsGranular.cpp; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		52FBBED20D0CF13D001C8B8A /* HISSToolsGranular.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = HISSToolsGranular.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		52FBBED30D0CF143001C8B8A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		B85F1E5720228761002D5102 /* Waveform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Waveform.cpp; sourceTree = "<group>"; };
+		B85F1E5820228761002D5102 /* Waveform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waveform.h; sourceTree = "<group>"; };
 		B86D20B9201870130062CEC9 /* AH_Rand_Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Rand_Seed.h; sourceTree = "<group>"; };
 		B86D20BA201870130062CEC9 /* AH_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Types.h; sourceTree = "<group>"; };
 		B86D20BB201870130062CEC9 /* AH_Win_Complex_Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Win_Complex_Math.h; sourceTree = "<group>"; };
@@ -1421,6 +1457,8 @@
 				B89C5DBA2017E3F600AF7F25 /* SallenAndKey.h */,
 				B89C5DC22017F3AE00AF7F25 /* Nonlinear.h */,
 				B89C5DC32017F4AA00AF7F25 /* Buffer.h */,
+				B85F1E5720228761002D5102 /* Waveform.cpp */,
+				B85F1E5820228761002D5102 /* Waveform.h */,
 				B8BD6AD420179B2100630DC8 /* Granular.h */,
 				B89C5DBB2017F0AF00AF7F25 /* Granular.cpp */,
 				B8BD6ACE20179B2100630DC8 /* IAudioFile.cpp */,
@@ -1458,6 +1496,7 @@
 				4FF142D31FD4A61E00A65575 /* IGraphicsLice.h in Headers */,
 				4FF142AA1FD4A61E00A65575 /* IControl.h in Headers */,
 				B8BD6AE820179B2100630DC8 /* Interpolation.hpp in Headers */,
+				B85F1E6020228761002D5102 /* Waveform.h in Headers */,
 				B8BD6AE020179B2100630DC8 /* SIMDSupport.hpp in Headers */,
 				B8BD6AF420179B2100630DC8 /* WindowFunctions.hpp in Headers */,
 				4FD16D3213B6355A001D0217 /* swell-types.h in Headers */,
@@ -1506,6 +1545,7 @@
 				4FF142D61FD4A61E00A65575 /* IPopupMenu.h in Headers */,
 				4F78DA7813B640050032E0F3 /* HISSToolsGranular.h in Headers */,
 				B86D211C201870140062CEC9 /* HISSTools_Pointers.hpp in Headers */,
+				B85F1E5F20228761002D5102 /* Waveform.h in Headers */,
 				B86D20F9201870140062CEC9 /* HISSTools_Frame.hpp in Headers */,
 				B86D2118201870140062CEC9 /* HISSTools_VecLib.hpp in Headers */,
 				B8BD6AF320179B2100630DC8 /* WindowFunctions.hpp in Headers */,
@@ -1709,6 +1749,10 @@
 					4FD16A0813B63081001D0217 = {
 						ProvisioningStyle = Automatic;
 					};
+					B85F1E4C202234F2002D5102 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "HISSToolsGranular" */;
@@ -1740,6 +1784,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				B85F1E4C202234F2002D5102 /* AU and VSTs */,
 				4F78DAF113B643600032E0F3 /* All */,
 				4FD16A0813B63081001D0217 /* APP */,
 				4F20EEC8132C69FE0030E34C /* VST2 */,
@@ -1961,6 +2006,7 @@
 				4F69BB692013C532002C8948 /* IGraphicsMac.m in Sources */,
 				B88135BC2019194900513749 /* IPlugBaseGraphics.cpp in Sources */,
 				4F20EECB132C69FE0030E34C /* HISSToolsGranular.cpp in Sources */,
+				B85F1E5A20228761002D5102 /* Waveform.cpp in Sources */,
 				4F69BB6B2013C532002C8948 /* IGraphicsMac_view.mm in Sources */,
 				4F69BB6A2013C532002C8948 /* IGraphicsMac.mm in Sources */,
 				B8BD6AE220179B2100630DC8 /* FrameLib_RandGen.cpp in Sources */,
@@ -1981,6 +2027,7 @@
 			files = (
 				B8BD6ADE20179B2100630DC8 /* IAudioFile.cpp in Sources */,
 				B8BD6AE620179B2100630DC8 /* FrameLib_RandGen.cpp in Sources */,
+				B85F1E5E20228761002D5102 /* Waveform.cpp in Sources */,
 				4F1B0885201438C600CE2770 /* IGraphics.cpp in Sources */,
 				4F3907802013EC1000DDA490 /* IPlugViewController.m in Sources */,
 				B89C5DC12017F0AF00AF7F25 /* Granular.cpp in Sources */,
@@ -2018,6 +2065,7 @@
 				4F78DA0813B63CD90032E0F3 /* IPlugAU.cpp in Sources */,
 				4F69BB712013C533002C8948 /* IGraphicsMac_view.mm in Sources */,
 				B8BD6AF820179B2100630DC8 /* BaseAudioFile.cpp in Sources */,
+				B85F1E5C20228761002D5102 /* Waveform.cpp in Sources */,
 				B88135BE2019194900513749 /* IPlugBaseGraphics.cpp in Sources */,
 				4F78DA0A13B63CD90032E0F3 /* IPlugAU_ViewFactory.mm in Sources */,
 				4F296BDA1678E6C800C0F5C2 /* dfx-au-utilities.c in Sources */,
@@ -2045,6 +2093,7 @@
 				4FDA1DED201277B30027C868 /* coreiids.cpp in Sources */,
 				4F9828CB140A9EB700F3FCC1 /* vstcomponent.cpp in Sources */,
 				4F9828CC140A9EB700F3FCC1 /* vstcomponentbase.cpp in Sources */,
+				B85F1E5B20228761002D5102 /* Waveform.cpp in Sources */,
 				4F9828CE140A9EB700F3FCC1 /* vstinitiids.cpp in Sources */,
 				B8BD6ADB20179B2100630DC8 /* IAudioFile.cpp in Sources */,
 				4F9828CF140A9EB700F3FCC1 /* vstnoteexpressiontypes.cpp in Sources */,
@@ -2081,6 +2130,7 @@
 				4F69BB722013C534002C8948 /* IGraphicsMac.m in Sources */,
 				B8BD6AF920179B2100630DC8 /* BaseAudioFile.cpp in Sources */,
 				4FB600231567CB0A0020189A /* IPlugParameter.cpp in Sources */,
+				B85F1E5D20228761002D5102 /* Waveform.cpp in Sources */,
 				B8BD6ADD20179B2100630DC8 /* IAudioFile.cpp in Sources */,
 				4FA6B9591FF9C23800049441 /* IControls.cpp in Sources */,
 				4FB600261567CB0A0020189A /* AAX_Exports.cpp in Sources */,
@@ -2112,6 +2162,7 @@
 				4F69BB662013C531002C8948 /* IGraphicsMac.m in Sources */,
 				4FD16D4713B635C8001D0217 /* swellappmain.mm in Sources */,
 				B8BD6AD920179B2100630DC8 /* IAudioFile.cpp in Sources */,
+				B85F1E5920228761002D5102 /* Waveform.cpp in Sources */,
 				B86D20F4201870140062CEC9 /* HIRT_Matrix_Math.c in Sources */,
 				B8BD6AF520179B2100630DC8 /* BaseAudioFile.cpp in Sources */,
 				4FDA1DE62012711D0027C868 /* app_dialog.cpp in Sources */,
@@ -2205,6 +2256,16 @@
 			name = lice;
 			targetProxy = 4FBF95661F3F5D4400A92E48 /* PBXContainerItemProxy */;
 		};
+		B85F1E52202234F9002D5102 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F20EEC8132C69FE0030E34C /* VST2 */;
+			targetProxy = B85F1E51202234F9002D5102 /* PBXContainerItemProxy */;
+		};
+		B85F1E56202234FF002D5102 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F3AE17812C0E5E2001FD7A4 /* AU */;
+			targetProxy = B85F1E55202234FF002D5102 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -2285,6 +2346,7 @@
 				INSTALL_OWNER = root;
 				INSTALL_PATH = /;
 				LIBRARY_SEARCH_PATHS = "$(EXTRA_LIB_PATHS)";
+				LLVM_LTO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -2364,7 +2426,8 @@
 				INSTALL_OWNER = root;
 				INSTALL_PATH = /;
 				LIBRARY_SEARCH_PATHS = "$(EXTRA_LIB_PATHS)";
-				ONLY_ACTIVE_ARCH = YES;
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"$(GCC_CFLAGS)",
@@ -3026,6 +3089,7 @@
 				INSTALL_OWNER = root;
 				INSTALL_PATH = /;
 				LIBRARY_SEARCH_PATHS = "$(EXTRA_LIB_PATHS)";
+				LLVM_LTO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -3043,6 +3107,30 @@
 				SYMROOT = "build-mac";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = "";
+			};
+			name = Tracer;
+		};
+		B85F1E4D202234F2002D5102 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B85F1E4E202234F2002D5102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B85F1E4F202234F2002D5102 /* Tracer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Tracer;
 		};
@@ -3125,6 +3213,16 @@
 				4FD16A0C13B63082001D0217 /* Debug */,
 				4FD16A0D13B63082001D0217 /* Release */,
 				4FD16A0E13B63082001D0217 /* Tracer */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B85F1E50202234F2002D5102 /* Build configuration list for PBXAggregateTarget "AU and VSTs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B85F1E4D202234F2002D5102 /* Debug */,
+				B85F1E4E202234F2002D5102 /* Release */,
+				B85F1E4F202234F2002D5102 /* Tracer */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
