@@ -2,10 +2,13 @@
 #ifndef GRAIN_H
 #define GRAIN_H
 
+#include <cassert>
+
 #include <cmath>
 #include <vector>
 #include <algorithm>
 
+#include "List.h"
 #include "Buffer.h"
 #include "SallenAndKey.h"
 #include "FrameLib_RandGen.h"
@@ -115,7 +118,7 @@ private:
 
 // Grain Class
 
-class Grain
+class Grain : public List<Grain>::Listable
 {
     
 public:
@@ -139,7 +142,7 @@ public:
               double samplingRate);
     
     int process(double* outputL, double* outputR, double* tempVector, int maxSamps);
-    
+        
 private:
     
     StereoBuffer *mBuffer;
@@ -176,14 +179,14 @@ class Granular
     
 public:
     
+    enum GranMode { kStream, kCloud };
+    
     Granular();
     
-    void setOffset(double relative, double addition)
-    {
-        double lo = relative * mBuffer.getDuration();
-        mOffset = Bounds(lo, lo + addition);
-    }
+    // N.B. offset and filter freq do further internal conversion
     
+    void setRate(double lo, double hi) { mRate = Bounds(log(lo), log(hi)); }
+    void setOffset(double relative, double addition) { mOffset = Bounds(relative, addition); }
     void setDuration(double lo, double hi) { mDuration = Bounds(log(lo), log(hi)); }
     void setPitch(double lo, double hi) { mPitch = Bounds(lo, hi); }
     void setGliss(double lo, double hi) { mGliss = Bounds(lo, hi); }
@@ -194,6 +197,8 @@ public:
     void setFilterFreq(double center, double variation) { mFilterFreq = Bounds(center, variation); }
     void setFilterResonance(double lo, double hi) { mFilterResonance = Bounds(lo, hi); }
     
+    void setMode(GranMode mode)                      { mMode = mode; }
+    void setMaxVoices(int maxVoices)                 { mMaxVoices = maxVoices; }
     void setDensity(double density)                  { mDensity = density; }
     void setWindowType(Window::Type type)            { mWindowType = type; }
     void setFilterType(Filter::Type type)            { mFilterType = type; }
@@ -212,7 +217,15 @@ public:
     bool save(IByteChunk& chunk);
     int recall(IByteChunk& chunk, int pos);
 
+    void reset(double sampleRate);
+    void processBlock(double* outputL, double* outputR, int numSamps, double sampleRate);
     
+private:
+    
+    double chooseDuration();
+    void silentGrain(Grain& grain, double lengthMul, double sampleRate);
+    void initGrain(Grain& grain, bool forceSilent, double sampleRate);
+ 
     double dbToA(double dB)
     {
         return exp(0.11512925464970 * dB);
@@ -237,7 +250,7 @@ public:
 
     double calcPhaseIncr(double duration, double sampleRate)
     {
-        return 1.0 / (mBuffer.getSampleRate() * duration);
+        return 1.0 / (sampleRate * duration);
     }
     
     double calcOffsetIncr(double speed, double sampleRate)
@@ -249,14 +262,14 @@ public:
     {
         return mGen.randDouble(bounds.mLo, bounds.mHi);
     }
+
+    void setActive(Grain& grain);
+    void setFree(Grain& grain);
+    int processGrain(Grain& grain, double* outputL, double* outputR, int samps);
+
+    GranMode mMode;
     
-    double getDuration();
-    void silentGrain(std::vector<Grain>::iterator grain, double sampleRate);
-    void initGrain(std::vector<Grain>::iterator grain, double sampleRate);
-    void reset(double sampleRate);
-    void processBlock(double* outputL, double* outputR, int numSamps, double sampleRate);
-    
-private:
+    double mCloudTillNext;
     
     double mDensity;
     Window::Type mWindowType;
@@ -282,12 +295,17 @@ private:
     Bounds mPitch;
     Bounds mGliss;
     Bounds mOffset;
+    Bounds mRate;
     
-    std::vector<double> tempL;
-    std::vector<double> tempR;
-    std::vector<double> tempCalc;
+    int mMaxVoices;
+    
+    std::vector<double> mTempL;
+    std::vector<double> mTempR;
+    std::vector<double> mTempCalc;
     
     std::vector<Grain> mGrains;
+    List<Grain> mActiveList;
+    List<Grain> mFreeList;
 };
 
 #endif /* GRAIN_H */

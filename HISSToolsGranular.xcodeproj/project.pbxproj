@@ -676,6 +676,7 @@
 		52FBBED00D0CF139001C8B8A /* HISSToolsGranular.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; path = HISSToolsGranular.cpp; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		52FBBED20D0CF13D001C8B8A /* HISSToolsGranular.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = HISSToolsGranular.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		52FBBED30D0CF143001C8B8A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		B82C5E0720231F5A00D0E6D0 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		B85F1E5720228761002D5102 /* Waveform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Waveform.cpp; sourceTree = "<group>"; };
 		B85F1E5820228761002D5102 /* Waveform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waveform.h; sourceTree = "<group>"; };
 		B86D20B9201870130062CEC9 /* AH_Rand_Seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Rand_Seed.h; sourceTree = "<group>"; };
@@ -1457,6 +1458,7 @@
 				B89C5DBA2017E3F600AF7F25 /* SallenAndKey.h */,
 				B89C5DC22017F3AE00AF7F25 /* Nonlinear.h */,
 				B89C5DC32017F4AA00AF7F25 /* Buffer.h */,
+				B82C5E0720231F5A00D0E6D0 /* List.h */,
 				B85F1E5720228761002D5102 /* Waveform.cpp */,
 				B85F1E5820228761002D5102 /* Waveform.h */,
 				B8BD6AD420179B2100630DC8 /* Granular.h */,

@@ -80,10 +80,23 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   //arguments are: name, defaultVal, minVal, maxVal, step, label
  
   mVecLib.setSize(kWidth, kHeight);
+
+  GetParam(kActive)->InitBool("Active", true);
+
+  GetParam(kMode)->InitEnum("Mode", 0, 2);
+  GetParam(kMode)->SetDisplayText(0, "Streams");
+  GetParam(kMode)->SetDisplayText(1, "Clouds");
   
   GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%");
   GetParam(kDensity)->SetShape(2.0);
 
+  GetParam(kMaxVoices)->InitInt("Max Voices", 50, 1, 100);
+  
+  GetParam(kRate)->InitDouble("Rate", 100.0, 0.1, 2000.0, 0.1, "ms");
+  GetParam(kRate)->SetShape(2.0);
+  GetParam(kRateRand)->InitDouble("Rand Rate", 20.0, 0.0, 4000.0, 0.1, "ms");
+  GetParam(kRateRand)->SetShape(2.0);
+  
   GetParam(kOffset)->InitDouble("Offset", 0.0, 0.0, 100.0, 0.1, "%");
   GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms");
   GetParam(kOffsetRand)->SetShape(2.0);
@@ -174,11 +187,18 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   AddBiPolarDualControl(pGraphics, kCol5X, kRow2Y, kVol, kVolRand, "6", "vol");
 
   pGraphics->AttachControl(new HISSTools_Value(this, kDensity, &mVecLib, kCol5X, kRow3Y, kOpenW, kValueH, "spacious", &designScheme));
+  pGraphics->AttachControl(new HISSTools_Button(this, kActive, &mVecLib, kCol5X, kRow3Y + 90, kOpenW, kValueH, "spacious", &designScheme));
+
+  pGraphics->AttachControl(new HISSTools_Value(this, kMaxVoices, &mVecLib, kCol4X, kRow3Y + 90, kOpenW, kValueH, "spacious", &designScheme));
+  
+  pGraphics->AttachControl(new HISSTools_Value(this, kMode, &mVecLib, kCol2X, kRow3Y + 90, kOpenW, kValueH, "spacious", &designScheme));
+  
+  AddDualControl(pGraphics, kCol1X, kRow3Y + 90, kRate, kRateRand, "1");
 
   pGraphics->AttachControl(mSelector);
   
-
   pGraphics->HandleMouseOver(true);
+  pGraphics->SetStrictDrawing(false);
   
   AttachGraphics(pGraphics);
   
@@ -216,15 +236,36 @@ void HISSToolsGranular::OnParamChange(int paramIdx)
   switch (paramIdx)
   {
     case kDensity:
-      mGranular.setDensity(GetParam(kDensity)->GetNormalized());
+    case kActive:
+      mGranular.setDensity(GetParam(kActive)->Value() * (GetParam(kDensity)->Value() / 100.0));
       break;
       
+    case kMode:
+      GetGUI()->GrayOutControl(kRate, !GetParam(kMode)->Int());
+      GetGUI()->GrayOutControl(kRateRand, !GetParam(kMode)->Int());
+      mGranular.setMode((Granular::GranMode) GetParam(kMode)->Int());
+      break;
+      
+    case kMaxVoices:
+      mGranular.setMaxVoices(GetParam(kMaxVoices)->Int());
+      break;
+      
+    case kRate:
+    case kRateRand:
+    {
+      double lo = GetParam(kRate)->Value();
+      double hi = lo + GetParam(kRateRand)->Value();
+      mGranular.setRate(lo / 1000.0, hi / 1000.0);
+    }
+    break;
+    
     case kOffset:
     case kOffsetRand:
     {
-      double lo = GetParam(kOffset)->GetNormalized();
+      double lo = GetParam(kOffset)->Value() / 100.0;
       double hi = GetParam(kOffsetRand)->Value() / 1000.0;
       mGranular.setOffset(lo, hi);
+      GUIUpdateSelection();
     }
     break;
       

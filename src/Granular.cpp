@@ -229,9 +229,16 @@ int Grain::process(double* outputL, double* outputR, double* tempVector, int max
     
     int numSamps = std::min(maxSamps, int(ceil((1.0 - mPhase) / mPhaseIncr)));
     
-    if (!numSamps || !mBuffer || !mWindow)
-        return 0;
-    
+    if (!numSamps || mOffset < 0.0 || !mBuffer || !mWindow)
+    {
+        mPhase += mPhaseIncr * numSamps;
+        
+        std::fill_n(outputL, numSamps, 0.0);
+        std::fill_n(outputR, numSamps, 0.0);
+        
+        return numSamps;
+    }
+
     // Construct offset vector
     
     for (int i = 0; i < numSamps; i++)
@@ -257,9 +264,13 @@ int Grain::process(double* outputL, double* outputR, double* tempVector, int max
     
     for (int i = 0; i < numSamps; i++)
     {
-        tempVector[i] = pow(mPhase, mWindowPow) * windowLength;
+        const double windowPhase = mWindowBiasDirection ? pow(mPhase, mWindowPow) : 1.0 - pow(1.0 - mPhase, mWindowPow);
+        tempVector[i] = windowPhase * windowLength;
         mPhase += mPhaseIncr;
     }
+    
+    if (mOffset < 0.0)
+        return numSamps;
     
     // Window (once pre-filter and once post)
     
@@ -291,7 +302,7 @@ int Grain::process(double* outputL, double* outputR, double* tempVector, int max
 
 Granular::Granular()
 {
-    mGrains.resize(60);
+    mGrains.resize(100);
     
     mHannWindow.set(Window::kHann);
     mTriWindow.set(Window::kTriangle);
@@ -304,6 +315,7 @@ Granular::Granular()
     setFilterType(Filter::kNone);
     setDistortionType(Nonlinear::kNone);
     
+    setRate(0.01, 0.01);
     setDuration(0.3, 0.7);
     setWindowBias(-2, -1.5);
     setOffset(0.0, 1.0);
@@ -314,33 +326,52 @@ Granular::Granular()
     setPan(0.3, 0.7);
     setFilterFreq(-48, 48);
     setFilterResonance(0.1, 0.9);
+    mMaxVoices = 70.0;
 }
 
-double Granular::getDuration()
+double Granular::chooseDuration()
 {
     return exp(randomBounds(mDuration));
 }
 
-void Granular::silentGrain(std::vector<Grain>::iterator grain, double sampleRate)
+void Granular::setActive(Grain& grain)
 {
-    double phaseIncr = calcPhaseIncr(getDuration() * mGen.randDouble(), sampleRate);
-    
-    grain->init(&mBuffer, &mHannWindow, 1.0, -1.0, phaseIncr, 0.0, 0.0, 0.0, Nonlinear::kNone, 0.0, Filter::kNone, 100.0, 0.0, 0.5, sampleRate);
+    mFreeList.remove(&grain);
+    mActiveList.add(&grain);
 }
 
-void Granular::initGrain(std::vector<Grain>::iterator grain, double sampleRate)
+void Granular::setFree(Grain& grain)
+{
+    mActiveList.remove(&grain);
+    mFreeList.add(&grain);
+}
+
+void Granular::silentGrain(Grain& grain, double lengthMul, double sampleRate)
+{
+    double phaseIncr = calcPhaseIncr(chooseDuration() * lengthMul, sampleRate);
+    
+    setFree(grain);
+    grain.init(&mBuffer, &mHannWindow, 1.0, -1.0, phaseIncr, 0.0, 0.0, 0.0, Nonlinear::kNone, 0.0, Filter::kNone, 100.0, 0.0, 0.5, sampleRate);
+}
+
+void Granular::initGrain(Grain& grain, bool forceSilent, double sampleRate)
 {
     // Variables
     
-    if (mGen.randDouble() > mDensity)
+    if (forceSilent || mGen.randDouble() > mDensity)
     {
-        silentGrain(grain, sampleRate);
+        silentGrain(grain, 1.0, sampleRate);
         return;
     }
     
-    const double duration = getDuration();
+    setActive(grain);
+
+    const double offsetLo = mOffset.mLo * mBuffer.getDuration();
+    const double offsetHi = offsetLo + mOffset.mHi;
+    
+    const double duration = chooseDuration();
     const double windowBias = randomBounds(mWindowBias);
-    const double time = randomBounds(mOffset);
+    const double time = randomBounds(Bounds(offsetLo, offsetHi));
     const double pitch = randomBounds(mPitch);
     const double glissSpeed = randomBounds(mGliss);
     const double volDB = randomBounds(mVol);
@@ -377,8 +408,26 @@ void Granular::initGrain(std::vector<Grain>::iterator grain, double sampleRate)
 
 void Granular::reset(double sampleRate)
 {
+    mActiveList.clear();
+    mFreeList.clear();
+    
     for (auto it = mGrains.begin(); it != mGrains.end(); it++)
-        silentGrain(it, sampleRate);
+        silentGrain(*it, mGen.randDouble(), sampleRate);
+    
+    mCloudTillNext = 0.0;
+}
+
+int Granular::processGrain(Grain& grain, double* outputL, double* outputR, int samps)
+{
+    int done = grain.process(mTempL.data(), mTempR.data(), mTempCalc.data(), samps);
+    
+    for (int i = 0; i < done; i++)
+    {
+        outputL[i] += mTempL[i];
+        outputR[i] += mTempR[i];
+    }
+    
+    return done;
 }
 
 void Granular::processBlock(double* outputL, double* outputR, int numSamps, double sampleRate)
@@ -386,37 +435,66 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
     if (!numSamps)
         return;
     
-    if (numSamps > tempL.size())
+    if (numSamps > mTempL.size())
     {
-        tempL.resize(numSamps);
-        tempR.resize(numSamps);
-        tempCalc.resize(numSamps);
+        mTempL.resize(numSamps);
+        mTempR.resize(numSamps);
+        mTempCalc.resize(numSamps);
     }
     
     std::fill_n(outputL, numSamps, 0.0);
     std::fill_n(outputR, numSamps, 0.0);
     
-    for (auto it = mGrains.begin(); it != mGrains.end(); it++)
+    switch (mMode)
     {
-        int samps = numSamps;
-        int completed = 0;
-        
-        while (samps)
+        case kStream:
         {
-            int done = it->process(tempL.data(), tempR.data(), tempCalc.data(), samps);
-            
-            for (int i = 0; i < done; i++)
+            for (auto it = mGrains.begin(); it != mGrains.end(); it++)
             {
-                outputL[completed + i] += tempL[i];
-                outputR[completed + i] += tempR[i];
+                int samps = numSamps;
+                
+                while (samps)
+                {
+                    samps -= processGrain(*it, outputL + (numSamps - samps), outputR + (numSamps - samps), samps);
+                    
+                    if (samps)
+                        initGrain(*it,  (it - mGrains.begin()) >= mMaxVoices, sampleRate);
+                }
             }
-            
-            samps -= done;
-            completed += done;
-            
-            if (samps)
-                initGrain(it, sampleRate);
         }
+        break;
+        
+        case kCloud:
+        {
+            int samps = numSamps;
+
+            while (samps)
+            {
+                int loopSize = std::min(samps, int(ceil(mCloudTillNext)));
+
+                for (auto it = mActiveList.begin(); it != mActiveList.end(); )
+                {
+                    Grain& grain= **it++;
+                    if (processGrain(grain, outputL + (numSamps - samps), outputR + (numSamps - samps), loopSize) != loopSize)
+                        silentGrain(grain, 1.0, sampleRate);
+                }
+                
+                mCloudTillNext -= loopSize;
+                samps -= loopSize;
+                
+                // Check for new grain
+                
+                if (mCloudTillNext <= 0.0)
+                {
+                    mCloudTillNext += exp(randomBounds(mRate)) * sampleRate;
+                    
+                    if (!mFreeList.empty() && mActiveList.size() < mMaxVoices)
+                        initGrain(**mFreeList.begin(), false, sampleRate);
+                }
+            }
+        
+        }
+        break;
     }
 }
 

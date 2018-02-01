@@ -10,7 +10,12 @@ const int kNumPrograms = 1;
 
 enum EParams
 {
-  kDensity = 0,
+  kActive = 0,
+  kMode,
+  kMaxVoices,
+  kDensity,
+  kRate,
+  kRateRand,
   kOffset,
   kOffsetRand,
   kDuration,
