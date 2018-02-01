@@ -9,6 +9,7 @@
 #include "Buffer.h"
 #include "SallenAndKey.h"
 #include "FrameLib_RandGen.h"
+#include "IPlugStructs.h"
 
 // Filter Class
 
@@ -98,6 +99,9 @@ public:
 
     double getDuration()        { return mBuffers[0].getSize() / mSampleRate; }
     double getSampleRate()      { return mSampleRate; }
+    
+    void save(IByteChunk &storage);
+    int recall(IByteChunk &storage, int pos);
     
 private:
     
@@ -194,6 +198,10 @@ public:
     {
         mBuffer.load(path);
     }
+    
+    bool save(IByteChunk& chunk);
+    int recall(IByteChunk& chunk, int pos);
+
     
     double dbToA(double dB)
     {

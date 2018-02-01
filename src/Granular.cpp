@@ -161,6 +161,23 @@ void StereoBuffer::clear()
     mBuffers[1].clear();
 }
 
+void StereoBuffer::save(IByteChunk &storage)
+{
+    storage.Put(&mSampleRate);
+    mBuffers[0].save(storage);
+    mBuffers[1].save(storage);
+}
+
+int StereoBuffer::recall(IByteChunk &storage, int pos)
+{
+    pos = storage.Get(&mSampleRate, pos);
+    
+    pos = mBuffers[0].recall(storage, pos);
+    pos = mBuffers[1].recall(storage, pos);
+
+    return pos;
+}
+
 // Grain Class
 
 Grain::Grain()
@@ -399,4 +416,15 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
                 initGrain(it, sampleRate);
         }
     }
+}
+
+bool Granular::save(IByteChunk& chunk)
+{
+    mBuffer.save(chunk);
+    return true;
+}
+
+int Granular::recall(IByteChunk& chunk, int pos)
+{
+    return mBuffer.recall(chunk, pos);
 }

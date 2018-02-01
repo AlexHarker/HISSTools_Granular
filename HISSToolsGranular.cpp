@@ -343,3 +343,17 @@ void HISSToolsGranular::OnReset()
 {
   mGranular.reset(mSampleRate);
 }
+
+bool HISSToolsGranular::SerializeState(IByteChunk& chunk)
+{
+  if (!SerializeParams(chunk))
+    return false;
+  
+  return mGranular.save(chunk);
+}
+
+int HISSToolsGranular::UnserializeState(IByteChunk& chunk, int pos)
+{
+  pos = UnserializeParams(chunk, pos);
+  return mGranular.recall(chunk, pos);
+}

@@ -66,6 +66,9 @@ public:
   void OnParamChange(int paramIdx) override;
   void ProcessBlock(double** inputs, double** outputs, int nFrames) override;
   
+  bool SerializeState(IByteChunk& chunk) override;
+  int UnserializeState(IByteChunk& chunk, int pos) override;
+
 private:
   
   void AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options);
