@@ -5,6 +5,7 @@
 #include <emmintrin.h>
 #include <immintrin.h>
 #include <stdint.h>
+#include <cmath>
 
 /*
 // Load / Store / Unpack
