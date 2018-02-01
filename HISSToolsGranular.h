@@ -2,8 +2,8 @@
 
 #include "IPlug_include_in_plug_hdr.h"
 #include "IControls.h"
-#include "src/Granular.h"
 #include "HISSTools_Controls.hpp"
+#include "src/Granular.h"
 #include "src/Waveform.h"
 
 const int kNumPrograms = 1;
