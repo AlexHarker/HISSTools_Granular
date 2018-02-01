@@ -194,16 +194,15 @@ template <class T> void window_kaiser(T window, uint32_t windowSize, uint32_t ge
 template <class T> void window_tukey(T window, uint32_t windowSize, uint32_t generateSize)
 {
     double alpha = 0.2;
-    
-    alpha *= 0.5;
-    
     double alphaNorm = 1.0 / alpha;
-    
+
+    alpha *= 0.5;
+        
     for (uint32_t i = 0; i < generateSize; i++)
     {
         double norm = normalise(i, windowSize);
         
-        norm = std::min(norm, 1.0- norm);
+        norm = std::min(norm, 1.0 - norm);
         
         if (norm < alpha)
             window[i] = 0.5 - (0.5 * cos(WINDOW_TWOPI * norm * alphaNorm));
