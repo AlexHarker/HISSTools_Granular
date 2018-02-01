@@ -221,7 +221,7 @@ namespace HISSTools
     void IAudioFile::u32ToOutput(T* output, uint32_t value)
     {
         *output = *reinterpret_cast<int32_t*>(&value)
-        * (T)0x1.0fp-31; // 0.00000000046566128730773925;
+        * (T)0.00000000046566128730773925; //0x1.0fp-31; // 
     }
     
     template <class T>

@@ -95,9 +95,6 @@
     <ClCompile Include="..\..\IPlug\IParam.cpp">
       <Filter>IPlug</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\IPlug\IPlugBase.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\IPlug\IPlugStructs.cpp">
       <Filter>IPlug</Filter>
     </ClCompile>
@@ -127,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="..\..\IPlug\IGraphics\IPopupMenu.cpp">
       <Filter>IPlug\IGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugBase.cpp">
+      <Filter>IPlug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -372,12 +372,6 @@
     <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_src.h">
       <Filter>IPlug</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugBase.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugByteChunk.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\IPlug\IPlugConstants.h">
       <Filter>IPlug</Filter>
     </ClInclude>
@@ -434,6 +428,9 @@
     </ClInclude>
     <ClInclude Include="..\..\IPlug\IGraphics\IPopupMenu.h">
       <Filter>IPlug\IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugByteChunk.h">
+      <Filter>IPlug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

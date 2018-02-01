@@ -282,8 +282,7 @@
     <ClInclude Include="..\..\IPlug\IGraphics\IPopupMenu.h" />
     <ClInclude Include="..\..\IPlug\IMidiQueue.h" />
     <ClInclude Include="..\..\IPlug\IParam.h" />
-    <ClInclude Include="..\..\IPlug\IPlugBase.h" />
-    <ClInclude Include="..\..\IPlug\IPlugByteChunk.h" />
+    <ClInclude Include="..\..\..\IPlug\IPlugByteChunk.h" />
     <ClInclude Include="..\..\IPlug\IPlugConstants.h" />
     <ClInclude Include="..\..\IPlug\IPlugOSDetect.h" />
     <ClInclude Include="..\..\IPlug\IPlugStructs.h" />
@@ -381,7 +380,7 @@
     <ClCompile Include="..\..\IPlug\IGraphics\IPlugBaseGraphics.cpp" />
     <ClCompile Include="..\..\IPlug\IGraphics\IPopupMenu.cpp" />
     <ClCompile Include="..\..\IPlug\IParam.cpp" />
-    <ClCompile Include="..\..\IPlug\IPlugBase.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugBase.cpp" />
     <ClCompile Include="..\..\IPlug\IPlugStructs.cpp" />
     <ClCompile Include="..\..\IPlug\IPlugVST3.cpp" />
     <ClCompile Include="..\..\IPlug\Log.cpp" />
