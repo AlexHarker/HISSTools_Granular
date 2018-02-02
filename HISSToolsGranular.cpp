@@ -304,7 +304,7 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
   GetGUI()->SetParameterFromGUI(kOffsetRand, offsetRand);
 }
 
-void HISSToolsGranular::OnParamChange(int paramIdx)
+void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
 {
   mParams_mutex.Enter();
   

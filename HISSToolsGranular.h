@@ -117,7 +117,7 @@ public:
   HISSToolsGranular(IPlugInstanceInfo instanceInfo);
   ~HISSToolsGranular();
   void OnReset() override;
-  void OnParamChange(int paramIdx) override;
+  void OnParamChange(int paramIdx, ParamSource source) override;
   void ProcessBlock(double** inputs, double** outputs, int nFrames) override;
   
   bool SerializeState(IByteChunk& chunk) override;
