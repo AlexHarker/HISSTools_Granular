@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>description</key>
-			<string>HISSToolsGranular</string>
+			<string>HISSTools Granular</string>
 			<key>factoryFunction</key>
 			<string>HISSToolsGranular_Factory</string>
 			<key>manufacturer</key>
 			<string>AHAR</string>
 			<key>name</key>
-			<string>AlexHarker: HISSToolsGranular</string>
+			<string>Alex Harker: HISSTools Granular</string>
 			<key>resourceUsage</key>
 			<dict>
 			</dict>
