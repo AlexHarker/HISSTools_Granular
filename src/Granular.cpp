@@ -483,7 +483,7 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
 
             while (samps)
             {
-                int loopSize = std::min(samps, int(ceil(mCloudTillNext)));
+                int loopSize = std::min(samps, int(round(mCloudTillNext)));
 
                 for (auto it = mActiveList.begin(); it != mActiveList.end(); )
                 {
@@ -495,9 +495,9 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
                 mCloudTillNext -= loopSize;
                 samps -= loopSize;
                 
-                // Check for new grain
+                // Check for new grain (within 0.5 samples)
                 
-                if (mCloudTillNext <= 0.0)
+                if (mCloudTillNext < 0.5)
                 {
                     mCloudTillNext += exp(randomBounds(mRate)) * sampleRate;
                     
@@ -505,7 +505,6 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
                         initGrain(**mFreeList.begin(), false, sampleRate);
                 }
             }
-        
         }
         break;
     }
