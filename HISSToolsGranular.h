@@ -45,22 +45,70 @@ enum EParams
 
 enum ELayout
 {
-  kWidth = 940,
-  kHeight = 740,
+  // FIX - pixel out!
+  kWidth = 944,
+  kHeight = 645,
   
-  kCol1X = 50,
-  kCol2X = 220,
-  kCol3X = 390,
-  kCol4X = 560,
-  kCol5X = 730,
+  kSmallDialXOffset = 100,
+  kSmallDialYOffset = -10,
+  
+  kColW = 180,
+  kCol1X = 30,
+  kCol2X = kCol1X + kColW,
+  kCol3X = kCol2X + kColW,
+  kCol4X = kCol3X + kColW,
+  kCol5X = kCol4X + kColW,
 
-  kRow1Y = 70,
-  kRow2Y = 220,
-  kRow3Y = 350,
+  kRow1Y = 275,
+  kRow2Y = kRow1Y + 150,
+  kRow3Y = kRow2Y + 140,
+  
+  kWaveformX = kCol3X,
+  kWaveformY = 30,
+  kWaveformW = 515,
+  kWaveformH = 70,
   
   kValueW = 100,
-  kValueH = 30,
-  kOpenW = 150,
+  kValueH = 25,
+  
+  kValueWL = 120,
+  kValueHL = 25,
+
+  kActiveW = 160,
+  
+  kYSGapping = 20,
+  kYLGapping = 70,
+  
+  kRateActiveX = kCol1X,
+  kVoiceColX = kCol2X + 20,
+  
+  kVoiceRow1Y = kWaveformY + 20,
+  kVoiceRow2Y = kVoiceRow1Y + kYLGapping,
+  kVoiceRow3Y = kVoiceRow2Y + kYLGapping,
+  
+  kBeneathWavefromY = kWaveformY + kWaveformH + kWaveformH + kYSGapping,
+  kRateY = kWaveformY + 30,
+  
+  kNameW = 405,
+  kNameH = 45,
+  
+  kNameX = kWidth - (30 + kNameW),
+  kNameY = kRow3Y,
+  
+  kPanel1X = 15,
+  kPanel1Y = 15,
+  kPanel1W = kWidth - (15 * 2),
+  kPanel1H = 220,
+  
+  kPanel2X = 15,
+  kPanel2Y = kRow1Y - 30,
+  kPanel2W = kWidth - (15 * 2),
+  kPanel2H = 385,
+  
+  kPanel3X = kWaveformX - 5,
+  kPanel3Y = kWaveformY - 5,
+  kPanel3W = kWaveformW + 10,
+  kPanel3H = kWaveformH + kWaveformH + 10,
 };
 
 class HISSToolsGranular : public IPlug
