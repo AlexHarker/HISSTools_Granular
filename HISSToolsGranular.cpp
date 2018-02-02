@@ -42,7 +42,6 @@ public:
 
     addColorSpec("PanelFill", "upper", panelFillCS);
     addColorSpec("PanelFill", "main", panelFillCS);
-    addColorSpec("PanelOutline", "thick", blackCS);
     addColorSpec("PanelFill", "thick", blackCS);
     
     addColorSpec("ButtonHandleLabelOff", "alt", greyCS);
@@ -69,7 +68,6 @@ public:
     addDimension("PanelRoundnessTR","tighter", 5);
     addDimension("PanelRoundnessBL","tighter", 5);
     addDimension("PanelRoundnessBR","tighter", 5);
-    addDimension("PanelOutline", "thick", 2);
     
     addDimension("DialRefValue", "gain", 2.0/7.0);
     addDimension("DialRefValue", "vol", 6.0/7.0);
@@ -79,7 +77,6 @@ public:
     addFlag("ValueDrawTriangle", "small", false);
     addFlag("ValueDrawLabel", "nolabel", false);
 
-    addFlag("PanelDrawOutline", "thick", true);
     addFlag("ValueLabelBelow", true);
     addFlag("ValueLabelBelow", "above", false);
     addFlag("DialDrawValOnlyOnMO", true);
@@ -215,8 +212,14 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   
   mSelector = new HISSTools_FileSelector(this, kSelect, &mVecLib, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme);
 
-  mWaveformL = new Waveform(*this, &mVecLib, kWaveformX, kWaveformY, kWaveformW, kWaveformH);
-  mWaveformR = new Waveform(*this, &mVecLib, kWaveformX, kWaveformY + kWaveformH, kWaveformW, kWaveformH);
+  const double wX = kWaveformX + kWaveformOutline;
+  const double wW = kWaveformW - (2 * kWaveformOutline);
+  const double wH = kWaveformH - kWaveformOutline;
+  const double w1Y = kWaveformY + kWaveformOutline;
+  const double w2Y = w1Y + wH;
+  
+  mWaveformL = new Waveform(*this, &mVecLib, wX, w1Y, wW, wH);
+  mWaveformR = new Waveform(*this, &mVecLib, wX, w2Y, wW, wH);
   
   // Voice Control
   

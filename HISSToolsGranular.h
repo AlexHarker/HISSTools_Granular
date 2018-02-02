@@ -63,7 +63,7 @@ enum ELayout
   kRow2Y = kRow1Y + 150,
   kRow3Y = kRow2Y + 140,
   
-  kWaveformX = kCol3X,
+  kWaveformX = 30,
   kWaveformY = 30,
   kWaveformW = 515,
   kWaveformH = 70,
@@ -79,8 +79,8 @@ enum ELayout
   kYSGapping = 20,
   kYLGapping = 70,
   
-  kRateActiveX = kCol1X,
-  kVoiceColX = kCol2X + 20,
+  kRateActiveX = kCol4X + 15,
+  kVoiceColX = kRateActiveX + 200,
   
   kVoiceRow1Y = kWaveformY + 20,
   kVoiceRow2Y = kVoiceRow1Y + kYLGapping,
@@ -105,10 +105,11 @@ enum ELayout
   kPanel2W = kWidth - (15 * 2),
   kPanel2H = 385,
   
-  kPanel3X = kWaveformX - 5,
-  kPanel3Y = kWaveformY - 5,
-  kPanel3W = kWaveformW + 10,
-  kPanel3H = kWaveformH + kWaveformH + 10,
+  kWaveformOutline = 5,
+  kPanel3X = kWaveformX,
+  kPanel3Y = kWaveformY,
+  kPanel3W = kWaveformW,
+  kPanel3H = kWaveformH * 2,
 };
 
 class HISSToolsGranular : public IPlug
