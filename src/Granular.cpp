@@ -146,7 +146,9 @@ void StereoBuffer::load(const char *path)
         return;
     }
     
-    int length = file.getFrames();
+    // Clip length to prevent the user loading stupidly long files in full
+    
+    int length = std::min(file.getFrames(), uint32_t(30000000));
     
     mBuffers[0].resize(length);
     mBuffers[1].resize(length);
