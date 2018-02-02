@@ -45,8 +45,7 @@ enum EParams
 
 enum ELayout
 {
-  // FIX - pixel out!
-  kWidth = 944,
+  kWidth = 945,
   kHeight = 645,
   
   kSmallDialXOffset = 100,
