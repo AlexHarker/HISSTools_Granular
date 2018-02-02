@@ -91,9 +91,6 @@
     <ClInclude Include="..\src\Buffer.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\FrameLib_RandGen.h">
       <Filter>Source</Filter>
     </ClInclude>
@@ -155,6 +152,7 @@
     <ClInclude Include="..\..\..\IPlug\IGraphics\IGraphicsStructs.h">
       <Filter>IPlug\IGraphics</Filter>
     </ClInclude>
+    <ClInclude Include="..\config.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />

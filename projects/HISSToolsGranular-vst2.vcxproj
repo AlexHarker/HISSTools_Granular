@@ -305,6 +305,7 @@
     <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_hdr.h" />
     <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_src.h" />
     <ClInclude Include="..\..\..\IPlug\NChanDelay.h" />
+    <ClInclude Include="..\config.h" />
     <ClInclude Include="..\src\BaseAudioFile.h" />
     <ClInclude Include="..\src\Buffer.h" />
     <ClInclude Include="..\src\FrameLib_RandGen.h" />
@@ -318,7 +319,6 @@
     <ClInclude Include="..\src\TableReader.hpp" />
     <ClInclude Include="..\src\Waveform.h" />
     <ClInclude Include="..\src\WindowFunctions.hpp" />
-    <ClInclude Include="config.h" />
     <ClInclude Include="HISSToolsGranular.h" />
   </ItemGroup>
   <ItemGroup>
