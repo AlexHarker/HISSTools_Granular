@@ -93,23 +93,36 @@ void Waveform::SetSelect(double L, double R)
 
 void Waveform::OnMouseDown(float x, float y, const IMouseMod& mod)
 {
-    mClickedX = std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W()));
+    mEditDrag = mod.S;
+    mEditWidth = mSelectR - mSelectL;
     
-    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
-    
-    if (plug)
-        plug->SelectFromGUI(mClickedX, mClickedX);
+    mClickedX = x;
+    mClickedY = y;
+
+    OnMouseDrag(x, y, 0, 0, mod);
 }
 
 
 void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod& mod)
 {
-    double dragX = std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W()));
-    
     HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
     
     if (plug)
-        plug->SelectFromGUI(mClickedX, dragX);
+    {
+        double ref1 = Normalise(mClickedX);
+        double ref2 = Normalise(x);
+        
+        if (mEditDrag)
+        {
+            const double refHeight = mRECT.H() * 0.9;
+            const double halfWidth = (mEditWidth * 0.5) * (std::max(0.0, mClickedY - y + mRECT.H()) / mRECT.H());
+            
+            ref1 = ref2 - halfWidth;
+            ref2 = ref2 + halfWidth;
+        }
+        
+        plug->SelectFromGUI(ref1, ref2);
+    }
 }
 
 

@@ -27,11 +27,16 @@ public:
     
 private:
     
+    double Normalise(float x) { return std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W())); }
+    
     HISSTools_VecLib *mVecLib;
     std::vector<float> mData;
     double mSelectL;
     double mSelectR;
     double mClickedX;
+    double mClickedY;
+    double mEditWidth;
+    bool mEditDrag;
     cairo_pattern_t* mCache;
     bool mWaveformNeedsRedraw;
 };
