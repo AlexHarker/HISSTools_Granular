@@ -1371,7 +1371,7 @@
 				B86D20ED201870130062CEC9 /* TO_DO.txt */,
 			);
 			name = HISSTools_Plugin_Common;
-			path = ../HISSTools_Plugin_Common;
+			path = ../HISSTools_PluginLib;
 			sourceTree = "<group>";
 		};
 		B86D20B6201870130062CEC9 /* HISSTools_DSP */ = {
