@@ -25,7 +25,7 @@
 #define PLUG_LATENCY 0
 #define PLUG_IS_INSTRUMENT 0
 #define PLUG_DOES_MIDI 0
-#define PLUG_DOES_STATE_CHUNKS 0
+#define PLUG_DOES_STATE_CHUNKS 1
 
 #if defined(AAX_API) && !defined(_PIDS_)
 #define _PIDS_

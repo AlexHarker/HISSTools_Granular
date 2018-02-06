@@ -39,7 +39,6 @@ enum EParams
   kFilterFreqRand,
   kFilterResonance,
   kFilterResonanceRand,
-  kSelect,
   kNumParams
 };
 
@@ -124,6 +123,7 @@ public:
   int UnserializeState(IByteChunk& chunk, int pos) override;
 
   void SelectFromGUI(double click, double drag);
+  void SelectFile();
   
 private:
   

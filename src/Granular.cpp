@@ -142,7 +142,6 @@ void StereoBuffer::load(const char *path)
     if (!file.isOpen())
     {
         clear();
-        mSampleRate = 44100.0;
         return;
     }
     
@@ -172,8 +171,12 @@ void StereoBuffer::read(double* output, double *positions, int numSamps, int cha
 
 void StereoBuffer::clear()
 {
-    mBuffers[0].clear();
-    mBuffers[1].clear();
+    mBuffers[0].resize(8820);
+    mBuffers[1].resize(8820);
+    
+    std::fill_n(mBuffers[0].data(), 8820, 0.0);
+    std::fill_n(mBuffers[0].data(), 8820, 0.0);
+
 }
 
 void StereoBuffer::save(IByteChunk &storage)
@@ -318,6 +321,8 @@ int Grain::process(double* outputL, double* outputR, double* tempVector, int max
 Granular::Granular()
 {
     mGrains.resize(100);
+    
+    mBuffer.clear();
     
     mHannWindow.set(Window::kHann);
     mTriWindow.set(Window::kTriangle);

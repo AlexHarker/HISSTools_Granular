@@ -115,10 +115,10 @@ void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod
         if (mEditDrag)
         {
             const double refHeight = mRECT.H() * 0.9;
-            const double halfWidth = (mEditWidth * 0.5) * (std::max(0.0, mClickedY - y + mRECT.H()) / mRECT.H());
+            const double halfWidth = (mEditWidth * 0.5) * (std::max(0.0, mClickedY - y + refHeight) / refHeight);
             
-            ref1 = ref2 - halfWidth;
-            ref2 = ref2 + halfWidth;
+            ref1 = std::max(0.0, ref2 - halfWidth);
+            ref2 = std::min(1.0, ref2 + halfWidth);
         }
         
         plug->SelectFromGUI(ref1, ref2);

@@ -85,6 +85,25 @@ public:
 
 Design designScheme;
 
+class HISSTools_GFileSelector : public HISSTools_FileSelector
+{
+  
+public:
+
+  HISSTools_GFileSelector(IPlugBaseGraphics* plug, HISSTools_VecLib *vecDraw, double x, double y, double w, double h, EFileAction action, char* dir = "", char* extensions = "", const char *type = 0, HISSTools_Design_Scheme *designScheme = &DefaultDesignScheme)
+    :HISSTools_FileSelector(plug, -1, vecDraw, x, y, w, h, action, dir, extensions, type, designScheme, "Select") {}
+  
+private:
+  
+  virtual void reportToPlug() override
+  {
+    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
+    
+    if (plug)
+      plug->SelectFile();
+  }
+};
+
 void HISSToolsGranular::AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options)
 {
   WDL_String val(options);
@@ -192,9 +211,6 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kFilterResonance)->InitDouble("Filter Reson", 50.0, 0.0, 100.0, 0.1, "%");
   GetParam(kFilterResonanceRand)->InitDouble("Rand Reson", 10.0, 0.0, 100.0, 0.1, "%");
  
-  GetParam(kSelect)->InitBool("Select", false);
-  GetParam(kSelect)->SetCanAutomate(false);
-  
   // Graphics
   
   IGraphics* pGraphics = MakeGraphics(*this, kWidth, kHeight, 30);
@@ -210,7 +226,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
 
   // Main Controls
   
-  mSelector = new HISSTools_FileSelector(this, kSelect, &mVecLib, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme);
+  mSelector = new HISSTools_GFileSelector(this, &mVecLib, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme);
 
   const double wX = kWaveformX + kWaveformOutline;
   const double wW = kWaveformW - (2 * kWaveformOutline);
@@ -307,8 +323,6 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
 void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
 {
   mParams_mutex.Enter();
-  
-  WDL_String str;
   
   switch (paramIdx)
   {
@@ -459,19 +473,25 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
       mGranular.setFilterResonance(lo, hi);
     }
     break;
-      
-    case kSelect:
-      mSelector->GetLastSelectedFileForPlug(&str);
-      mGranular.load(str.Get());
-      mGranular.setWaveformL(mWaveformL);
-      mGranular.setWaveformR(mWaveformR);
-      GUIUpdateSelection();
-      break;
   }
   
   mParams_mutex.Leave();
 }
 
+void HISSToolsGranular::SelectFile()
+{
+  WDL_String str;
+
+  mParams_mutex.Enter();
+
+  mSelector->GetLastSelectedFileForPlug(&str);
+  mGranular.load(str.Get());
+  mGranular.setWaveformL(mWaveformL);
+  mGranular.setWaveformR(mWaveformR);
+  GUIUpdateSelection();
+  
+  mParams_mutex.Leave();
+}
 void HISSToolsGranular::OnReset()
 {
   mGranular.reset(mSampleRate);
@@ -488,5 +508,10 @@ bool HISSToolsGranular::SerializeState(IByteChunk& chunk)
 int HISSToolsGranular::UnserializeState(IByteChunk& chunk, int pos)
 {
   pos = UnserializeParams(chunk, pos);
-  return mGranular.recall(chunk, pos);
+  pos = mGranular.recall(chunk, pos);
+  
+  mGranular.setWaveformL(mWaveformL);
+  mGranular.setWaveformR(mWaveformR);
+  
+  return pos;
 }
