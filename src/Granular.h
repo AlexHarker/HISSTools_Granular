@@ -104,11 +104,11 @@ public:
     double getDuration()        { return mBuffers[0].getSize() / mSampleRate; }
     double getSampleRate()      { return mSampleRate; }
     
-    void save(IByteChunk &storage);
-    int recall(IByteChunk &storage, int pos);
     
     void setWaveformL(Waveform *waveform)    { waveform->Set(mBuffers[0].data(), mBuffers[0].getSize()); }
     void setWaveformR(Waveform *waveform)    { waveform->Set(mBuffers[1].data(), mBuffers[1].getSize()); }
+    void save(IByteChunk &storage);
+    int recall(const IByteChunk &storage, int pos);
 
 private:
     
@@ -215,7 +215,7 @@ public:
     double getBufferDuration() { return mBuffer.getDuration(); }
     
     bool save(IByteChunk& chunk);
-    int recall(IByteChunk& chunk, int pos);
+    int recall(const IByteChunk& chunk, int pos);
 
     void reset(double sampleRate);
     void processBlock(double* outputL, double* outputR, int numSamps, double sampleRate);

@@ -55,7 +55,7 @@ public:
         storage.PutBytes(data(), mSize * sizeof(float));
     }
     
-    int recall(IByteChunk &storage, int pos)
+    int recall(const IByteChunk &storage, int pos)
     {
         int size;
         

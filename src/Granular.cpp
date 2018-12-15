@@ -186,7 +186,7 @@ void StereoBuffer::save(IByteChunk &storage)
     mBuffers[1].save(storage);
 }
 
-int StereoBuffer::recall(IByteChunk &storage, int pos)
+int StereoBuffer::recall(const IByteChunk &storage, int pos)
 {
     pos = storage.Get(&mSampleRate, pos);
     
@@ -523,7 +523,7 @@ bool Granular::save(IByteChunk& chunk)
     return true;
 }
 
-int Granular::recall(IByteChunk& chunk, int pos)
+int Granular::recall(const IByteChunk& chunk, int pos)
 {
     return mBuffer.recall(chunk, pos);
 }
