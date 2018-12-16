@@ -38,7 +38,8 @@ public:
     void setInterpType(InterpType type) { mInterpType = type; }
     void clear() { mSize = 0; }
     T* data() { return mBuffer.data(); }
-    
+    const T* data() const { return mBuffer.data(); }
+
     void resize(int length)
     {
         if (length > mBuffer.size())
