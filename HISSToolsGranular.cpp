@@ -209,11 +209,9 @@ HISSToolsGranular::~HISSToolsGranular() {}
 
 void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFrames)
 {
-  mParams_mutex.Enter();
-  
+  WDL_MutexLock lock(&mMutex);
+    
   mGranular.processBlock(outputs[0], outputs[1], nFrames, GetSampleRate());
-
-  mParams_mutex.Leave();
 }
 
 IGraphics* HISSToolsGranular::CreateGraphics()
@@ -330,8 +328,8 @@ void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
 
 void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sampleOffset)
 {
-  mParams_mutex.Enter();
-  
+  WDL_MutexLock lock(&mMutex);
+    
   switch (paramIdx)
   {
     case kDensity:
@@ -472,15 +470,11 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
     }
     break;
   }
-  
-  mParams_mutex.Leave();
 }
 
 
 void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
 {
-    mParams_mutex.Enter();
-    
     switch (paramIdx)
     {
         case kMode:
@@ -508,22 +502,18 @@ void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
         default:
             break;
     }
-    
-    mParams_mutex.Leave();
 }
 
 void HISSToolsGranular::SelectFile(const char *file)
 {
+  WDL_MutexLock lock(&mMutex);
+    
   WDL_String str(file);
-
-  mParams_mutex.Enter();
 
   mGranular.load(str.Get());
   mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
   mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
   GUIUpdateSelection();
-  
-  mParams_mutex.Leave();
 }
 
 void HISSToolsGranular::OnReset()

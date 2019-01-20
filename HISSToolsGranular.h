@@ -137,6 +137,7 @@ private:
   IGraphics* CreateGraphics() override;
   void LayoutUI(IGraphics* pGraphics) override;
   
+  WDL_Mutex mMutex;
   Waveform* mWaveformL;
   Waveform* mWaveformR;
   Granular mGranular;
