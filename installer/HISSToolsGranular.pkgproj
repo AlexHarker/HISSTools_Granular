@@ -25,7 +25,7 @@
 									<key>GID</key>
 									<integer>80</integer>
 									<key>PATH</key>
-									<string>/Applications/IPlugEffect.app</string>
+									<string>/Applications/HISSToolsGranular.app</string>
 									<key>PATH_TYPE</key>
 									<integer>0</integer>
 									<key>PERMISSIONS</key>
@@ -478,7 +478,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.AcmeInc.app.pkg.IPlugEffect</string>
+				<string>com.AlexHarker.app.pkg.HISSToolsGranular</string>
 				<key>NAME</key>
 				<string>Application</string>
 				<key>OVERWRITE_PERMISSIONS</key>
@@ -570,7 +570,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>/Library/Audio/Plug-Ins/VST/IPlugEffect.vst</string>
+															<string>/Library/Audio/Plug-Ins/VST/HISSToolsGranular.vst</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -1014,7 +1014,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.AcmeInc.vst.pkg.IPlugEffect</string>
+				<string>com.AlexHarker.vst.pkg.HISSToolsGranular</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -1110,7 +1110,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>/Library/Audio/Plug-Ins/VST3/IPlugEffect.vst3</string>
+															<string>/Library/Audio/Plug-Ins/VST3/HISSToolsGranular.vst3</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -1554,7 +1554,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.AcmeInc.vst3.pkg.IPlugEffect</string>
+				<string>com.AlexHarker.vst3.pkg.HISSToolsGranular</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -1650,7 +1650,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>/Library/Audio/Plug-Ins/Components/IPlugEffect.component</string>
+															<string>/Library/Audio/Plug-Ins/Components/HISSToolsGranular.component</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -2094,7 +2094,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.AcmeInc.au.pkg.IPlugEffect</string>
+				<string>com.AlexHarker.au.pkg.HISSToolsGranular</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -2176,7 +2176,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>/Library/Application Support/Avid/Audio/Plug-Ins/IPlugEffect.aaxplugin</string>
+																	<string>/Library/Application Support/Avid/Audio/Plug-Ins/HISSToolsGranular.aaxplugin</string>
 																	<key>PATH_TYPE</key>
 																	<integer>0</integer>
 																	<key>PERMISSIONS</key>
@@ -2634,7 +2634,7 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>com.AcmeInc.aax.pkg.IPlugEffect</string>
+				<string>com.AlexHarker.aax.pkg.HISSToolsGranular</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -2680,7 +2680,7 @@
 				<key>BACKGROUND_PATH</key>
 				<dict>
 					<key>PATH</key>
-					<string>IPlugEffect-installer-bg.png</string>
+					<string>HISSToolsGranular-installer-bg.png</string>
 					<key>PATH_TYPE</key>
 					<integer>1</integer>
 				</dict>
@@ -2934,7 +2934,7 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>readmeosx.rtf</string>
+							<string>readme-osx.rtf</string>
 							<key>PATH_TYPE</key>
 							<integer>1</integer>
 						</dict>
@@ -2949,7 +2949,7 @@
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>IPlugEffect</string>
+						<string>HISSToolsGranular</string>
 					</dict>
 				</array>
 			</dict>
@@ -3138,7 +3138,7 @@
 				</dict>
 			</array>
 			<key>NAME</key>
-			<string>IPlugEffect Installer</string>
+			<string>HISSToolsGranular Installer</string>
 		</dict>
 	</dict>
 	<key>TYPE</key>

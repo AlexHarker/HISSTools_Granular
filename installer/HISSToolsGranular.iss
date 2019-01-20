@@ -1,13 +1,13 @@
 [Setup]
-AppName=IPlugEffect
+AppName=HISSToolsGranular
 AppVersion=1.0.0
-DefaultDirName={pf}\IPlugEffect
-DefaultGroupName=IPlugEffect
+DefaultDirName={pf}\HISSToolsGranular
+DefaultGroupName=HISSToolsGranular
 Compression=lzma2
 SolidCompression=yes
 OutputDir=.\
 ArchitecturesInstallIn64BitMode=x64
-OutputBaseFilename=IPlugEffect Installer
+OutputBaseFilename=HISSToolsGranular Installer
 LicenseFile=license.rtf
 SetupLogging=yes
 
@@ -21,35 +21,35 @@ Name: "vst2_32"; Description: "32-bit VST2 Plugin (.dll)"; Types: full custom;
 Name: "vst2_64"; Description: "64-bit VST2 Plugin (.dll)"; Types: full custom; Check: Is64BitInstallMode;
 Name: "vst3_32"; Description: "32-bit VST3 Plugin (.vst3)"; Types: full custom;
 Name: "vst3_64"; Description: "64-bit VST3 Plugin (.vst3)"; Types: full custom; Check: Is64BitInstallMode;
-Name: "aax_32"; Description: "32-bit AAX Plugin (.aaxplugin)"; Types: full custom;
+;Name: "aax_32"; Description: "32-bit AAX Plugin (.aaxplugin)"; Types: full custom;
 Name: "aax_64"; Description: "64-bit AAX Plugin (.aaxplugin)"; Types: full custom; Check: Is64BitInstallMode;
 Name: "manual"; Description: "User guide"; Types: full custom; Flags: fixed
 
 [Files]
-Source: "..\build-win\app\Win32\bin\IPlugEffect.exe"; DestDir: "{app}"; Check: not Is64BitInstallMode; Components:app; Flags: ignoreversion;
-Source: "..\build-win\app\x64\bin\IPlugEffect.exe"; DestDir: "{app}"; Check: Is64BitInstallMode; Components:app; Flags: ignoreversion;
+Source: "..\build-win\app\Win32\bin\HISSToolsGranular.exe"; DestDir: "{app}"; Check: not Is64BitInstallMode; Components:app; Flags: ignoreversion;
+Source: "..\build-win\app\x64\bin\HISSToolsGranular.exe"; DestDir: "{app}"; Check: Is64BitInstallMode; Components:app; Flags: ignoreversion;
 
-Source: "..\build-win\vst2\Win32\bin\IPlugEffect.dll"; DestDir: {code:GetVST2Dir_32}; Check: not Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
-Source: "..\build-win\vst2\Win32\bin\IPlugEffect.dll"; DestDir: {code:GetVST2Dir_32}; Check: Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
-Source: "..\build-win\vst2\x64\bin\IPlugEffect.dll"; DestDir: {code:GetVST2Dir_64}; Check: Is64BitInstallMode; Components:vst2_64; Flags: ignoreversion;
+Source: "..\build-win\vst2\Win32\bin\HISSToolsGranular.dll"; DestDir: {code:GetVST2Dir_32}; Check: not Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
+Source: "..\build-win\vst2\Win32\bin\HISSToolsGranular.dll"; DestDir: {code:GetVST2Dir_32}; Check: Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
+Source: "..\build-win\vst2\x64\bin\HISSToolsGranular.dll"; DestDir: {code:GetVST2Dir_64}; Check: Is64BitInstallMode; Components:vst2_64; Flags: ignoreversion;
 
-Source: "..\build-win\vst3\Win32\bin\IPlugEffect.vst3"; DestDir: "{cf}\VST3\"; Check: not Is64BitInstallMode; Components:vst3_32; Flags: ignoreversion;
-Source: "..\build-win\vst3\Win32\bin\IPlugEffect.vst3"; DestDir: "{cf32}\VST3\"; Check: Is64BitInstallMode; Components:vst3_32; Flags: ignoreversion;
-Source: "..\build-win\vst3\x64\bin\IPlugEffect.vst3"; DestDir: "{cf64}\VST3\"; Check: Is64BitInstallMode; Components:vst3_64; Flags: ignoreversion;
+Source: "..\build-win\vst3\Win32\bin\HISSToolsGranular.vst3"; DestDir: "{cf}\VST3\"; Check: not Is64BitInstallMode; Components:vst3_32; Flags: ignoreversion;
+Source: "..\build-win\vst3\Win32\bin\HISSToolsGranular.vst3"; DestDir: "{cf32}\VST3\"; Check: Is64BitInstallMode; Components:vst3_32; Flags: ignoreversion;
+Source: "..\build-win\vst3\x64\bin\HISSToolsGranular.vst3"; DestDir: "{cf64}\VST3\"; Check: Is64BitInstallMode; Components:vst3_64; Flags: ignoreversion;
 
-Source: "..\build-win\aax\bin\IPlugEffect.aaxplugin\*.*"; DestDir: "{cf32}\Avid\Audio\Plug-Ins\IPlugEffect.aaxplugin\"; Components:aax_32; Flags: ignoreversion recursesubdirs;
-Source: "..\build-win\aax\bin\IPlugEffect.aaxplugin\*.*"; DestDir: "{cf}\Avid\Audio\Plug-Ins\IPlugEffect.aaxplugin\"; Components:aax_64; Flags: ignoreversion recursesubdirs;
+;Source: "..\build-win\aax\bin\HISSToolsGranular.aaxplugin\*.*"; DestDir: "{cf32}\Avid\Audio\Plug-Ins\HISSToolsGranular.aaxplugin\"; Components:aax_32; Flags: ignoreversion recursesubdirs;
+Source: "..\build-win\aax\bin\HISSToolsGranular.aaxplugin\*.*"; DestDir: "{cf}\Avid\Audio\Plug-Ins\HISSToolsGranular.aaxplugin\"; Components:aax_64; Flags: ignoreversion recursesubdirs;
 
-Source: "..\manual\IPlugEffect_manual.pdf"; DestDir: "{app}"
+Source: "..\manual\HISSToolsGranular manual.pdf"; DestDir: "{app}"
 Source: "changelog.txt"; DestDir: "{app}"
 Source: "readme-win.rtf"; DestDir: "{app}"; DestName: "readme.rtf"; Flags: isreadme
 
 [Icons]
-Name: "{group}\IPlugEffect"; Filename: "{app}\IPlugEffect.exe"
-Name: "{group}\User guide"; Filename: "{app}\IPlugEffect_manual.pdf"
+Name: "{group}\HISSToolsGranular"; Filename: "{app}\HISSToolsGranular.exe"
+Name: "{group}\User guide"; Filename: "{app}\HISSToolsGranular manual.pdf"
 Name: "{group}\Changelog"; Filename: "{app}\changelog.txt"
 ;Name: "{group}\readme"; Filename: "{app}\readme.rtf"
-Name: "{group}\Uninstall IPlugEffect"; Filename: "{app}\unins000.exe"
+Name: "{group}\Uninstall HISSToolsGranular"; Filename: "{app}\unins000.exe"
 
 [Code]
 var
