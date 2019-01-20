@@ -306,8 +306,8 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
   const double offsetRand = GetParam(kOffsetRand)->ToNormalized(dragLimit);
   SendParameterValueFromUI(kOffset, lo);
   SendParameterValueFromUI(kOffsetRand, offsetRand);
-  SendParameterValueFromAPI(kOffset, lo, false);
-  SendParameterValueFromAPI(kOffsetRand, offsetRand, false);
+  SendParameterValueFromAPI(kOffset, lo, true);
+  SendParameterValueFromAPI(kOffsetRand, offsetRand, true);
 }
 
 void HISSToolsGranular::GUIUpdateSelection()
