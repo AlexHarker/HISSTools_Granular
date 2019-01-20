@@ -1,16 +1,17 @@
 
 #include "Waveform.h"
 #include <algorithm>
+#include <HISSTools_VecLib.hpp>
 #include "HISSToolsGranular.h"
 
 void Waveform::Draw(IGraphics& graphics)
 {
+    HISSTools_VecLib vecDraw(graphics);
+    
     float WR = mRECT.W() / mData.size();
     float MH = mRECT.MH();
     float HH = (mRECT.H() / 2.0) * 0.9;
-    
-    mVecLib->setIGraphics(&graphics);
-    
+        
     HISSTools_Color_Spec bgcolor(HISSTools_Color(0.8, 0.8, 0.8, 1.0));
     HISSTools_Color_Spec fgcolor(HISSTools_Color(0.1, 0.1, 0.1, 1.0));
     HISSTools_Color_Spec hlcolor(HISSTools_Color(0.8, 0.8, 0.8, 0.8));
@@ -21,41 +22,40 @@ void Waveform::Draw(IGraphics& graphics)
     
     // Background fill
     
-    mVecLib->setColor(&bgcolor);
-    mVecLib->fillRect(mRECT.L, mRECT.T, mRECT.W(),  mRECT.H());
+    vecDraw.setColor(&bgcolor);
+    vecDraw.fillRect(mRECT.L, mRECT.T, mRECT.W(),  mRECT.H());
     
     // Waveform
     
-    if (mWaveformNeedsRedraw)
+    if (!graphics.CheckLayer(mCache))
     {
-        mVecLib->startGroup();
-        mVecLib->setColor(&fgcolor);
-        mVecLib->startMultiLine(mRECT.L, mRECT.MH(), 0.5);
+        vecDraw.startGroup(mRECT);
+        vecDraw.setColor(&fgcolor);
+        vecDraw.startMultiLine(mRECT.L, mRECT.MH(), 0.5);
     
         for (int i = 0; i < mData.size(); i++)
         {
             float span = mData[i] * HH;
             float x = i * WR + mRECT.L;
         
-            mVecLib->continueMultiLine(x, MH + span);
-            mVecLib->continueMultiLine(x, MH - span);
+            vecDraw.continueMultiLine(x, MH + span);
+            vecDraw.continueMultiLine(x, MH - span);
         }
         
-        mVecLib->finishMultiLine();
-        mCache = mVecLib->endGroup();
-        mWaveformNeedsRedraw = false;
+        vecDraw.finishMultiLine();
+        mCache = vecDraw.endGroup();
     }
     
     if (mCache)
     {
         float width = std::max(1.0, (mSelectR - mSelectL) * mRECT.W());
         
-        mVecLib->renderPattern(mCache);
+        vecDraw.renderGroup(mCache);
     
         // Selection fill
     
-        mVecLib->setColor(&hlcolor);
-        mVecLib->fillRect(mRECT.L + mSelectL * mRECT.W(), mRECT.T, width,  mRECT.H());
+        vecDraw.setColor(&hlcolor);
+        vecDraw.fillRect(mRECT.L + mSelectL * mRECT.W(), mRECT.T, width,  mRECT.H());
     }
 }
     
@@ -79,7 +79,8 @@ void Waveform::Set(const float *data, int dataSize)
         pos += incr;
     }
     
-    mWaveformNeedsRedraw = true;
+    if (mCache)
+        mCache->Invalidate();
     SetDirty();
 }
 
@@ -102,12 +103,9 @@ void Waveform::OnMouseDown(float x, float y, const IMouseMod& mod)
     OnMouseDrag(x, y, 0, 0, mod);
 }
 
-
 void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod& mod)
 {
-    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
-    
-    if (plug)
+    if (mPlug)
     {
         double ref1 = Normalise(mClickedX);
         double ref2 = Normalise(x);
@@ -121,8 +119,6 @@ void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod
             ref2 = std::min(1.0, ref2 + halfWidth);
         }
         
-        plug->SelectFromGUI(ref1, ref2);
+        mPlug->SelectFromGUI(ref1, ref2);
     }
 }
-
-

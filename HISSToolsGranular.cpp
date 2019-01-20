@@ -1,7 +1,7 @@
+
 #include "HISSToolsGranular.h"
 #include "IPlug_include_in_plug_src.h"
-#include "IControls.h"
-#include "config.h"
+#include "HISSTools_Controls.hpp"
 
 // Visual Design
 
@@ -90,18 +90,17 @@ class HISSTools_GFileSelector : public HISSTools_FileSelector
   
 public:
 
-  HISSTools_GFileSelector(IPlugBaseGraphics* plug, HISSTools_VecLib *vecDraw, double x, double y, double w, double h, EFileAction action, char* dir = "", char* extensions = "", const char *type = 0, HISSTools_Design_Scheme *designScheme = &DefaultDesignScheme)
-    :HISSTools_FileSelector(plug, -1, vecDraw, x, y, w, h, action, dir, extensions, type, designScheme, "Select") {}
+  HISSTools_GFileSelector(HISSToolsGranular *plug, double x, double y, double w, double h, EFileAction action, char* dir = "", char* extensions = "", const char *type = 0, HISSTools_Design_Scheme *designScheme = &DefaultDesignScheme)
+    :HISSTools_FileSelector(kNoParameter, x, y, w, h, action, dir, extensions, type, designScheme, "Select"), mPlug(plug) {}
   
 private:
   
   virtual void reportToPlug() override
   {
-    HISSToolsGranular *plug = dynamic_cast<HISSToolsGranular *>(&mPlug);
-    
-    if (plug)
-      plug->SelectFile();
+    mPlug->SelectFile(GetLastSelectedFileForPlug().Get());
   }
+  
+  HISSToolsGranular *mPlug;
 };
 
 void HISSToolsGranular::AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options)
@@ -112,8 +111,8 @@ void HISSToolsGranular::AddDualControl(IGraphics* graphics, double x, double y, 
   var.Append(" ");
   var.Append(options);
   
-  graphics->AttachControl(new HISSTools_Dial(this, idx, &mVecLib, x, y, val.Get(), &designScheme));
-  graphics->AttachControl(new HISSTools_Dial(this, idxRand, &mVecLib, x + kSmallDialXOffset, y + kSmallDialYOffset, var.Get(), &designScheme));
+  graphics->AttachControl(new HISSTools_Dial(idx, x, y, val.Get(), &designScheme));
+  graphics->AttachControl(new HISSTools_Dial(idxRand, x + kSmallDialXOffset, y + kSmallDialYOffset, var.Get(), &designScheme));
 }
 
 void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions)
@@ -128,12 +127,12 @@ void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, dou
   var.Append(" ");
   var.Append(options);
   
-  graphics->AttachControl(new HISSTools_Dial(this, idx, &mVecLib, x, y, val.Get(), &designScheme));
-  graphics->AttachControl(new HISSTools_Dial(this, idxRand, &mVecLib, x + kSmallDialXOffset, y + kSmallDialYOffset, var.Get(), &designScheme));
+  graphics->AttachControl(new HISSTools_Dial(idx, x, y, val.Get(), &designScheme));
+  graphics->AttachControl(new HISSTools_Dial(idxRand, x + kSmallDialXOffset, y + kSmallDialYOffset, var.Get(), &designScheme));
 }
 
 HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
-: IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mVecLib(nullptr)
+: IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mWaveformL(nullptr), mWaveformR(nullptr)
 {
   TRACE; 
  
@@ -145,28 +144,21 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kMode)->SetDisplayText(0, "Streams");
   GetParam(kMode)->SetDisplayText(1, "Clouds");
   
-  GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%");
-  GetParam(kDensity)->SetShape(2.0);
+  GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%", 0, "", new IParam::ShapePowCurve(2.0));
 
   GetParam(kMaxVoices)->InitInt("Max Voices", 50, 1, 100);
   
-  GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms");
-  GetParam(kRate)->SetShape(2.0);
-  GetParam(kRateRand)->InitDouble("Rand Rate", 10.0, 0.0, 4000.0, 0.1, "ms");
-  GetParam(kRateRand)->SetShape(2.0);
+  GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kRateRand)->InitDouble("Rand Rate", 10.0, 0.0, 4000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
   
   GetParam(kOffset)->InitDouble("Offset", 0.0, 0.0, 100.0, 0.1, "%");
-  GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms");
-  GetParam(kOffsetRand)->SetShape(2.0);
+  GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
   
-  GetParam(kDuration)->InitDouble("Duration", 100.0, 0.1, 5000.0, 0.1, "ms");
-  GetParam(kDuration)->SetShape(2.0);
-  GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms");
-  GetParam(kDurationRand)->SetShape(2.0);
+  GetParam(kDuration)->InitDouble("Duration", 100.0, 0.1, 5000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
 
   GetParam(kPitch)->InitDouble("Pitch", 0.0, -36.0, 36.0, 0.01, "st");
-  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st");
-  GetParam(kPitchRand)->SetShape(2.0);
+  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st", 0, "", new IParam::ShapePowCurve(2.0));
 
   GetParam(kGliss)->InitDouble("Gliss Speed", 0.0, -36.0, 36, 0.01, "st/s");
   GetParam(kGlissRand)->InitDouble("Rand Gliss", 0.0, 0.0, 36.0, 0.01, "st/s");
@@ -204,87 +196,12 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kFilterType)->SetDisplayText(2, "HPF");
   GetParam(kFilterType)->SetDisplayText(3, "BPF");
   
-  GetParam(kFilterFreq)->InitDouble("Filter Freq", 500.0, 20.0, 16000.0, 0.1, "Hz");
-  GetParam(kFilterFreq)->SetShape(2.0);
+  GetParam(kFilterFreq)->InitDouble("Filter Freq", 500.0, 20.0, 16000.0, 0.1, "Hz", 0, "", new IParam::ShapePowCurve(2.0));
   GetParam(kFilterFreqRand)->InitDouble("Rand Freq", 48.0, 0.0, 48.0, 0.1, "st");
   
   GetParam(kFilterResonance)->InitDouble("Filter Reson", 50.0, 0.0, 100.0, 0.1, "%");
   GetParam(kFilterResonanceRand)->InitDouble("Rand Reson", 10.0, 0.0, 100.0, 0.1, "%");
  
-  // Graphics
-  
-  IGraphics* pGraphics = MakeGraphics(*this, kWidth, kHeight, 30);
-  pGraphics->AttachPanelBackground(COLOR_GRAY);
-  
-  // Controls
-  
-  // Panels
-  
-  pGraphics->AttachControl(new HISSTools_Panel(this, &mVecLib, kPanel1X, kPanel1Y, kPanel2W, kPanel1H, "upper tight", &designScheme));
-  pGraphics->AttachControl(new HISSTools_Panel(this, &mVecLib, kPanel2X, kPanel2Y, kPanel2W, kPanel2H, "main tight", &designScheme));
-  pGraphics->AttachControl(new HISSTools_Panel(this, &mVecLib, kPanel3X, kPanel3Y, kPanel3W, kPanel3H, "tighter thick", &designScheme));
-
-  // Main Controls
-  
-  mSelector = new HISSTools_GFileSelector(this, &mVecLib, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme);
-
-  const double wX = kWaveformX + kWaveformOutline;
-  const double wW = kWaveformW - (2 * kWaveformOutline);
-  const double wH = kWaveformH - kWaveformOutline;
-  const double w1Y = kWaveformY + kWaveformOutline;
-  const double w2Y = w1Y + wH;
-  
-  mWaveformL = new Waveform(*this, &mVecLib, wX, w1Y, wW, wH);
-  mWaveformR = new Waveform(*this, &mVecLib, wX, w2Y, wW, wH);
-  
-  // Voice Control
-  
-  pGraphics->AttachControl(new HISSTools_Value(this, kMode, &mVecLib, kVoiceColX, kVoiceRow1Y, kValueWL, kValueHL, "above spacious", &designScheme));
-  pGraphics->AttachControl(new HISSTools_Value(this, kMaxVoices, &mVecLib, kVoiceColX, kVoiceRow2Y, kValueWL, kValueHL, "above spacious", &designScheme));
-  pGraphics->AttachControl(new HISSTools_Value(this, kDensity, &mVecLib, kVoiceColX, kVoiceRow3Y, kValueWL, kValueHL, "above spacious", &designScheme));
-  
-  // Rate
-  
-  AddDualControl(pGraphics, kRateActiveX, kRateY, kRate, kRateRand, "7");
-  pGraphics->AttachControl(new HISSTools_Button(this, kActive, &mVecLib, kRateActiveX, kBeneathWavefromY, kActiveW, kValueH, "alt tight spacious", &designScheme));
-
-  pGraphics->AttachControl(mSelector);
-  pGraphics->AttachControl(mWaveformL);
-  pGraphics->AttachControl(mWaveformR);
-  
-  // Dials
-  
-  // Top Row
-  
-  AddDualControl(pGraphics, kCol1X, kRow1Y, kOffset, kOffsetRand, "1");
-  AddDualControl(pGraphics, kCol2X, kRow1Y, kDuration, kDurationRand, "1");
-  AddBiPolarDualControl(pGraphics, kCol3X, kRow1Y, kPitch, kPitchRand, "2");
-  AddBiPolarDualControl(pGraphics, kCol4X, kRow1Y, kGliss, kGlissRand, "2");
-  AddBiPolarDualControl(pGraphics, kCol5X, kRow1Y, kPan, kPanRand, "6");
-  AddBiPolarDualControl(pGraphics, kCol5X, kRow2Y, kVol, kVolRand, "6", "vol");
-  
-  // Bottom Row
-  
-  AddBiPolarDualControl(pGraphics, kCol1X, kRow2Y, kWindowBias, kWindowBiasRand, "3");
-  pGraphics->AttachControl(new HISSTools_Value(this, kWindowType, &mVecLib, kCol1X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
-  
-  AddBiPolarDualControl(pGraphics, kCol2X, kRow2Y, kGain, kGainRand, "4", "gain");
-  pGraphics->AttachControl(new HISSTools_Value(this, kDistortionType, &mVecLib, kCol2X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
-  
-  AddDualControl(pGraphics, kCol3X, kRow2Y, kFilterFreq, kFilterFreqRand, "5");
-  pGraphics->AttachControl(new HISSTools_Value(this, kFilterType, &mVecLib, kCol3X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
-  AddDualControl(pGraphics, kCol4X, kRow2Y, kFilterResonance, kFilterResonanceRand, "5");
-
-  // Name
-  
-  pGraphics->AttachControl(new HISSTools_TextBlock(this, &mVecLib, kNameX, kNameY, kNameW, kNameH, "HISSTools Granular", kHAlignCenter, kVAlignCenter, "name", &designScheme));
-  
-  // Finalise Graphics
-  
-  pGraphics->HandleMouseOver(true);
-  pGraphics->SetStrictDrawing(false);
-  AttachGraphics(pGraphics);
-  
   MakeDefaultPreset("-", kNumPrograms);
 }
 
@@ -294,33 +211,124 @@ void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFra
 {
   mParams_mutex.Enter();
   
-  mGranular.processBlock(outputs[0], outputs[1], nFrames, mSampleRate);
+  mGranular.processBlock(outputs[0], outputs[1], nFrames, GetSampleRate());
 
   mParams_mutex.Leave();
-
 }
 
-void HISSToolsGranular::GUIUpdateSelection()
+IGraphics* HISSToolsGranular::CreateGraphics()
 {
-  double L = GetParam(kOffset)->Value() / 100.0;
-  double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
-  
-  mWaveformL->SetSelect(L, R);
-  mWaveformR->SetSelect(L, R);
+  return MakeGraphics(*this, PLUG_WIDTH, PLUG_HEIGHT, 60, 1.);
+}
+
+void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
+{
+  if (!pGraphics->NControls())
+  {
+    pGraphics->AttachPanelBackground(COLOR_GRAY);
+    
+    // Controls
+    
+    // Panels
+    
+    pGraphics->AttachControl(new HISSTools_Panel(kPanel1X, kPanel1Y, kPanel2W, kPanel1H, "upper tight", &designScheme));
+    pGraphics->AttachControl(new HISSTools_Panel(kPanel2X, kPanel2Y, kPanel2W, kPanel2H, "main tight", &designScheme));
+    pGraphics->AttachControl(new HISSTools_Panel(kPanel3X, kPanel3Y, kPanel3W, kPanel3H, "tighter thick", &designScheme));
+    
+    // Main Controls
+    
+    const double wX = kWaveformX + kWaveformOutline;
+    const double wW = kWaveformW - (2 * kWaveformOutline);
+    const double wH = kWaveformH - kWaveformOutline;
+    const double w1Y = kWaveformY + kWaveformOutline;
+    const double w2Y = w1Y + wH;
+    
+    mWaveformL = new Waveform(this, wX, w1Y, wW, wH);
+    mWaveformR = new Waveform(this, wX, w2Y, wW, wH);
+    
+    // Voice Control
+    
+    pGraphics->AttachControl(new HISSTools_Value(kMode, kVoiceColX, kVoiceRow1Y, kValueWL, kValueHL, "above spacious", &designScheme));
+    pGraphics->AttachControl(new HISSTools_Value(kMaxVoices, kVoiceColX, kVoiceRow2Y, kValueWL, kValueHL, "above spacious", &designScheme));
+    pGraphics->AttachControl(new HISSTools_Value(kDensity, kVoiceColX, kVoiceRow3Y, kValueWL, kValueHL, "above spacious", &designScheme));
+    
+    // Rate
+    
+    AddDualControl(pGraphics, kRateActiveX, kRateY, kRate, kRateRand, "7");
+    pGraphics->AttachControl(new HISSTools_Button(kActive, kRateActiveX, kBeneathWavefromY, kActiveW, kValueH, "alt tight spacious", &designScheme));
+    
+    pGraphics->AttachControl(new HISSTools_GFileSelector(this, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme));
+    pGraphics->AttachControl(mWaveformL);
+    pGraphics->AttachControl(mWaveformR);
+    
+    // Dials
+    
+    // Top Row
+    
+    AddDualControl(pGraphics, kCol1X, kRow1Y, kOffset, kOffsetRand, "1");
+    AddDualControl(pGraphics, kCol2X, kRow1Y, kDuration, kDurationRand, "1");
+    AddBiPolarDualControl(pGraphics, kCol3X, kRow1Y, kPitch, kPitchRand, "2");
+    AddBiPolarDualControl(pGraphics, kCol4X, kRow1Y, kGliss, kGlissRand, "2");
+    AddBiPolarDualControl(pGraphics, kCol5X, kRow1Y, kPan, kPanRand, "6");
+    AddBiPolarDualControl(pGraphics, kCol5X, kRow2Y, kVol, kVolRand, "6", "vol");
+    
+    // Bottom Row
+    
+    AddBiPolarDualControl(pGraphics, kCol1X, kRow2Y, kWindowBias, kWindowBiasRand, "3");
+    pGraphics->AttachControl(new HISSTools_Value(kWindowType, kCol1X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
+    
+    AddBiPolarDualControl(pGraphics, kCol2X, kRow2Y, kGain, kGainRand, "4", "gain");
+    pGraphics->AttachControl(new HISSTools_Value(kDistortionType, kCol2X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
+    
+    AddDualControl(pGraphics, kCol3X, kRow2Y, kFilterFreq, kFilterFreqRand, "5");
+    pGraphics->AttachControl(new HISSTools_Value(kFilterType, kCol3X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
+    AddDualControl(pGraphics, kCol4X, kRow2Y, kFilterResonance, kFilterResonanceRand, "5");
+    
+    // Name
+    
+    pGraphics->AttachControl(new HISSTools_TextBlock(kNameX, kNameY, kNameW, kNameH, "HISSTools Granular", kHAlignCenter, kVAlignCenter, "name", &designScheme));
+    
+    mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
+    mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+      
+    // Finalise Graphics
+    
+    pGraphics->HandleMouseOver(true);
+    //pGraphics->ShowAreaDrawn(true);
+    //pGraphics->SetStrictDrawing(false);
+  }
 }
 
 void HISSToolsGranular::SelectFromGUI(double click, double drag)
 {
   const double dragLimit = std::min(fabs(click - drag) * 1000.0 * mGranular.getBufferDuration(), GetParam(kOffsetRand)->GetMax());
   const double lo = click > drag ? click - (dragLimit / (mGranular.getBufferDuration() * 1000.0)) : click;
-  const double offsetRand = GetParam(kOffsetRand)->GetNormalized(dragLimit);
-  SetParameterFromUI(kOffset, lo);
-  SetParameterFromUI(kOffsetRand, offsetRand);
-  GetGUI()->SetParameterFromGUI(kOffset, lo);
-  GetGUI()->SetParameterFromGUI(kOffsetRand, offsetRand);
+  const double offsetRand = GetParam(kOffsetRand)->ToNormalized(dragLimit);
+  SendParameterValueFromUI(kOffset, lo);
+  SendParameterValueFromUI(kOffsetRand, offsetRand);
+  SendParameterValueFromAPI(kOffset, lo, false);
+  SendParameterValueFromAPI(kOffsetRand, offsetRand, false);
 }
 
-void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
+void HISSToolsGranular::GUIUpdateSelection()
+{
+    if (!GetUI())
+        return;
+    
+    double L = GetParam(kOffset)->Value() / 100.0;
+    double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
+    
+    mWaveformL->SetSelect(L, R);
+    mWaveformR->SetSelect(L, R);
+}
+
+void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
+{
+  if (GetUI())
+    GetUI()->GrayOutControl(paramIdx, gray);
+}
+
+void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sampleOffset)
 {
   mParams_mutex.Enter();
   
@@ -332,8 +340,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
       break;
       
     case kMode:
-      GetGUI()->GrayOutControl(kRate, !GetParam(kMode)->Int());
-      GetGUI()->GrayOutControl(kRateRand, !GetParam(kMode)->Int());
       mGranular.setMode((Granular::GranMode) GetParam(kMode)->Int());
       break;
       
@@ -356,7 +362,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
       double lo = GetParam(kOffset)->Value() / 100.0;
       double hi = GetParam(kOffsetRand)->Value() / 1000.0;
       mGranular.setOffset(lo, hi);
-      GUIUpdateSelection();
     }
     break;
       
@@ -429,8 +434,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
     break;
       
     case kDistortionType:
-      GetGUI()->GrayOutControl(kGain, !GetParam(kDistortionType)->Int());
-      GetGUI()->GrayOutControl(kGainRand, !GetParam(kDistortionType)->Int());
       mGranular.setDistortionType((Nonlinear::Type) GetParam(kDistortionType)->Int());
       break;
       
@@ -446,11 +449,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
     break;
       
     case kFilterType:
-      
-      GetGUI()->GrayOutControl(kFilterFreq, !GetParam(kFilterType)->Int());
-      GetGUI()->GrayOutControl(kFilterFreqRand, !GetParam(kFilterType)->Int());
-      GetGUI()->GrayOutControl(kFilterResonance, !GetParam(kFilterType)->Int());
-      GetGUI()->GrayOutControl(kFilterResonanceRand, !GetParam(kFilterType)->Int());
       mGranular.setFilterType((Filter::Type) GetParam(kFilterType)->Int());
       break;
 
@@ -478,26 +476,62 @@ void HISSToolsGranular::OnParamChange(int paramIdx, ParamSource source)
   mParams_mutex.Leave();
 }
 
-void HISSToolsGranular::SelectFile()
+
+void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
 {
-  WDL_String str;
+    mParams_mutex.Enter();
+    
+    switch (paramIdx)
+    {
+        case kMode:
+            GUIGrayOutControl(kRate, !GetParam(kMode)->Int());
+            GUIGrayOutControl(kRateRand, !GetParam(kMode)->Int());
+            break;
+            
+        case kOffset:
+        case kOffsetRand:
+            GUIUpdateSelection();
+            break;
+            
+        case kDistortionType:
+            GUIGrayOutControl(kGain, !GetParam(kDistortionType)->Int());
+            GUIGrayOutControl(kGainRand, !GetParam(kDistortionType)->Int());
+            break;
+         
+        case kFilterType:
+            GUIGrayOutControl(kFilterFreq, !GetParam(kFilterType)->Int());
+            GUIGrayOutControl(kFilterFreqRand, !GetParam(kFilterType)->Int());
+            GUIGrayOutControl(kFilterResonance, !GetParam(kFilterType)->Int());
+            GUIGrayOutControl(kFilterResonanceRand, !GetParam(kFilterType)->Int());
+            break;
+            
+        default:
+            break;
+    }
+    
+    mParams_mutex.Leave();
+}
+
+void HISSToolsGranular::SelectFile(const char *file)
+{
+  WDL_String str(file);
 
   mParams_mutex.Enter();
 
-  mSelector->GetLastSelectedFileForPlug(&str);
   mGranular.load(str.Get());
-  mGranular.setWaveformL(mWaveformL);
-  mGranular.setWaveformR(mWaveformR);
+  mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
+  mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
   GUIUpdateSelection();
   
   mParams_mutex.Leave();
 }
+
 void HISSToolsGranular::OnReset()
 {
-  mGranular.reset(mSampleRate);
+  mGranular.reset(GetSampleRate());
 }
 
-bool HISSToolsGranular::SerializeState(IByteChunk& chunk)
+bool HISSToolsGranular::SerializeState(IByteChunk& chunk) const
 {
   if (!SerializeParams(chunk))
     return false;
@@ -505,13 +539,16 @@ bool HISSToolsGranular::SerializeState(IByteChunk& chunk)
   return mGranular.save(chunk);
 }
 
-int HISSToolsGranular::UnserializeState(IByteChunk& chunk, int pos)
+int HISSToolsGranular::UnserializeState(const IByteChunk& chunk, int pos)
 {
   pos = UnserializeParams(chunk, pos);
   pos = mGranular.recall(chunk, pos);
   
-  mGranular.setWaveformL(mWaveformL);
-  mGranular.setWaveformR(mWaveformR);
+  if (mWaveformL && mWaveformR)
+  {
+      mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
+      mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+  }
   
   return pos;
 }

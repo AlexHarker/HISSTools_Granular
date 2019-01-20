@@ -12,8 +12,6 @@
 #include "Buffer.h"
 #include "SallenAndKey.h"
 #include "FrameLib_RandGen.h"
-#include "IPlugStructs.h"
-#include "Waveform.h"
 
 // Filter Class
 
@@ -101,13 +99,14 @@ public:
     void read(double* output, double *positions, int numSamps, int chan);
     void clear();
 
-    double getDuration()        { return mBuffers[0].getSize() / mSampleRate; }
-    double getSampleRate()      { return mSampleRate; }
+    int getLength() const           { return mBuffers[0].getSize(); }
+    double getDuration() const      { return getLength() / mSampleRate; }
+    double getSampleRate() const    { return mSampleRate; }
     
+    const float *getL() const       { return mBuffers[0].data(); }
+    const float *getR() const       { return mBuffers[1].data(); }
     
-    void setWaveformL(Waveform *waveform)    { waveform->Set(mBuffers[0].data(), mBuffers[0].getSize()); }
-    void setWaveformR(Waveform *waveform)    { waveform->Set(mBuffers[1].data(), mBuffers[1].getSize()); }
-    void save(IByteChunk &storage);
+    void save(IByteChunk &storage) const;
     int recall(const IByteChunk &storage, int pos);
 
 private:
@@ -209,12 +208,13 @@ public:
         mBuffer.load(path);
     }
 
-    void setWaveformL(Waveform *waveform)    { mBuffer.setWaveformL(waveform); }
-    void setWaveformR(Waveform *waveform)    { mBuffer.setWaveformR(waveform); }
+    const float* getBufferL()   { return mBuffer.getL(); }
+    const float* getBufferR()   { return mBuffer.getR(); }
  
+    double getBufferLength() { return mBuffer.getLength(); }
     double getBufferDuration() { return mBuffer.getDuration(); }
     
-    bool save(IByteChunk& chunk);
+    bool save(IByteChunk& chunk) const;
     int recall(const IByteChunk& chunk, int pos);
 
     void reset(double sampleRate);

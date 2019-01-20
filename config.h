@@ -7,25 +7,33 @@
 #define PLUG_URL_STR "www.alexanderjharker.co.uk"
 #define PLUG_EMAIL_STR "A.Harker@hud.ac.uk"
 #define PLUG_COPYRIGHT_STR  "Copyright 2018 Alex Harker"
+#define PLUG_CLASS_NAME HISSToolsGranular
 
 #define BUNDLE_NAME "HISSToolsGranular"
 #define BUNDLE_MFR "AlexHarker"
 #define BUNDLE_DOMAIN "co.uk"
 
-#define PLUG_CLASS_NAME HISSToolsGranular
-#define PLUG_ENTRY HISSToolsGranular_Entry
-#define PLUG_VIEW_ENTRY HISSToolsGranular_ViewEntry
-#define PLUG_FACTORY HISSToolsGranular_Factory
-#define PLUG_ENTRY_STR "HISSToolsGranular_Entry"
-#define PLUG_VIEW_ENTRY_STR "HISSToolsGranular_ViewEntry"
-#define VIEW_CLASS HISSToolsGranular_View
-#define VIEW_CLASS_STR "HISSToolsGranular_View"
+#define AUV2_ENTRY HISSToolsGranular_Entry
+#define AUV2_ENTRY_STR "HISSToolsGranular_Entry"
+#define AUV2_FACTORY HISSToolsGranular_Factory
+#define AUV2_VIEW_CLASS HISSToolsGranular_View
+#define AUV2_VIEW_CLASS_STR "HISSToolsGranular_View"
 
 #define PLUG_CHANNEL_IO "1-2 2-2"
 #define PLUG_LATENCY 0
-#define PLUG_IS_INSTRUMENT 0
-#define PLUG_DOES_MIDI 0
+#define PLUG_TYPE 0
+#define PLUG_DOES_MIDI_IN 0
+#define PLUG_DOES_MIDI_OUT 0
+#define PLUG_DOES_MPE 0
 #define PLUG_DOES_STATE_CHUNKS 1
+#define PLUG_FPS 60
+#define PLUG_HAS_UI 1
+#define PLUG_SHARED_RESOURCES 0
+
+#define APP_SIGNAL_VECTOR_SIZE 64
+
+#define PLUG_WIDTH 945
+#define PLUG_HEIGHT 645
 
 #if defined(AAX_API) && !defined(_PIDS_)
 #define _PIDS_

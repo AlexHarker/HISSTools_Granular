@@ -3,19 +3,25 @@
 #define WAVEFORM_H
 
 #include <vector>
-#include <HISSTools_VecLib.hpp>
 #include "IControl.h"
+
+// Forward declaration
+
+class HISSToolsGranular;
 
 class Waveform : public IControl
 {
     
 public:
     
-    Waveform(IPlugBaseGraphics& plug, HISSTools_VecLib *vecLib, double x, double y, double w, double h) : IControl(plug, IRECT(x, y, x + w, y + h)), mVecLib(vecLib), mCache(nullptr), mWaveformNeedsRedraw(false)
+    Waveform(HISSToolsGranular *plug, double x, double y, double w, double h) : IControl(IRECT(x, y, x + w, y + h)), mPlug(plug)
     {
         mData.resize(w * 2);
         SetSelect(0., 0.);
     }
+    
+    Waveform(const Waveform&) = delete;
+    Waveform operator = (const Waveform&) = delete;
     
     void OnMouseDown(float x, float y, const IMouseMod& mod) override;
     void OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod& mod) override;
@@ -29,7 +35,7 @@ private:
     
     double Normalise(float x) { return std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W())); }
     
-    HISSTools_VecLib *mVecLib;
+    HISSToolsGranular *mPlug;
     std::vector<float> mData;
     double mSelectL;
     double mSelectR;
@@ -37,8 +43,7 @@ private:
     double mClickedY;
     double mEditWidth;
     bool mEditDrag;
-    cairo_pattern_t* mCache;
-    bool mWaveformNeedsRedraw;
+    ILayerPtr mCache;
 };
 
 #endif

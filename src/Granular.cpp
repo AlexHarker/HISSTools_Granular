@@ -179,7 +179,7 @@ void StereoBuffer::clear()
 
 }
 
-void StereoBuffer::save(IByteChunk &storage)
+void StereoBuffer::save(IByteChunk &storage) const
 {
     storage.Put(&mSampleRate);
     mBuffers[0].save(storage);
@@ -517,7 +517,7 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
     }
 }
 
-bool Granular::save(IByteChunk& chunk)
+bool Granular::save(IByteChunk& chunk) const
 {
     mBuffer.save(chunk);
     return true;

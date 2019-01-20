@@ -1,8 +1,8 @@
+
 #pragma once
 
 #include "IPlug_include_in_plug_hdr.h"
-#include "IControls.h"
-#include "HISSTools_Controls.hpp"
+
 #include "src/Granular.h"
 #include "src/Waveform.h"
 
@@ -116,23 +116,27 @@ public:
   HISSToolsGranular(IPlugInstanceInfo instanceInfo);
   ~HISSToolsGranular();
   void OnReset() override;
-  void OnParamChange(int paramIdx, ParamSource source) override;
+  void OnParamChange(int paramIdx, EParamSource source, int sampleOffset) override;
+  void OnParamChangeUI(int paramIdx, EParamSource source) override;
   void ProcessBlock(double** inputs, double** outputs, int nFrames) override;
   
-  bool SerializeState(IByteChunk& chunk) override;
-  int UnserializeState(IByteChunk& chunk, int pos) override;
+  bool SerializeState(IByteChunk& chunk) const override;
+  int UnserializeState(const IByteChunk& chunk, int pos) override;
 
   void SelectFromGUI(double click, double drag);
-  void SelectFile();
+  void SelectFile(const char *file);
   
 private:
   
   void GUIUpdateSelection();
+  void GUIGrayOutControl(int paramIdx, bool gray);
+  
   void AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options);
   void AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions = "");
 
-  HISSTools_VecLib mVecLib;
-  HISSTools_FileSelector* mSelector;
+  IGraphics* CreateGraphics() override;
+  void LayoutUI(IGraphics* pGraphics) override;
+  
   Waveform* mWaveformL;
   Waveform* mWaveformR;
   Granular mGranular;

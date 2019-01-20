@@ -50,7 +50,7 @@ public:
     
     int getSize() const { return mSize; }
     
-    void save(IByteChunk &storage)
+    void save(IByteChunk &storage) const
     {
         storage.Put(&mSize);
         storage.PutBytes(data(), mSize * sizeof(float));
