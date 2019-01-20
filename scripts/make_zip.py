@@ -15,16 +15,16 @@ def  main():
   else:
     demo=int(sys.argv[1])
    
-  installer = "\installer\IPlugEffect Installer.exe"
+  installer = "\installer\HISSToolsGranular Installer.exe"
    
   if demo:
-    installer = "\installer\IPlugEffect Demo Installer.exe"
+    installer = "\installer\HISSToolsGranular Demo Installer.exe"
    
   FILES_TO_ZIP = [
     projectpath + installer,
     projectpath + "\installer\changelog.txt",
     projectpath + "\installer\known-issues.txt",
-    projectpath + "\manual\IPlugEffect manual.pdf" 
+    projectpath + "\manual\HISSToolsGranular manual.pdf" 
   ]
 
   # extract values from config.h
@@ -43,10 +43,10 @@ def  main():
 
   FULLVERSIONSTR = MAJORSTR + "." + MINORSTR + "." + BUGFIXSTR
 
-  ZIPNAME = "IPlugEffect-v" + FULLVERSIONSTR + "-win.zip"
+  ZIPNAME = "HISSToolsGranular-v" + FULLVERSIONSTR + "-win.zip"
   
   if demo:
-    ZIPNAME = "IPlugEffect-v" + FULLVERSIONSTR + "-win-demo.zip"
+    ZIPNAME = "HISSToolsGranular-v" + FULLVERSIONSTR + "-win-demo.zip"
   
   zf = zipfile.ZipFile(projectpath + "\installer\/" + ZIPNAME, mode="w")
 

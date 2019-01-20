@@ -1,210 +1,330 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="..\HISSToolsGranular.cpp" />
+    <ClCompile Include="..\..\..\IGraphics\IControl.cpp">
+      <Filter>IGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\IGraphics.cpp">
+      <Filter>IGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\IGraphicsEditorDelegate.cpp">
+      <Filter>IGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsAGG.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsAGG_src.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsCairo.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsLice.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsLice_src.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.cpp">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Platforms\IGraphicsWin.cpp">
+      <Filter>IGraphics\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugAPIBase.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugParameter.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugPluginBase.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp">
+      <Filter>IPlug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\APP\IPlugAPP.cpp">
+      <Filter>IPlug\APP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\APP\IPlugAPP_dialog.cpp">
+      <Filter>IPlug\APP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\APP\IPlugAPP_host.cpp">
+      <Filter>IPlug\APP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\APP\IPlugAPP_main.cpp">
+      <Filter>IPlug\APP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTAudio\RtAudio.cpp">
+      <Filter>IPlug\APP\RTAudioMidi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTMidi\RtMidi.cpp">
+      <Filter>IPlug\APP\RTAudioMidi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTAudio\include\asio.cpp">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiodrivers.cpp">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiolist.cpp">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Dependencies\IPlug\RTAudio\include\iasiothiscallresolver.cpp">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Controls\IControls.cpp">
+      <Filter>IGraphics\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Controls\IPopupMenuControl.cpp">
+      <Filter>IGraphics\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Controls\ITextEntryControl.cpp">
+      <Filter>IGraphics\Controls</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\HISSToolsGranular.h" />
+    <ClInclude Include="..\resources\resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IControl.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphics.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsConstants.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsEditorDelegate.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsLiveEdit.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsPathBase.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsPopupMenu.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsStructs.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsUtilities.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_hdr.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_src.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\IGraphics_select.h">
+      <Filter>IGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsAGG.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsAGG_src.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsCairo.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice_src.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.h">
+      <Filter>IGraphics\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsLinux.h">
+      <Filter>IGraphics\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsMac.h">
+      <Filter>IGraphics\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsMac_view.h">
+      <Filter>IGraphics\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsWeb.h">
+      <Filter>IGraphics\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsWin.h">
+      <Filter>IGraphics\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugAPIBase.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugConstants.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugEditorDelegate.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugLogger.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugMidi.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugPlatform.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugParameter.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugProcessor.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugStructs.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugTimer.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlugUtilities.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlug_include_in_plug_hdr.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\IPlug_include_in_plug_src.h">
+      <Filter>IPlug</Filter>
+    </ClInclude>
+    <ClInclude Include="../config.h" />
+    <ClInclude Include="..\..\..\IPlug\APP\IPlugAPP.h">
+      <Filter>IPlug\APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IPlug\APP\IPlugAPP_host.h">
+      <Filter>IPlug\APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\RtAudio.h">
+      <Filter>IPlug\APP\RTAudioMidi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTMidi\RtMidi.h">
+      <Filter>IPlug\APP\RTAudioMidi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\asio.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiodrivers.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiodrvr.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiolist.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\asiosys.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\dsound.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\functiondiscoverykeys_devpkey.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\ginclude.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\iasiodrv.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\iasiothiscallresolver.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Dependencies\IPlug\RTAudio\include\soundcard.h">
+      <Filter>IPlug\APP\RTAudioMidi\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IControls.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IFPSDisplayControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IPopupMenuControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IVKeyboardControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IVMeterControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IVMultiSliderControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\IVScopeControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\IGraphics\Controls\ITextEntryControl.h">
+      <Filter>IGraphics\Controls</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resources">
+      <UniqueIdentifier>{c6ab0357-34f0-4ae8-8b4f-225dc387b2db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{ece5417b-4823-4518-9381-2660a4319318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IGraphics">
+      <UniqueIdentifier>{f0485b61-149d-429f-8802-49cfd67e39b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IGraphics\Drawing">
+      <UniqueIdentifier>{7c74c254-d1c6-4dc4-9e9c-be28ac64e4a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IGraphics\Platform">
+      <UniqueIdentifier>{057e0b3e-1b43-4515-bb87-b1de62694e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IGraphics\Controls">
+      <UniqueIdentifier>{ae5d91eb-b8dc-471d-8b5a-6c5bf5dfe6f4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="IPlug">
-      <UniqueIdentifier>{a4ab3f7f-8e64-4faa-9ef8-6729bf90970e}</UniqueIdentifier>
+      <UniqueIdentifier>{3bd7f71b-e8ed-4d62-8e22-06c09c5c15a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="APP">
-      <UniqueIdentifier>{6a6c24bd-7110-4436-97af-07990da17abf}</UniqueIdentifier>
+    <Filter Include="IPlug\APP">
+      <UniqueIdentifier>{13b3737b-7ecf-435c-8da0-08ccf8e2fb84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="APP\RtAudioMidi">
-      <UniqueIdentifier>{ef87c677-1479-44bc-aef8-7ba960ef233d}</UniqueIdentifier>
+    <Filter Include="IPlug\APP\RTAudioMidi">
+      <UniqueIdentifier>{e7841f62-a97d-41b6-93d1-ecca8a512d93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="APP\ASIO_SDK">
-      <UniqueIdentifier>{b91b9db4-5584-4959-a395-7394ba3cf5a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IPlug\IGraphics">
-      <UniqueIdentifier>{3e51802a-4345-4466-980c-8e52e14d4ac1}</UniqueIdentifier>
+    <Filter Include="IPlug\APP\RTAudioMidi\include">
+      <UniqueIdentifier>{649c5de3-b4c2-4de9-8d57-3b1762646259}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\IPlug\rtaudiomidi\RtAudio.h">
-      <Filter>APP\RtAudioMidi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\rtaudiomidi\RtError.h">
-      <Filter>APP\RtAudioMidi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\rtaudiomidi\RtMidi.h">
-      <Filter>APP\RtAudioMidi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\asiosys.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\ginclude.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\iasiodrv.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\asio.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\asiodrivers.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ASIO_SDK\asiolist.h">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="app_wrapper\app_main.h">
-      <Filter>APP</Filter>
-    </ClInclude>
-    <ClInclude Include="HISSToolsGranular.h" />
-    <ClInclude Include="config.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="..\..\IPlug\Hosts.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IMidiQueue.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IParam.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_hdr.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlug_include_in_plug_src.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugBase.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugByteChunk.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugConstants.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugOSDetect.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugStructs.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugUtilities.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\Log.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\NChanDelay.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IPlugStandalone.h">
-      <Filter>IPlug</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IAutoGUI.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IControl.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IControls.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphics.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsConstants.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsLice.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsStructs.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsUtilites.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsWin.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IKeyboardControl.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IPlugBaseGraphics.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IPopupMenu.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\IPlug\IGraphics\IGraphicsLiveEdit.h">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClInclude>
+    <ResourceCompile Include="..\resources\main.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\IPlug\rtaudiomidi\RtAudio.cpp">
-      <Filter>APP\RtAudioMidi</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\rtaudiomidi\RtMidi.cpp">
-      <Filter>APP\RtAudioMidi</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ASIO_SDK\asio.cpp">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ASIO_SDK\asiodrivers.cpp">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ASIO_SDK\asiolist.cpp">
-      <Filter>APP\ASIO_SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="app_wrapper\app_dialog.cpp">
-      <Filter>APP</Filter>
-    </ClCompile>
-    <ClCompile Include="app_wrapper\app_main.cpp">
-      <Filter>APP</Filter>
-    </ClCompile>
-    <ClCompile Include="HISSToolsGranular.cpp" />
-    <ClCompile Include="..\..\IPlug\Hosts.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IParam.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IPlugBase.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IPlugStructs.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\Log.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IPlugStandalone.cpp">
-      <Filter>IPlug</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IControl.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IControls.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IGraphics.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IGraphicsLice.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IGraphicsWin.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IPlugBaseGraphics.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IPopupMenu.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\IPlug\IGraphics\IGraphicsLiveEdit.cpp">
-      <Filter>IPlug\IGraphics</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\IPlug\README.md">
-      <Filter>IPlug</Filter>
+    <None Include="..\config\HISSToolsGranular-ios.xcconfig">
+      <Filter>config</Filter>
+    </None>
+    <None Include="..\config\HISSToolsGranular-web.mk">
+      <Filter>config</Filter>
+    </None>
+    <None Include="..\config\HISSToolsGranular-mac.xcconfig">
+      <Filter>config</Filter>
+    </None>
+    <None Include="..\config\HISSToolsGranular-win.props">
+      <Filter>config</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\resources\HISSToolsGranular.rc" />
+    <Image Include="..\resources\HISSToolsGranular.ico">
+      <Filter>resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

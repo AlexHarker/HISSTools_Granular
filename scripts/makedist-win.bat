@@ -6,7 +6,7 @@ REM - zipping requires 7zip in %ProgramFiles%\7-Zip\7z.exe
 REM - building installer requires innotsetup in "%ProgramFiles(x86)%\Inno Setup 5\iscc"
 REM - AAX codesigning requires wraptool tool added to %PATH% env variable and aax.key/.crt in .\..\..\..\Certificates\
 
-if %1 == 1 (echo Making IPlugEffect Windows DEMO VERSION distribution ...) else (echo Making IPlugEffect Windows FULL VERSION distribution ...)
+if %1 == 1 (echo Making HISSToolsGranular Windows DEMO VERSION distribution ...) else (echo Making HISSToolsGranular Windows FULL VERSION distribution ...)
 
 echo "touching source"
 cd ..\source\
@@ -15,7 +15,7 @@ copy /b *.cpp+,,
 echo ------------------------------------------------------------------
 echo Updating version numbers ...
 cd..
-call python scripts\make_resource.py %1
+call python scripts\prepare_resources.py %1
 call python scripts\update_installer_version.py %1
 
 echo ------------------------------------------------------------------
@@ -44,21 +44,21 @@ REM -copy ".\resources\img\AboutBox_Registered.png" ".\resources\img\AboutBox.pn
 )
 
 REM - Could build individual targets like this:
-REM - msbuild IPlugEffect-app.vcxproj /p:configuration=release /p:platform=win32
+REM - msbuild HISSToolsGranular-app.vcxproj /p:configuration=release /p:platform=win32
 
 echo Building 32 bit binaries...
-msbuild IPlugEffect.sln /p:configuration=release /p:platform=win32 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly 
+msbuild HISSToolsGranular.sln /p:configuration=release /p:platform=win32 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly 
 
 echo Building 64 bit binaries...
-msbuild IPlugEffect.sln /p:configuration=release /p:platform=x64 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly;append
+msbuild HISSToolsGranular.sln /p:configuration=release /p:platform=x64 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly;append
 
 REM --echo Copying AAX Presets
 
 REM --echo ------------------------------------------------------------------
 REM --echo Code sign AAX binary...
 REM --info at pace central, login via iLok license manager https://www.paceap.com/pace-central.html
-REM --wraptool sign --verbose --account XXXXX --wcguid XXXXX --keyfile XXXXX.p12 --keypassword XXXXX --in .\build-win\aax\bin\IPlugEffect.aaxplugin\Contents\Win32\IPlugEffect.aaxplugin --out .\build-win\aax\bin\IPlugEffect.aaxplugin\Contents\Win32\IPlugEffect.aaxplugin
-REM --wraptool sign --verbose --account XXXXX --wcguid XXXXX --keyfile XXXXX.p12 --keypassword XXXXX --in .\build-win\aax\bin\IPlugEffect.aaxplugin\Contents\x64\IPlugEffect.aaxplugin --out .\build-win\aax\bin\IPlugEffect.aaxplugin\Contents\x64\IPlugEffect.aaxplugin
+REM --wraptool sign --verbose --account XXXXX --wcguid XXXXX --keyfile XXXXX.p12 --keypassword XXXXX --in .\build-win\aax\bin\HISSToolsGranular.aaxplugin\Contents\Win32\HISSToolsGranular.aaxplugin --out .\build-win\aax\bin\HISSToolsGranular.aaxplugin\Contents\Win32\HISSToolsGranular.aaxplugin
+REM --wraptool sign --verbose --account XXXXX --wcguid XXXXX --keyfile XXXXX.p12 --keypassword XXXXX --in .\build-win\aax\bin\HISSToolsGranular.aaxplugin\Contents\x64\HISSToolsGranular.aaxplugin --out .\build-win\aax\bin\HISSToolsGranular.aaxplugin\Contents\x64\HISSToolsGranular.aaxplugin
 
 REM - Make Installer (InnoSetup)
 
@@ -68,21 +68,21 @@ echo Making Installer ...
 if exist "%ProgramFiles(x86)%" (goto 64-Bit-is) else (goto 32-Bit-is)
 
 :32-Bit-is
-"%ProgramFiles%\Inno Setup 5\iscc" /Q /cc ".\installer\IPlugEffect.iss"
+"%ProgramFiles%\Inno Setup 5\iscc" /Q /cc ".\installer\HISSToolsGranular.iss"
 goto END-is
 
 :64-Bit-is
-"%ProgramFiles(x86)%\Inno Setup 5\iscc" /Q /cc ".\installer\IPlugEffect.iss"
+"%ProgramFiles(x86)%\Inno Setup 5\iscc" /Q /cc ".\installer\HISSToolsGranular.iss"
 goto END-is
 
 :END-is
 
 REM - Codesign Installer for Windows 8+
-REM -"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /f "XXXXX.p12" /p XXXXX /d "IPlugEffect Installer" ".\installer\IPlugEffect Installer.exe"
+REM -"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /f "XXXXX.p12" /p XXXXX /d "HISSToolsGranular Installer" ".\installer\HISSToolsGranular Installer.exe"
 
 REM -if %1 == 1 (
-REM -copy ".\installer\IPlugEffect Installer.exe" ".\installer\IPlugEffect Demo Installer.exe"
-REM -del ".\installer\IPlugEffect Installer.exe"
+REM -copy ".\installer\HISSToolsGranular Installer.exe" ".\installer\HISSToolsGranular Demo Installer.exe"
+REM -del ".\installer\HISSToolsGranular Installer.exe"
 REM -)
 
 REM - ZIP
