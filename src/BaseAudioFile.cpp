@@ -6,11 +6,11 @@ namespace HISSTools
     {
         close();
     }
-
+    
     BaseAudioFile::~BaseAudioFile()
     {
     }
-
+    
     void BaseAudioFile::close()
     {
         setFileType(kAudioFileNone);
@@ -23,12 +23,12 @@ namespace HISSTools
         setPCMOffset(0);
         clearErrorFlags();
     }
-
+    
     BaseAudioFile::FileType BaseAudioFile::getFileType() const
     {
         return mFileType;
     }
-
+    
     BaseAudioFile::PCMFormat BaseAudioFile::getPCMFormat() const
     {
         return mPCMFormat;
@@ -83,7 +83,7 @@ namespace HISSTools
     {
         return findNumberFormat(getPCMFormat());
     }
-
+    
     int BaseAudioFile::getErrorFlags() const
     {
         return mErrorFlags;
@@ -132,7 +132,7 @@ namespace HISSTools
     {
         return extractErrorsFromFlags(getErrorFlags());
     }
-
+    
     bool BaseAudioFile::getIsError() const
     {
         return mErrorFlags != ERR_NONE;
@@ -141,7 +141,7 @@ namespace HISSTools
     void BaseAudioFile::clearErrorFlags() {
         setErrorFlags(ERR_NONE);
     }
-
+    
     void BaseAudioFile::setFileType(FileType i)
     {
         mFileType = i;
@@ -181,17 +181,17 @@ namespace HISSTools
     {
         mPCMOffset = i;
     }
-
+    
     void BaseAudioFile::setErrorFlags(int flags)
     {
         mErrorFlags = flags;
     }
-
+    
     void BaseAudioFile::setErrorBit(Error error)
     {
         mErrorFlags |= error;
     }
-
+    
     uint16_t BaseAudioFile::findBitDepth(PCMFormat i)
     {
         switch (i)
@@ -210,7 +210,7 @@ namespace HISSTools
                 return 64;
         }
     }
-
+    
     BaseAudioFile::NumberFormat BaseAudioFile::findNumberFormat(PCMFormat i)
     {
         switch (i)
@@ -220,10 +220,11 @@ namespace HISSTools
             case kAudioFileInt24:
             case kAudioFileInt32:
                 return kAudioFileInt;
-
+                
             case kAudioFileFloat32:
             case kAudioFileFloat64:
                 return kAudioFileFloat;
         }
     }
 }
+

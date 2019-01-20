@@ -22,10 +22,10 @@ public:
     
     HISSTools_Color_Spec *blackCS = new HISSTools_Color_Spec(0., 0., 0., 1.0);
     HISSTools_Color_Spec *greyCS = new HISSTools_Color_Spec(0.9, 0.9, 0.9, 0.5);
-
+    
     HISSTools_LICE_VGradient* activeFillCS = new HISSTools_LICE_VGradient;
     HISSTools_LICE_VGradient* activeOffFillCS = new HISSTools_LICE_VGradient;
-
+    
     activeOffFillCS->addStop(HISSTools_Color(0.415, 0.415, 0.415, 1.0), 0.0);
     activeOffFillCS->addStop(HISSTools_Color(0.169, 0.169, 0.169, 1.0), 1.0);
     
@@ -36,10 +36,10 @@ public:
     panelFillCS->addStop(HISSTools_Color(0.4, 0.4, 0.4, 0.4), 0.0);
     panelFillCS->addStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
     panelFillCS->addStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
-
+    
     HISSTools_Color_Spec *shadowCS = new HISSTools_Color_Spec(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
     HISSTools_Shadow *shadowSpec = new HISSTools_Shadow(shadowCS, 4, 4, 6);
-
+    
     addColorSpec("PanelFill", "upper", panelFillCS);
     addColorSpec("PanelFill", "main", panelFillCS);
     addColorSpec("PanelFill", "thick", blackCS);
@@ -49,13 +49,13 @@ public:
     addColorSpec("ButtonHandleOn", "alt", activeFillCS);
     
     addShadow("TextBlock", "name", shadowSpec);
-
+    
     HISSTools_Color_Spec *textColor = new HISSTools_Color_Spec(0.9, 0.9, 0.9, 0.80);
     HISSTools_Text *nameTxt = new HISSTools_Text(42, "Arial", HISSTools_Text::kStyleBold);
     
     addColorSpec("TextBlock", "name", textColor);
     addTextStyle("TextBlock", "name", nameTxt);
-
+    
     addColorSpec("DialIndicator", "1", col1);
     addColorSpec("DialIndicator", "2", col2);
     addColorSpec("DialIndicator", "3", col3);
@@ -63,7 +63,7 @@ public:
     addColorSpec("DialIndicator", "5", col5);
     addColorSpec("DialIndicator", "6", col6);
     addColorSpec("DialIndicator", "7", col7);
-
+    
     addDimension("PanelRoundnessTL","tighter", 5);
     addDimension("PanelRoundnessTR","tighter", 5);
     addDimension("PanelRoundnessBL","tighter", 5);
@@ -73,10 +73,10 @@ public:
     addDimension("DialRefValue", "vol", 6.0/7.0);
     
     addDimension("ValueTextArea", "spacious", 25);
-
+    
     addFlag("ValueDrawTriangle", "small", false);
     addFlag("ValueDrawLabel", "nolabel", false);
-
+    
     addFlag("ValueLabelBelow", true);
     addFlag("ValueLabelBelow", "above", false);
     addFlag("DialDrawValOnlyOnMO", true);
@@ -89,9 +89,9 @@ class HISSTools_GFileSelector : public HISSTools_FileSelector
 {
   
 public:
-
+  
   HISSTools_GFileSelector(HISSToolsGranular *plug, double x, double y, double w, double h, EFileAction action, char* dir = "", char* extensions = "", const char *type = 0, HISSTools_Design_Scheme *designScheme = &DefaultDesignScheme)
-    :HISSTools_FileSelector(kNoParameter, x, y, w, h, action, dir, extensions, type, designScheme, "Select"), mPlug(plug) {}
+  :HISSTools_FileSelector(kNoParameter, x, y, w, h, action, dir, extensions, type, designScheme, "Select"), mPlug(plug) {}
   
 private:
   
@@ -134,18 +134,18 @@ void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, dou
 HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
 : IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mWaveformL(nullptr), mWaveformR(nullptr)
 {
-  TRACE; 
- 
+  TRACE;
+  
   // Parameter Setup
   
   GetParam(kActive)->InitBool("Active", true);
-
+  
   GetParam(kMode)->InitEnum("Mode", 0, 2);
   GetParam(kMode)->SetDisplayText(0, "Streams");
   GetParam(kMode)->SetDisplayText(1, "Clouds");
   
   GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%", 0, "", new IParam::ShapePowCurve(2.0));
-
+  
   GetParam(kMaxVoices)->InitInt("Max Voices", 50, 1, 100);
   
   GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
@@ -156,16 +156,16 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   
   GetParam(kDuration)->InitDouble("Duration", 100.0, 0.1, 5000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
   GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
-
+  
   GetParam(kPitch)->InitDouble("Pitch", 0.0, -36.0, 36.0, 0.01, "st");
   GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st", 0, "", new IParam::ShapePowCurve(2.0));
-
+  
   GetParam(kGliss)->InitDouble("Gliss Speed", 0.0, -36.0, 36, 0.01, "st/s");
   GetParam(kGlissRand)->InitDouble("Rand Gliss", 0.0, 0.0, 36.0, 0.01, "st/s");
-
+  
   GetParam(kVol)->InitDouble("Volume", -15.0, -60.0, 10.0, 0.1, "dB");
   GetParam(kVolRand)->InitDouble("Rand Vol", 5.0, 0.0, 20.0, 0.1, "dB");
-
+  
   GetParam(kPan)->InitDouble("Pan", 0.0, -100.0, 100.0, 0.1, "");
   GetParam(kPanRand)->InitDouble("Rand Pan", 20.0, 0.0, 100.0, 0.1, "");
   
@@ -175,7 +175,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kWindowType)->SetDisplayText(2, "Cosine");
   GetParam(kWindowType)->SetDisplayText(3, "Kaiser");
   GetParam(kWindowType)->SetDisplayText(4, "Tukey");
-
+  
   GetParam(kWindowBias)->InitDouble("Window Bias", 0.0, -100.0, 100.0, 0.1, "%");
   GetParam(kWindowBiasRand)->InitDouble("Rand Bias", 0.0, 0.0, 100.0, 0.1, "%");
   
@@ -201,7 +201,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   
   GetParam(kFilterResonance)->InitDouble("Filter Reson", 50.0, 0.0, 100.0, 0.1, "%");
   GetParam(kFilterResonanceRand)->InitDouble("Rand Reson", 10.0, 0.0, 100.0, 0.1, "%");
- 
+  
   MakeDefaultPreset("-", kNumPrograms);
 }
 
@@ -210,7 +210,7 @@ HISSToolsGranular::~HISSToolsGranular() {}
 void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFrames)
 {
   WDL_MutexLock lock(&mMutex);
-    
+  
   mGranular.processBlock(outputs[0], outputs[1], nFrames, GetSampleRate());
 }
 
@@ -288,7 +288,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     
     mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
     mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
-      
+    
     // Finalise Graphics
     
     pGraphics->HandleMouseOver(true);
@@ -310,14 +310,14 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
 
 void HISSToolsGranular::GUIUpdateSelection()
 {
-    if (!GetUI())
-        return;
-    
-    double L = GetParam(kOffset)->Value() / 100.0;
-    double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
-    
-    mWaveformL->SetSelect(L, R);
-    mWaveformR->SetSelect(L, R);
+  if (!GetUI())
+    return;
+  
+  double L = GetParam(kOffset)->Value() / 100.0;
+  double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
+  
+  mWaveformL->SetSelect(L, R);
+  mWaveformR->SetSelect(L, R);
 }
 
 void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
@@ -329,7 +329,7 @@ void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
 void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sampleOffset)
 {
   WDL_MutexLock lock(&mMutex);
-    
+  
   switch (paramIdx)
   {
     case kDensity:
@@ -353,7 +353,7 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
       mGranular.setRate(lo / 1000.0, hi / 1000.0);
     }
     break;
-    
+      
     case kOffset:
     case kOffsetRand:
     {
@@ -449,7 +449,7 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
     case kFilterType:
       mGranular.setFilterType((Filter::Type) GetParam(kFilterType)->Int());
       break;
-
+      
     case kFilterFreq:
     case kFilterFreqRand:
     {
@@ -468,48 +468,48 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
       double hi = std::max(0.0, std::min(center + variation, 0.9995));
       mGranular.setFilterResonance(lo, hi);
     }
-    break;
+      break;
   }
 }
 
 
 void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
 {
-    switch (paramIdx)
-    {
-        case kMode:
-            GUIGrayOutControl(kRate, !GetParam(kMode)->Int());
-            GUIGrayOutControl(kRateRand, !GetParam(kMode)->Int());
-            break;
-            
-        case kOffset:
-        case kOffsetRand:
-            GUIUpdateSelection();
-            break;
-            
-        case kDistortionType:
-            GUIGrayOutControl(kGain, !GetParam(kDistortionType)->Int());
-            GUIGrayOutControl(kGainRand, !GetParam(kDistortionType)->Int());
-            break;
-         
-        case kFilterType:
-            GUIGrayOutControl(kFilterFreq, !GetParam(kFilterType)->Int());
-            GUIGrayOutControl(kFilterFreqRand, !GetParam(kFilterType)->Int());
-            GUIGrayOutControl(kFilterResonance, !GetParam(kFilterType)->Int());
-            GUIGrayOutControl(kFilterResonanceRand, !GetParam(kFilterType)->Int());
-            break;
-            
-        default:
-            break;
-    }
+  switch (paramIdx)
+  {
+    case kMode:
+      GUIGrayOutControl(kRate, !GetParam(kMode)->Int());
+      GUIGrayOutControl(kRateRand, !GetParam(kMode)->Int());
+      break;
+      
+    case kOffset:
+    case kOffsetRand:
+      GUIUpdateSelection();
+      break;
+      
+    case kDistortionType:
+      GUIGrayOutControl(kGain, !GetParam(kDistortionType)->Int());
+      GUIGrayOutControl(kGainRand, !GetParam(kDistortionType)->Int());
+      break;
+      
+    case kFilterType:
+      GUIGrayOutControl(kFilterFreq, !GetParam(kFilterType)->Int());
+      GUIGrayOutControl(kFilterFreqRand, !GetParam(kFilterType)->Int());
+      GUIGrayOutControl(kFilterResonance, !GetParam(kFilterType)->Int());
+      GUIGrayOutControl(kFilterResonanceRand, !GetParam(kFilterType)->Int());
+      break;
+      
+    default:
+      break;
+  }
 }
 
 void HISSToolsGranular::SelectFile(const char *file)
 {
   WDL_MutexLock lock(&mMutex);
-    
+  
   WDL_String str(file);
-
+  
   mGranular.load(str.Get());
   mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
   mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
@@ -536,9 +536,10 @@ int HISSToolsGranular::UnserializeState(const IByteChunk& chunk, int pos)
   
   if (mWaveformL && mWaveformR)
   {
-      mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
-      mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+    mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
+    mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
   }
   
   return pos;
 }
+

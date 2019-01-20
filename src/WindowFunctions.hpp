@@ -2,17 +2,17 @@
 #include <stdint.h>
 #include <vector>
 
-#define WINDOW_PI			3.14159265358979323846
-#define WINDOW_TWOPI		6.28318530717958647692
-#define WINDOW_THREEPI		9.42477796076937971538
-#define WINDOW_FOURPI		12.56637061435817295384
-#define WINDOW_SIXPI		18.84955592153875943076
+#define WINDOW_PI               3.14159265358979323846
+#define WINDOW_TWOPI            6.28318530717958647692
+#define WINDOW_THREEPI          9.42477796076937971538
+#define WINDOW_FOURPI           12.56637061435817295384
+#define WINDOW_SIXPI            18.84955592153875943076
 
 template <class T, class Ref>
 class WindowFunctions
 {
     typedef void (*Func)(T, uint32_t, uint32_t);
-
+    
     struct Function
     {
         Function(Ref reference, Func func) : mReference(reference), mFunc(func) {}
@@ -51,8 +51,8 @@ static double normalise(uint32_t pos, uint32_t windowSize)
 
 template <class T> void window_rect(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (long i = 0; i < generateSize; i++)
-		window[i] = 1;
+    for (long i = 0; i < generateSize; i++)
+        window[i] = 1;
 }
 
 /*
@@ -78,8 +78,8 @@ template <class T> void window_triangle(T window, uint32_t windowSize, uint32_t 
 
 template <class T> void window_hann(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = 0.5 - (0.5 * cos(WINDOW_TWOPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = 0.5 - (0.5 * cos(WINDOW_TWOPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_cosine(T window, uint32_t windowSize, uint32_t generateSize)
@@ -90,50 +90,50 @@ template <class T> void window_cosine(T window, uint32_t windowSize, uint32_t ge
 
 template <class T> void window_hamming(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = 0.54347826 - (0.45652174 * cos(WINDOW_TWOPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = 0.54347826 - (0.45652174 * cos(WINDOW_TWOPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = 0.42659071 - (0.49656062 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.07684867 * cos(WINDOW_FOURPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = 0.42659071 - (0.49656062 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.07684867 * cos(WINDOW_FOURPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman_62(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = (0.44859f - 0.49364f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.05677f * cos(WINDOW_FOURPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = (0.44859f - 0.49364f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.05677f * cos(WINDOW_FOURPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman_70(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = (0.42323f - 0.49755f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.07922f * cos(WINDOW_FOURPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = (0.42323f - 0.49755f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.07922f * cos(WINDOW_FOURPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman_74(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = (0.402217f - 0.49703f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.09892f * cos(WINDOW_FOURPI * normalise(i, windowSize)) - 0.00188 * cos(WINDOW_THREEPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = (0.402217f - 0.49703f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.09892f * cos(WINDOW_FOURPI * normalise(i, windowSize)) - 0.00188 * cos(WINDOW_THREEPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman_92(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = (0.35875f - 0.48829f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.14128f * cos(WINDOW_FOURPI * normalise(i, windowSize)) - 0.01168 * cos(WINDOW_THREEPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = (0.35875f - 0.48829f * cos(WINDOW_TWOPI * normalise(i, windowSize)) + 0.14128f * cos(WINDOW_FOURPI * normalise(i, windowSize)) - 0.01168 * cos(WINDOW_THREEPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_blackman_harris(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = 0.35875 - (0.48829 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.14128 * cos(WINDOW_FOURPI * normalise(i, windowSize))) - (0.01168 * cos(WINDOW_SIXPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = 0.35875 - (0.48829 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.14128 * cos(WINDOW_FOURPI * normalise(i, windowSize))) - (0.01168 * cos(WINDOW_SIXPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_flat_top(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	for (uint32_t i = 0; i < generateSize; i++)
-		window[i] = 0.2810639 - (0.5208972 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.1980399 * cos(WINDOW_FOURPI * normalise(i, windowSize)));
+    for (uint32_t i = 0; i < generateSize; i++)
+        window[i] = 0.2810639 - (0.5208972 * cos(WINDOW_TWOPI * normalise(i, windowSize))) + (0.1980399 * cos(WINDOW_FOURPI * normalise(i, windowSize)));
 }
 
 template <class T> void window_kaiser(T window, uint32_t windowSize, uint32_t generateSize)
@@ -195,9 +195,9 @@ template <class T> void window_tukey(T window, uint32_t windowSize, uint32_t gen
 {
     double alpha = 0.2;
     double alphaNorm = 1.0 / alpha;
-
+    
     alpha *= 0.5;
-        
+    
     for (uint32_t i = 0; i < generateSize; i++)
     {
         double norm = normalise(i, windowSize);
@@ -215,44 +215,44 @@ template <class T> void window_tukey(T window, uint32_t windowSize, uint32_t gen
 
 template <class T> void window_multisine_tapers(T window, uint32_t windowSize, uint32_t generateSize, uint32_t num_tapers)
 {
-	for (long j = 0; j < generateSize; j++)
-		window[j] = 0.0;
-	
-	for (long i = 0; i < num_tapers; i++)
-	{
-		for (long j = 0; j < generateSize; j++)
-			window[j] += sin(WINDOW_PI * (double) (i + 1) * (double) (j + 1) / (double) (windowSize + 1));
-	}
+    for (long j = 0; j < generateSize; j++)
+        window[j] = 0.0;
+    
+    for (long i = 0; i < num_tapers; i++)
+    {
+        for (long j = 0; j < generateSize; j++)
+            window[j] += sin(WINDOW_PI * (double) (i + 1) * (double) (j + 1) / (double) (windowSize + 1));
+    }
 }
 
 template <class T> void window_msinetaper1(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 1);
+    window_multisine_tapers(window, windowSize, generateSize, 1);
 }
 
 template <class T> void window_msinetaper2(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 2);
+    window_multisine_tapers(window, windowSize, generateSize, 2);
 }
 
 template <class T> void window_msinetaper3(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 3);
+    window_multisine_tapers(window, windowSize, generateSize, 3);
 }
 
 template <class T> void window_msinetaper4(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 4);
+    window_multisine_tapers(window, windowSize, generateSize, 4);
 }
 
 template <class T> void window_msinetaper5(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 5);
+    window_multisine_tapers(window, windowSize, generateSize, 5);
 }
 
 template <class T> void window_msinetaper6(T window, uint32_t windowSize, uint32_t generateSize)
 {
-	window_multisine_tapers(window, windowSize, generateSize, 6);
+    window_multisine_tapers(window, windowSize, generateSize, 6);
 }
 
 template <class T>
@@ -267,7 +267,7 @@ public:
     {
         WindowFunctions<T, uint32_t>::add(kWindowRect, window_rect);
         WindowFunctions<T, uint32_t>::add(kWindowTriangle, window_triangle);
-
+        
         WindowFunctions<T, uint32_t>::add(kWindowHann, window_hann);
         WindowFunctions<T, uint32_t>::add(kWindowHamming, window_hamming);
         WindowFunctions<T, uint32_t>::add(kWindowCosine, window_cosine);
@@ -278,11 +278,12 @@ public:
         WindowFunctions<T, uint32_t>::add(kWindowBlackman74, window_blackman_62);
         WindowFunctions<T, uint32_t>::add(kWindowBlackman92, window_blackman_92);
         WindowFunctions<T, uint32_t>::add(kWindowBlackmanHarris, window_blackman_harris);
-
+        
         WindowFunctions<T, uint32_t>::add(kWindowFlatTop, window_flat_top);
         
         WindowFunctions<T, uint32_t>::add(kWindowKaiser, window_kaiser);
-
+        
         WindowFunctions<T, uint32_t>::add(kWindowTukey, window_tukey);
-}
+    }
 };
+

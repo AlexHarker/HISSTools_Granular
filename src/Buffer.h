@@ -39,7 +39,7 @@ public:
     void clear() { mSize = 0; }
     T* data() { return mBuffer.data(); }
     const T* data() const { return mBuffer.data(); }
-
+    
     void resize(int length)
     {
         if (length > mBuffer.size())
@@ -73,3 +73,4 @@ private:
 };
 
 #endif
+

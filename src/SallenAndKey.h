@@ -149,7 +149,7 @@ template <typename T> struct SallenAndKeyMultimode : SallenAndKeyLPF<T>
     inline T lpf(const T& x)
     {
         T v1, v2;
-
+        
         SallenAndKeyLPF<T>::process(x, v1, v2);
         
         return v2;
@@ -175,3 +175,4 @@ template <typename T> struct SallenAndKeyMultimode : SallenAndKeyLPF<T>
 };
 
 #endif /* SallenAndKey_h */
+

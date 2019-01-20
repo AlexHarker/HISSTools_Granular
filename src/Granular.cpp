@@ -79,7 +79,7 @@ void scale(double x, double& a, double& b)
     a *= scaleFactor;
     b *= scaleFactor;
 }
-     
+
 void Panner::init(double pan)
 {
     double c = cos(pan * M_PI * 0.5) * 2.0 * M_SQRT1_2;
@@ -90,7 +90,7 @@ void Panner::init(double pan)
     mLL = std::min(2.0 - pan, 1.0);
     mRL = std::max(1.0 - pan, 0.0);
     scale(c, mLL, mRL);
-   
+    
     mLR = std::max(pan - 1.0, 0.0);
     mRR = std::min(pan, 1.0);
     scale(s, mLR, mRR);
@@ -176,7 +176,7 @@ void StereoBuffer::clear()
     
     std::fill_n(mBuffers[0].data(), 8820, 0.0);
     std::fill_n(mBuffers[0].data(), 8820, 0.0);
-
+    
 }
 
 void StereoBuffer::save(IByteChunk &storage) const
@@ -192,7 +192,7 @@ int StereoBuffer::recall(const IByteChunk &storage, int pos)
     
     pos = mBuffers[0].recall(storage, pos);
     pos = mBuffers[1].recall(storage, pos);
-
+    
     return pos;
 }
 
@@ -256,7 +256,7 @@ int Grain::process(double* outputL, double* outputR, double* tempVector, int max
         
         return numSamps;
     }
-
+    
     // Construct offset vector
     
     for (int i = 0; i < numSamps; i++)
@@ -385,7 +385,7 @@ void Granular::initGrain(Grain& grain, bool forceSilent, double sampleRate)
     }
     
     setActive(grain);
-
+    
     const double offsetLo = mOffset.mLo * mBuffer.getDuration();
     const double offsetHi = offsetLo + mOffset.mHi;
     
@@ -413,7 +413,7 @@ void Granular::initGrain(Grain& grain, bool forceSilent, double sampleRate)
     const double res = sqrt(resParam);
     
     Window* window = &mHannWindow;
-
+    
     switch (mWindowType)
     {
         case Window::kHann:         window = &mHannWindow;      break;
@@ -483,15 +483,15 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
             }
         }
         break;
-        
+            
         case kCloud:
         {
             int samps = numSamps;
-
+            
             while (samps)
             {
                 int loopSize = std::min(samps, int(round(mCloudTillNext)));
-
+                
                 for (auto it = mActiveList.begin(); it != mActiveList.end(); )
                 {
                     Grain& grain= **it++;
@@ -527,3 +527,4 @@ int Granular::recall(const IByteChunk& chunk, int pos)
 {
     return mBuffer.recall(chunk, pos);
 }
+

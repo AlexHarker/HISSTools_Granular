@@ -6,4 +6,3 @@
 #undef IGRAPHICS_LICE
 #endif
 #endif
-

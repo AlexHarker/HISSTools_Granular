@@ -11,11 +11,11 @@ void Waveform::Draw(IGraphics& graphics)
     float WR = mRECT.W() / mData.size();
     float MH = mRECT.MH();
     float HH = (mRECT.H() / 2.0) * 0.9;
-        
+    
     HISSTools_Color_Spec bgcolor(HISSTools_Color(0.8, 0.8, 0.8, 1.0));
     HISSTools_Color_Spec fgcolor(HISSTools_Color(0.1, 0.1, 0.1, 1.0));
     HISSTools_Color_Spec hlcolor(HISSTools_Color(0.8, 0.8, 0.8, 0.8));
-
+    
     //HISSTools_Color_Spec bgcolor(HISSTools_Color(0.1, 0.1, 0.1, 1.0));
     //HISSTools_Color_Spec fgcolor(HISSTools_Color(0.9, 0.9, 0.9, 1.0));
     //HISSTools_Color_Spec hlcolor(HISSTools_Color(0.6, 0.6, 0.6, 0.8));
@@ -32,12 +32,12 @@ void Waveform::Draw(IGraphics& graphics)
         vecDraw.startGroup(mRECT);
         vecDraw.setColor(&fgcolor);
         vecDraw.startMultiLine(mRECT.L, mRECT.MH(), 0.5);
-    
+        
         for (int i = 0; i < mData.size(); i++)
         {
             float span = mData[i] * HH;
             float x = i * WR + mRECT.L;
-        
+            
             vecDraw.continueMultiLine(x, MH + span);
             vecDraw.continueMultiLine(x, MH - span);
         }
@@ -51,14 +51,14 @@ void Waveform::Draw(IGraphics& graphics)
         float width = std::max(1.0, (mSelectR - mSelectL) * mRECT.W());
         
         vecDraw.renderGroup(mCache);
-    
+        
         // Selection fill
-    
+        
         vecDraw.setColor(&hlcolor);
         vecDraw.fillRect(mRECT.L + mSelectL * mRECT.W(), mRECT.T, width,  mRECT.H());
     }
 }
-    
+
 void Waveform::Set(const float *data, int dataSize)
 {
     double pos = 0.0;
@@ -99,7 +99,7 @@ void Waveform::OnMouseDown(float x, float y, const IMouseMod& mod)
     
     mClickedX = x;
     mClickedY = y;
-
+    
     OnMouseDrag(x, y, 0, 0, mod);
 }
 
@@ -122,3 +122,4 @@ void Waveform::OnMouseDrag(float x, float y, float dX, float dY, const IMouseMod
         mPlug->SelectFromGUI(ref1, ref2);
     }
 }
+

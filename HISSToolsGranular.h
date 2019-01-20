@@ -56,7 +56,7 @@ enum ELayout
   kCol3X = kCol2X + kColW,
   kCol4X = kCol3X + kColW,
   kCol5X = kCol4X + kColW,
-
+  
   kRow1Y = 275,
   kRow2Y = kRow1Y + 150,
   kRow3Y = kRow2Y + 140,
@@ -71,7 +71,7 @@ enum ELayout
   
   kValueWL = 120,
   kValueHL = 25,
-
+  
   kActiveW = 160,
   
   kYSGapping = 20,
@@ -122,7 +122,7 @@ public:
   
   bool SerializeState(IByteChunk& chunk) const override;
   int UnserializeState(const IByteChunk& chunk, int pos) override;
-
+  
   void SelectFromGUI(double click, double drag);
   void SelectFile(const char *file);
   
@@ -133,7 +133,7 @@ private:
   
   void AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options);
   void AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions = "");
-
+  
   IGraphics* CreateGraphics() override;
   void LayoutUI(IGraphics* pGraphics) override;
   
@@ -142,3 +142,4 @@ private:
   Waveform* mWaveformR;
   Granular mGranular;
 };
+

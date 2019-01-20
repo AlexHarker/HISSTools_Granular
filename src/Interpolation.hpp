@@ -81,3 +81,4 @@ template <class T> struct cubic_bspline_interp
 };
 
 #endif /* Interpolation_h */
+

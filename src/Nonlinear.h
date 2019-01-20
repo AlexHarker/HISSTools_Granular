@@ -46,3 +46,4 @@ template <typename T> inline T polySaturate(const T& x)
     return clip(y, -1.0, 1.0);
 }
 #endif /* SallenAndKey_h */
+

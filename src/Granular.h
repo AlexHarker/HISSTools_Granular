@@ -76,7 +76,7 @@ class Window : private Buffer<double>
     const static int sLength = 4096;
     
 public:
- 
+    
     enum Type { kHann, kTriangle, kCosine, kKaiser, kTukey };
     
     Window() { set(kHann); }
@@ -98,7 +98,7 @@ public:
     void load(const char *path);
     void read(double* output, double *positions, int numSamps, int chan);
     void clear();
-
+    
     int getLength() const           { return mBuffers[0].getSize(); }
     double getDuration() const      { return getLength() / mSampleRate; }
     double getSampleRate() const    { return mSampleRate; }
@@ -108,7 +108,7 @@ public:
     
     void save(IByteChunk &storage) const;
     int recall(const IByteChunk &storage, int pos);
-
+    
 private:
     
     double mSampleRate;
@@ -141,7 +141,7 @@ public:
               double samplingRate);
     
     int process(double* outputL, double* outputR, double* tempVector, int maxSamps);
-        
+    
 private:
     
     StereoBuffer *mBuffer;
@@ -159,7 +159,7 @@ private:
     double mOffsetIncr;
     double mOffsetIncrMul;
     double mOffset;
-        
+    
     double mAmp;
 };
 
@@ -207,16 +207,16 @@ public:
     {
         mBuffer.load(path);
     }
-
+    
     const float* getBufferL()   { return mBuffer.getL(); }
     const float* getBufferR()   { return mBuffer.getR(); }
- 
+    
     double getBufferLength() { return mBuffer.getLength(); }
     double getBufferDuration() { return mBuffer.getDuration(); }
     
     bool save(IByteChunk& chunk) const;
     int recall(const IByteChunk& chunk, int pos);
-
+    
     void reset(double sampleRate);
     void processBlock(double* outputL, double* outputR, int numSamps, double sampleRate);
     
@@ -225,7 +225,7 @@ private:
     double chooseDuration();
     void silentGrain(Grain& grain, double lengthMul, double sampleRate);
     void initGrain(Grain& grain, bool forceSilent, double sampleRate);
- 
+    
     double dbToA(double dB)
     {
         return exp(0.11512925464970 * dB);
@@ -247,7 +247,7 @@ private:
         
         return pow(speedMul, 1.0 / sampleRate);
     }
-
+    
     double calcPhaseIncr(double duration, double sampleRate)
     {
         return 1.0 / (sampleRate * duration);
@@ -262,11 +262,11 @@ private:
     {
         return mGen.randDouble(bounds.mLo, bounds.mHi);
     }
-
+    
     void setActive(Grain& grain);
     void setFree(Grain& grain);
     int processGrain(Grain& grain, double* outputL, double* outputR, int samps);
-
+    
     GranMode mMode;
     
     double mCloudTillNext;
@@ -309,3 +309,4 @@ private:
 };
 
 #endif /* GRAIN_H */
+

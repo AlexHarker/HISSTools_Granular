@@ -29,7 +29,7 @@ public:
     double randDouble();
     double randDouble(double n);
     double randDouble(double lo, double hi);
-
+    
     // Generate a 32 bit Random Double of Gaussian Distribution with given Mean / Deviation
     
     double randGaussian(double mean, double dev);
@@ -39,19 +39,20 @@ private:
     // Methods Specific to the RNG Algorithm
     
     // Basic Generator
-
+    
     inline uint32_t CMWC();
     
     // Seeding (specific / OS-specific random values)
     
-    void initSeedCMWC(uint32_t *init);    
+    void initSeedCMWC(uint32_t *init);
     void randSeedCMWC();
     
     // State
     
     uint32_t mIncrement;
-	uint32_t mCarry;
-	uint32_t mSTATE[CMWC_LAG_SIZE];
+    uint32_t mCarry;
+    uint32_t mSTATE[CMWC_LAG_SIZE];
 };
 
 #endif
+
