@@ -144,21 +144,21 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kMode)->SetDisplayText(0, "Streams");
   GetParam(kMode)->SetDisplayText(1, "Clouds");
   
-  GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kDensity)->InitDouble("Density", 100.0, 0.0, 100.0, 0.1, "%", 0, "", IParam::ShapePowCurve(2.0));
   
   GetParam(kMaxVoices)->InitInt("Max Voices", 50, 1, 100);
   
-  GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
-  GetParam(kRateRand)->InitDouble("Rand Rate", 10.0, 0.0, 4000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kRate)->InitDouble("Rate", 10.0, 0.1, 2000.0, 0.1, "ms", 0, "", IParam::ShapePowCurve(2.0));
+  GetParam(kRateRand)->InitDouble("Rand Rate", 10.0, 0.0, 4000.0, 0.1, "ms", 0, "", IParam::ShapePowCurve(2.0));
   
   GetParam(kOffset)->InitDouble("Offset", 0.0, 0.0, 100.0, 0.1, "%");
-  GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kOffsetRand)->InitDouble("Rand Offset", 200.0, 0.0, 10000.0, 0.1, "ms", 0, "", IParam::ShapePowCurve(2.0));
   
-  GetParam(kDuration)->InitDouble("Duration", 100.0, 0.1, 5000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
-  GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kDuration)->InitDouble("Duration", 100.0, 0.1, 5000.0, 0.1, "ms", 0, "", IParam::ShapePowCurve(2.0));
+  GetParam(kDurationRand)->InitDouble("Rand Dur", 20.0, 0.0, 4000.0, 0.1, "ms", 0, "", IParam::ShapePowCurve(2.0));
   
   GetParam(kPitch)->InitDouble("Pitch", 0.0, -36.0, 36.0, 0.01, "st");
-  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kPitchRand)->InitDouble("Rand Pitch", 0.0, 0.0, 48.0, 0.01, "st", 0, "", IParam::ShapePowCurve(2.0));
   
   GetParam(kGliss)->InitDouble("Gliss Speed", 0.0, -36.0, 36, 0.01, "st/s");
   GetParam(kGlissRand)->InitDouble("Rand Gliss", 0.0, 0.0, 36.0, 0.01, "st/s");
@@ -196,7 +196,7 @@ HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
   GetParam(kFilterType)->SetDisplayText(2, "HPF");
   GetParam(kFilterType)->SetDisplayText(3, "BPF");
   
-  GetParam(kFilterFreq)->InitDouble("Filter Freq", 500.0, 20.0, 16000.0, 0.1, "Hz", 0, "", new IParam::ShapePowCurve(2.0));
+  GetParam(kFilterFreq)->InitDouble("Filter Freq", 500.0, 20.0, 16000.0, 0.1, "Hz", 0, "", IParam::ShapeExp());
   GetParam(kFilterFreqRand)->InitDouble("Rand Freq", 48.0, 0.0, 48.0, 0.1, "st");
   
   GetParam(kFilterResonance)->InitDouble("Filter Reson", 50.0, 0.0, 100.0, 0.1, "%");
@@ -292,7 +292,6 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     // Finalise Graphics
     
     pGraphics->HandleMouseOver(true);
-    //pGraphics->ShowAreaDrawn(true);
     //pGraphics->SetStrictDrawing(false);
   }
 }
