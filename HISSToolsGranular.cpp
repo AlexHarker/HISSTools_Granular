@@ -51,7 +51,7 @@ public:
     addShadow("TextBlock", "name", shadowSpec);
     
     HISSTools_Color_Spec *textColor = new HISSTools_Color_Spec(0.9, 0.9, 0.9, 0.80);
-    HISSTools_Text *nameTxt = new HISSTools_Text(42, "Arial Bold", HISSTools_Text::kStyleBold);
+    HISSTools_Text *nameTxt = new HISSTools_Text(42, "Arial Bold");
     
     addColorSpec("TextBlock", "name", textColor);
     addTextStyle("TextBlock", "name", nameTxt);
@@ -223,7 +223,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
 {
   if (!pGraphics->NControls())
   {
-    pGraphics->LoadFont("Arial Bold", "Arial", IText::kStyleBold);
+    pGraphics->LoadFont("Arial Bold", "Arial", kTextStyleBold);
     pGraphics->AttachPanelBackground(COLOR_GRAY);
     
     // Controls
