@@ -263,6 +263,13 @@
 		4FFBB93020863B0E00DDD0E7 /* fbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158C1205D50EB00393585 /* fbuffer.cpp */; };
 		4FFBB93420863B0E00DDD0E7 /* coreiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158E0205D50EB00393585 /* coreiids.cpp */; };
 		4FFBB93520863B0E00DDD0E7 /* vstnoteexpressiontypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F81588E205D50EB00393585 /* vstnoteexpressiontypes.cpp */; };
+		B80C76702235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76712235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76722235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76732235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76742235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76752235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
+		B80C76762235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */ = {isa = PBXBuildFile; fileRef = B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */; };
 		B81BF0A121F3A4C7002C1DA6 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF08F21F3A4C7002C1DA6 /* BaseAudioFile.cpp */; };
 		B81BF0A221F3A4C7002C1DA6 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF08F21F3A4C7002C1DA6 /* BaseAudioFile.cpp */; };
 		B81BF0A321F3A4C7002C1DA6 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF08F21F3A4C7002C1DA6 /* BaseAudioFile.cpp */; };
@@ -316,6 +323,14 @@
 		B81BF0D321F3A4C7002C1DA6 /* Waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF09E21F3A4C7002C1DA6 /* Waveform.cpp */; };
 		B81BF0D421F3A4C7002C1DA6 /* Waveform.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BF09F21F3A4C7002C1DA6 /* Waveform.h */; };
 		B81BF0D521F3A4C7002C1DA6 /* WindowFunctions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B81BF0A021F3A4C7002C1DA6 /* WindowFunctions.hpp */; };
+		B8F5C9F8228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9F9228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FA228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FB228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FC228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FD228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FE228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
+		B8F5C9FF228825F000BAA6F8 /* IGraphicsCoreText.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F5C9F7228825EF00BAA6F8 /* IGraphicsCoreText.h */; };
 		B8F8E9D621F484B2004392AA /* LICE_For_Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E9D521F484B2004392AA /* LICE_For_Text.cpp */; };
 		B8F8E9D721F484B2004392AA /* LICE_For_Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E9D521F484B2004392AA /* LICE_For_Text.cpp */; };
 		B8F8E9D821F484B2004392AA /* LICE_For_Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E9D521F484B2004392AA /* LICE_For_Text.cpp */; };
@@ -754,6 +769,7 @@
 		4FFBB94120863E9300DDD0E7 /* IPlugVST3_Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Parameter.h; path = ../../../IPlug/VST3/IPlugVST3_Parameter.h; sourceTree = "<group>"; };
 		4FFF72B8214BB71400839091 /* main.rc */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.rc; path = ../resources/main.rc; sourceTree = "<group>"; };
 		52FBBED30D0CF143001C8B8A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../config.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IGraphicsAGG_src.mm; sourceTree = "<group>"; };
 		B81BF08F21F3A4C7002C1DA6 /* BaseAudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAudioFile.cpp; sourceTree = "<group>"; };
 		B81BF09021F3A4C7002C1DA6 /* BaseAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAudioFile.h; sourceTree = "<group>"; };
 		B81BF09121F3A4C7002C1DA6 /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
@@ -801,6 +817,8 @@
 		B81BF0F821F3A588002C1DA6 /* HISSTools_Pointers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Pointers.hpp; sourceTree = "<group>"; };
 		B81BF0F921F3A588002C1DA6 /* HISSTools_ThreadSafety.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_ThreadSafety.hpp; sourceTree = "<group>"; };
 		B81BF0FA21F3A588002C1DA6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IGraphicsCoreText.mm; path = ../../../IGraphics/Platforms/IGraphicsCoreText.mm; sourceTree = "<group>"; };
+		B8F5C9F7228825EF00BAA6F8 /* IGraphicsCoreText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGraphicsCoreText.h; path = ../../../IGraphics/Platforms/IGraphicsCoreText.h; sourceTree = "<group>"; };
 		B8F8E9D521F484B2004392AA /* LICE_For_Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LICE_For_Text.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -980,6 +998,7 @@
 				4F03A55220A4621000EBDFFB /* IGraphicsAGG.cpp */,
 				4F03A55320A4621000EBDFFB /* IGraphicsAGG_src.h */,
 				4F03A54F20A4621000EBDFFB /* IGraphicsAGG_src.cpp */,
+				B80C766E2235D75900B39959 /* IGraphicsAGG_src.mm */,
 				4F03A55020A4621000EBDFFB /* IGraphicsNanoVG.h */,
 				4F03A55420A4621000EBDFFB /* IGraphicsNanoVG.cpp */,
 				4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */,
@@ -1540,6 +1559,8 @@
 				4FB1F58020E4AFEE004157C8 /* IGraphicsIOS.mm */,
 				4FB1F57D20E4AFEE004157C8 /* IGraphicsLinux.cpp */,
 				4FB1F58320E4AFEF004157C8 /* IGraphicsLinux.h */,
+				B8F5C9F7228825EF00BAA6F8 /* IGraphicsCoreText.h */,
+				B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */,
 				4FB1F58820E4AFEF004157C8 /* IGraphicsMac_view.h */,
 				4FB1F58620E4AFEF004157C8 /* IGraphicsMac_view.mm */,
 				4FB1F58720E4AFEF004157C8 /* IGraphicsMac.h */,
@@ -1781,6 +1802,7 @@
 				4F03A5B720A4621100EBDFFB /* IGraphics.h in Headers */,
 				4F03A58320A4621100EBDFFB /* IGraphicsLice_src.h in Headers */,
 				B81BF0AA21F3A4C7002C1DA6 /* Buffer.h in Headers */,
+				B8F5C9FF228825F000BAA6F8 /* IGraphicsCoreText.h in Headers */,
 				B81BF0C921F3A4C7002C1DA6 /* SallenAndKey.h in Headers */,
 				4F03A5D220A4621100EBDFFB /* IGraphicsPopupMenu.h in Headers */,
 				4FC3EFFE2086CE5700BD11FA /* processdata.h in Headers */,
@@ -2219,8 +2241,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FDAC0EB207D76C600299363 /* IPlugTimer.cpp in Sources */,
+				B80C76712235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4F63696E20A463090022C370 /* IControls.cpp in Sources */,
 				4F03A5AD20A4621100EBDFFB /* IGraphics.cpp in Sources */,
+				B8F5C9F9228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
 				4F5F344220C0226200487201 /* IPlugPaths.mm in Sources */,
 				4F6369EC20A466470022C370 /* IControl.cpp in Sources */,
 				B8F8E9D721F484B2004392AA /* LICE_For_Text.cpp in Sources */,
@@ -2259,6 +2283,8 @@
 				4F9A82FC213DE80400BE63A4 /* IPopupMenuControl.cpp in Sources */,
 				4F8C10E520BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
 				4FAEBD31209DAF76002E6392 /* IPlugAUAudioUnit.mm in Sources */,
+				B8F5C9FD228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
+				B80C76752235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4FAEBD3F209DB12E002E6392 /* HISSToolsGranular.cpp in Sources */,
 				4FAEBD36209DAF95002E6392 /* IPlugPluginBase.cpp in Sources */,
 				4FCE29DC21D6ED70004BCBA1 /* ITextEntryControl.cpp in Sources */,
@@ -2290,6 +2316,8 @@
 				4F9A82FA213DE80400BE63A4 /* IPopupMenuControl.cpp in Sources */,
 				4FDAC0ED207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				4F78D94513B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
+				B8F5C9FB228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
+				B80C76732235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4FB1F59320E4B013004157C8 /* IGraphicsMac_view.mm in Sources */,
 				4FD52136202A5BD000A4D22A /* dfx-au-utilities.c in Sources */,
 				4FCE29DA21D6ED70004BCBA1 /* ITextEntryControl.cpp in Sources */,
@@ -2349,12 +2377,14 @@
 				4FB1F59220E4B012004157C8 /* IGraphicsMac_view.mm in Sources */,
 				4F81598D205D51F000393585 /* vstaudioeffect.cpp in Sources */,
 				4F81598C205D51CF00393585 /* vstsinglecomponenteffect.cpp in Sources */,
+				B8F5C9FA228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
 				4F815984205D50EB00393585 /* updatehandler.cpp in Sources */,
 				B8F8E9D821F484B2004392AA /* LICE_For_Text.cpp in Sources */,
 				4F815990205D51F000393585 /* vstcomponent.cpp in Sources */,
 				4F815981205D50EB00393585 /* fstreamer.cpp in Sources */,
 				4F815996205D51F000393585 /* vstrepresentation.cpp in Sources */,
 				4F815985205D50EB00393585 /* fcondition.cpp in Sources */,
+				B80C76722235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4F9A82F9213DE80400BE63A4 /* IPopupMenuControl.cpp in Sources */,
 				4F8C10E220BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
 				4F81597D205D50EB00393585 /* fbuffer.cpp in Sources */,
@@ -2377,9 +2407,11 @@
 				4F6369E120A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */,
 				4F63697120A463090022C370 /* IControls.cpp in Sources */,
 				4FB6001A1567CB0A0020189A /* IPlugAPIBase.cpp in Sources */,
+				B80C76742235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4F6369EF20A466470022C370 /* IControl.cpp in Sources */,
 				4F03A5B020A4621100EBDFFB /* IGraphics.cpp in Sources */,
 				4F35DEB1207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
+				B8F5C9FC228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
 				4F5F344520C0226200487201 /* IPlugPaths.mm in Sources */,
 				4F1A5285205D914A00CF2908 /* IPlugAAX.cpp in Sources */,
 				4F0848292015129A00F9E881 /* IPlugAAX_Parameters.cpp in Sources */,
@@ -2407,8 +2439,10 @@
 				B8F8E9DD21F484B2004392AA /* LICE_For_Text.cpp in Sources */,
 				B81BF0BB21F3A4C7002C1DA6 /* Granular.cpp in Sources */,
 				4F6369F120A466470022C370 /* IControl.cpp in Sources */,
+				B80C76762235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4F8C10E620BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
 				B81BF0B221F3A4C7002C1DA6 /* FrameLib_RandGen.cpp in Sources */,
+				B8F5C9FE228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
 				4FC3EFF92086CE5700BD11FA /* parameterchanges.cpp in Sources */,
 				4FC3EFCE2086C35D00BD11FA /* IPlugPluginBase.cpp in Sources */,
 				4F63697320A463090022C370 /* IControls.cpp in Sources */,
@@ -2435,6 +2469,7 @@
 				4F5C5F6921BED05B00E024A7 /* swellappmain.mm in Sources */,
 				4FD16D3A13B63582001D0217 /* swell-kb.mm in Sources */,
 				4FCE29D721D6ED70004BCBA1 /* ITextEntryControl.cpp in Sources */,
+				B80C76702235D75A00B39959 /* IGraphicsAGG_src.mm in Sources */,
 				4F5F344120C0226200487201 /* IPlugPaths.mm in Sources */,
 				4FD16D3C13B6358C001D0217 /* swell-miscdlg.mm in Sources */,
 				B81BF0CC21F3A4C7002C1DA6 /* Waveform.cpp in Sources */,
@@ -2453,6 +2488,7 @@
 				B81BF0B421F3A4C7002C1DA6 /* Granular.cpp in Sources */,
 				4FAFFE5821495A4800A6E72D /* RtAudio.cpp in Sources */,
 				4F690C9B203A345100A4A13E /* IPlugAPP_main.cpp in Sources */,
+				B8F5C9F8228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */,
 				4F63696D20A463090022C370 /* IControls.cpp in Sources */,
 				4FB1F58920E4B004004157C8 /* IGraphicsMac.mm in Sources */,
 				4F3862EF2014BBEC0009F402 /* HISSToolsGranular.cpp in Sources */,
