@@ -223,7 +223,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
 {
   if (!pGraphics->NControls())
   {
-    pGraphics->LoadFont("Arial Bold", "Arial", kTextStyleBold);
+    pGraphics->LoadFont("Arial Bold", "Arial", ETextStyle::Bold);
     pGraphics->AttachPanelBackground(COLOR_GRAY);
     
     // Controls
@@ -256,7 +256,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     AddDualControl(pGraphics, kRateActiveX, kRateY, kRate, kRateRand, "7");
     pGraphics->AttachControl(new HISSTools_Button(kActive, kRateActiveX, kBeneathWavefromY, kActiveW, kValueH, "alt tight spacious", &designScheme));
     
-    pGraphics->AttachControl(new HISSTools_GFileSelector(this, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::kFileOpen, "", "aif aiff wav", "tight", &designScheme));
+    pGraphics->AttachControl(new HISSTools_GFileSelector(this, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::Open, "", "aif aiff wav", "tight", &designScheme));
     pGraphics->AttachControl(mWaveformL);
     pGraphics->AttachControl(mWaveformR);
     
