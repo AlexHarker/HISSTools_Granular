@@ -113,6 +113,7 @@
 		91236D6B1B08F52E00734C5E /* HISSToolsGranularFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 91236D551B08F52D00734C5E /* HISSToolsGranularFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91236D811B08F59300734C5E /* HISSToolsGranularAppExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 91236D771B08F59300734C5E /* HISSToolsGranularAppExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		91E715C41B0AABAB00BD598C /* HISSToolsGranularFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91236D551B08F52D00734C5E /* HISSToolsGranularFramework.framework */; };
+		B8D08311231DA7C600913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF103420A0E55900D3092F /* IPlugProcessor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -954,6 +955,7 @@
 				4FFF106C20A0E58600D3092F /* IPlugPluginBase.cpp in Sources */,
 				4FFF108C20A1036200D3092F /* HISSToolsGranular.cpp in Sources */,
 				4FFF104B20A0E55A00D3092F /* IPlugAPIBase.cpp in Sources */,
+				B8D08311231DA7C600913E5B /* IPlugProcessor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

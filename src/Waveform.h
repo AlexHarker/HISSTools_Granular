@@ -9,6 +9,9 @@
 
 class HISSToolsGranular;
 
+BEGIN_IPLUG_NAMESPACE
+BEGIN_IGRAPHICS_NAMESPACE
+
 class Waveform : public IControl
 {
     
@@ -45,6 +48,9 @@ private:
     bool mEditDrag;
     ILayerPtr mCache;
 };
+
+END_IGRAPHICS_NAMESPACE
+END_IPLUG_NAMESPACE
 
 #endif
 

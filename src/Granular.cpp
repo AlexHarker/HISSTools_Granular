@@ -179,14 +179,14 @@ void StereoBuffer::clear()
     
 }
 
-void StereoBuffer::save(IByteChunk &storage) const
+void StereoBuffer::save(iplug::IByteChunk &storage) const
 {
     storage.Put(&mSampleRate);
     mBuffers[0].save(storage);
     mBuffers[1].save(storage);
 }
 
-int StereoBuffer::recall(const IByteChunk &storage, int pos)
+int StereoBuffer::recall(const iplug::IByteChunk &storage, int pos)
 {
     pos = storage.Get(&mSampleRate, pos);
     
@@ -517,13 +517,13 @@ void Granular::processBlock(double* outputL, double* outputR, int numSamps, doub
     }
 }
 
-bool Granular::save(IByteChunk& chunk) const
+bool Granular::save(iplug::IByteChunk& chunk) const
 {
     mBuffer.save(chunk);
     return true;
 }
 
-int Granular::recall(const IByteChunk& chunk, int pos)
+int Granular::recall(const iplug::IByteChunk& chunk, int pos)
 {
     return mBuffer.recall(chunk, pos);
 }

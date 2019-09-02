@@ -50,13 +50,13 @@ public:
     
     int getSize() const { return mSize; }
     
-    void save(IByteChunk &storage) const
+    void save(iplug::IByteChunk &storage) const
     {
         storage.Put(&mSize);
         storage.PutBytes(data(), mSize * sizeof(float));
     }
     
-    int recall(const IByteChunk &storage, int pos)
+    int recall(const iplug::IByteChunk &storage, int pos)
     {
         int size;
         

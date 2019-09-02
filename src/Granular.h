@@ -106,8 +106,8 @@ public:
     const float *getL() const       { return mBuffers[0].data(); }
     const float *getR() const       { return mBuffers[1].data(); }
     
-    void save(IByteChunk &storage) const;
-    int recall(const IByteChunk &storage, int pos);
+    void save(iplug::IByteChunk &storage) const;
+    int recall(const iplug::IByteChunk &storage, int pos);
     
 private:
     
@@ -214,8 +214,8 @@ public:
     double getBufferLength() { return mBuffer.getLength(); }
     double getBufferDuration() { return mBuffer.getDuration(); }
     
-    bool save(IByteChunk& chunk) const;
-    int recall(const IByteChunk& chunk, int pos);
+    bool save(iplug::IByteChunk& chunk) const;
+    int recall(const iplug::IByteChunk& chunk, int pos);
     
     void reset(double sampleRate);
     void processBlock(double* outputL, double* outputR, int numSamps, double sampleRate);

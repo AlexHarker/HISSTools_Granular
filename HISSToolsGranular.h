@@ -110,10 +110,13 @@ enum ELayout
   kPanel3H = kWaveformH * 2,
 };
 
-class HISSToolsGranular : public IPlug
+using namespace iplug;
+using namespace igraphics;
+
+class HISSToolsGranular : public Plugin
 {
 public:
-  HISSToolsGranular(IPlugInstanceInfo instanceInfo);
+  HISSToolsGranular(const InstanceInfo &info);
   ~HISSToolsGranular();
   void OnReset() override;
   void OnParamChange(int paramIdx, EParamSource source, int sampleOffset) override;

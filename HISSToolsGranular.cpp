@@ -131,8 +131,8 @@ void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, dou
   graphics->AttachControl(new HISSTools_Dial(idxRand, x + kSmallDialXOffset, y + kSmallDialYOffset, var.Get(), &designScheme));
 }
 
-HISSToolsGranular::HISSToolsGranular(IPlugInstanceInfo instanceInfo)
-: IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mWaveformL(nullptr), mWaveformR(nullptr)
+HISSToolsGranular::HISSToolsGranular(const InstanceInfo &info)
+: Plugin(info, MakeConfig(kNumParams, kNumPrograms)), mWaveformL(nullptr), mWaveformR(nullptr)
 {
   TRACE;
   
