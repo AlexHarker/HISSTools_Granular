@@ -323,7 +323,7 @@ void HISSToolsGranular::GUIUpdateSelection()
 void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
 {
   if (GetUI())
-    GetUI()->GrayOutControl(paramIdx, gray);
+    GetUI()->DisableControl(paramIdx, gray);
 }
 
 void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sampleOffset)
