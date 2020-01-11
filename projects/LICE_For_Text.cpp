@@ -1,5 +1,5 @@
 
-#ifndef USE_IGRAPHICS_TEXT
+#ifdef USE_LICE_TEXT
 #ifndef IGRAPHICS_LICE
 #define IGRAPHICS_LICE
 #include "IGraphicsLice_src.cpp"
