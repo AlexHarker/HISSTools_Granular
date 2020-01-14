@@ -31,7 +31,7 @@
     <ProjectGuid>{079FC65A-F0E5-4E97-B318-A16D1D0B89DF}</ProjectGuid>
     <RootNamespace>HISSToolsGranular</RootNamespace>
     <ProjectName>HISSToolsGranular-vst3</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -103,48 +103,48 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <LinkIncremental>
     </LinkIncremental>
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <LinkIncremental />
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">
-    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">
-    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst3\$(Platform)\$(Configuration)\int\</IntDir>
     <TargetExt>.vst3</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -156,7 +156,6 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\VST3_SDK\base\win\$(Platform)\$(Configuration)\;$(WDL_PATH)\IPlug\$(SolutionDir)build-win\$(Platform)\$(Configuration)\;$(WDL_PATH)\lice\$(SolutionDir)build-win\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -173,7 +172,6 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>$(VST3_SDK)\public.sdk\source\main\winexport.def</ModuleDefinitionFile>
@@ -192,7 +190,6 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -214,7 +211,6 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -234,11 +230,9 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(WDL_PATH)\lice\$(SolutionDir)build-win\$(Platform)\Release\;..\..\VST3_SDK\base\win\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>$(VST3_SDK)\public.sdk\source\main\winexport.def</ModuleDefinitionFile>
     </Link>
@@ -255,7 +249,6 @@
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -304,20 +297,19 @@
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice_src.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.h" />
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.h" />
     <ClInclude Include="..\..\..\IGraphics\IControl.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics.h" />
-    <ClInclude Include="..\..\..\IGraphics\IGraphicsAutoGUI.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsConstants.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsLiveEdit.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsPathBase.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsPopupMenu.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsStructs.h" />
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsPrivate.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsUtilities.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_hdr.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_src.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics_select.h" />
-    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsIOS.h" />
-    <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsIOS_view.h" />
     <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsLinux.h" />
     <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsMac.h" />
     <ClInclude Include="..\..\..\IGraphics\Platforms\IGraphicsMac_view.h" />
@@ -326,10 +318,11 @@
     <ClInclude Include="..\..\..\IPlug\IPlugAPIBase.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugConstants.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugEditorDelegate.h" />
-    <ClInclude Include="..\..\..\IPlug\IGraphicsEditorDelegate.h" />
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsEditorDelegate.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugLogger.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugMidi.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugParameter.h" />
+    <ClInclude Include="..\..\..\IPlug\IPlugPaths.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugPlatform.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugProcessor.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugStructs.h" />
@@ -338,10 +331,15 @@
     <ClInclude Include="..\..\..\IPlug\IPlug_include_in_plug_hdr.h" />
     <ClInclude Include="..\..\..\IPlug\IPlug_include_in_plug_src.h" />
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3.h" />
+    <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_Common.h" />
+    <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_ControllerBase.h" />
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_Parameter.h" />
-    <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_view.h" />
+    <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_ProcessorBase.h" />
+    <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_View.h" />
     <ClInclude Include="..\HISSToolsGranular.h" />
     <ClInclude Include="..\resources\resource.h" />
+    <ClInclude Include="..\src\Granular.h" />
+    <ClInclude Include="..\src\Smoothing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\base\source\baseiids.cpp" />
@@ -361,8 +359,9 @@
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\pluginterfaces\base\ustring.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\common\memorystream.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\common\pluginview.cpp" />
+    <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\common\commoniids.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\main\dllmain.cpp" />
-    <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\main\pluginfactoryvst3.cpp" />
+    <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\main\pluginfactory.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\vst\vstaudioeffect.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\vst\vstbus.cpp" />
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\public.sdk\source\vst\vstcomponent.cpp" />
@@ -373,24 +372,60 @@
     <ClCompile Include="..\..\..\IGraphics\Controls\IControls.cpp" />
     <ClCompile Include="..\..\..\IGraphics\Controls\IPopupMenuControl.cpp" />
     <ClCompile Include="..\..\..\IGraphics\Controls\ITextEntryControl.cpp" />
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsAGG.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsCairo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsLice.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\IGraphics\IControl.cpp" />
     <ClCompile Include="..\..\..\IGraphics\IGraphics.cpp" />
     <ClCompile Include="..\..\..\IGraphics\Platforms\IGraphicsWin.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugAPIBase.cpp" />
     <ClCompile Include="..\..\..\IGraphics\IGraphicsEditorDelegate.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugParameter.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugPaths.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugPluginBase.cpp" />
-    <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3.cpp" />
+    <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
+    <ClCompile Include="..\src\Granular.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
@@ -399,7 +434,9 @@
     <None Include="..\config\HISSToolsGranular-ios.xcconfig" />
     <None Include="..\config\HISSToolsGranular-mac.xcconfig" />
     <None Include="..\config\HISSToolsGranular-web.mk" />
-    <None Include="..\config\HISSToolsGranular-win.props" />
+    <None Include="..\config\HISSToolsGranular-win.props">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

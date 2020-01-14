@@ -31,7 +31,7 @@
     <ProjectGuid>{2EB4846A-93E0-43A0-821E-12237105168F}</ProjectGuid>
     <RootNamespace>HISSToolsGranular</RootNamespace>
     <ProjectName>HISSToolsGranular-vst2</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -103,43 +103,49 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
     <LinkIncremental>
     </LinkIncremental>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
     <LinkIncremental />
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">
-    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\bin\</OutDir>
+    <OutDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">
-    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build-win\vst2\$(Platform)\$(Configuration)\int\</IntDir>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,7 +156,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent />
@@ -164,7 +169,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent />
@@ -184,7 +188,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -203,7 +206,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -221,7 +223,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -239,7 +240,6 @@
       <AdditionalIncludeDirectories>$(VST2_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
@@ -264,6 +264,7 @@
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice_src.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.h" />
+    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.h" />
     <ClInclude Include="..\..\..\IGraphics\IControl.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsConstants.h" />
@@ -272,6 +273,7 @@
     <ClInclude Include="..\..\..\IGraphics\IGraphicsPathBase.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsPopupMenu.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsStructs.h" />
+    <ClInclude Include="..\..\..\IGraphics\IGraphicsPrivate.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphicsUtilities.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_hdr.h" />
     <ClInclude Include="..\..\..\IGraphics\IGraphics_include_in_plug_src.h" />
@@ -286,6 +288,7 @@
     <ClInclude Include="..\..\..\IPlug\IPlugEditorDelegate.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugLogger.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugMidi.h" />
+    <ClInclude Include="..\..\..\IPlug\IPlugPaths.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugPlatform.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugParameter.h" />
     <ClInclude Include="..\..\..\IPlug\IPlugProcessor.h" />
@@ -297,6 +300,8 @@
     <ClInclude Include="..\..\..\IPlug\VST2\IPlugVST2.h" />
     <ClInclude Include="..\HISSToolsGranular.h" />
     <ClInclude Include="..\resources\resource.h" />
+    <ClInclude Include="..\src\Granular.h" />
+    <ClInclude Include="..\src\Smoothing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\IGraphics\Controls\IControls.cpp" />
@@ -350,14 +355,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\IGraphics\IControl.cpp" />
-    <ClCompile Include="..\..\..\IGraphics\IGraphics.cpp" />
-    <ClCompile Include="..\..\..\IGraphics\IGraphicsEditorDelegate.cpp" />
-    <ClCompile Include="..\..\..\IGraphics\Platforms\IGraphicsWin.cpp" />
-    <ClCompile Include="..\..\..\IPlug\IPlugAPIBase.cpp" />
-    <ClCompile Include="..\..\..\IPlug\IPlugParameter.cpp" />
-    <ClCompile Include="..\..\..\IPlug\IPlugPluginBase.cpp" />
-    <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp">
+    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -365,9 +363,19 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\IGraphics\IControl.cpp" />
+    <ClCompile Include="..\..\..\IGraphics\IGraphics.cpp" />
+    <ClCompile Include="..\..\..\IGraphics\IGraphicsEditorDelegate.cpp" />
+    <ClCompile Include="..\..\..\IGraphics\Platforms\IGraphicsWin.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugAPIBase.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugParameter.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugPaths.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugPluginBase.cpp" />
+    <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\..\..\IPlug\VST2\IPlugVST2.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
+    <ClCompile Include="..\src\Granular.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
