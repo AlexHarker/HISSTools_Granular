@@ -65,6 +65,21 @@
     <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.cpp">
       <Filter>IGraphics\Drawing</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\IAudioFile.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Waveform.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BaseAudioFile.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FrameLib_RandGen.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Granular.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../config.h" />
@@ -222,6 +237,45 @@
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.h">
       <Filter>IGraphics\Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\IAudioFile.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interpolation.hpp">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\List.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Nonlinear.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SallenAndKey.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SIMDSupport.hpp">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TableReader.hpp">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Waveform.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\WindowFunctions.hpp">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BaseAudioFile.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Buffer.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FrameLib_RandGen.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Granular.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="IPlug">
@@ -247,6 +301,9 @@
     </Filter>
     <Filter Include="config">
       <UniqueIdentifier>{8c338368-7512-426b-af83-0f50719ca0bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DSP">
+      <UniqueIdentifier>{781180e6-da58-41db-8a01-990491537433}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

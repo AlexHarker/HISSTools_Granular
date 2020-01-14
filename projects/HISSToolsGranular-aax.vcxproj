@@ -450,7 +450,11 @@
     <ClCompile Include="..\..\..\IPlug\IPlugProcessor.cpp" />
     <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
+    <ClCompile Include="..\src\BaseAudioFile.cpp" />
+    <ClCompile Include="..\src\FrameLib_RandGen.cpp" />
     <ClCompile Include="..\src\Granular.cpp" />
+    <ClCompile Include="..\src\IAudioFile.cpp" />
+    <ClCompile Include="..\src\Waveform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuildStep Include="..\..\AAX_SDK\Libs\Release\AAXLibrary.lib">
@@ -538,8 +542,19 @@
     <ClInclude Include="..\config.h" />
     <ClInclude Include="..\HISSToolsGranular.h" />
     <ClInclude Include="..\resources\resource.h" />
+    <ClInclude Include="..\src\BaseAudioFile.h" />
+    <ClInclude Include="..\src\Buffer.h" />
+    <ClInclude Include="..\src\FrameLib_RandGen.h" />
     <ClInclude Include="..\src\Granular.h" />
-    <ClInclude Include="..\src\Smoothing.h" />
+    <ClInclude Include="..\src\IAudioFile.h" />
+    <ClInclude Include="..\src\Interpolation.hpp" />
+    <ClInclude Include="..\src\List.h" />
+    <ClInclude Include="..\src\Nonlinear.h" />
+    <ClInclude Include="..\src\SallenAndKey.h" />
+    <ClInclude Include="..\src\SIMDSupport.hpp" />
+    <ClInclude Include="..\src\TableReader.hpp" />
+    <ClInclude Include="..\src\Waveform.h" />
+    <ClInclude Include="..\src\WindowFunctions.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
