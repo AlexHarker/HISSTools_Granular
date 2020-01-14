@@ -52,6 +52,5 @@ const int PLUG_TYPE_IDS_AS[2] = {'EFA1', 'EFA2'}; // AudioSuite
 #define APP_ENABLE_ACTIVE_SENSING 0
 #define APP_NUM_CHANNELS 2
 #define APP_N_VECTOR_WAIT 50
-#define APP_MULT 0.25
-//#define KNOB_FN "resources/img/knob.png"
+#define APP_MULT 1.0
 

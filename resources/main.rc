@@ -175,7 +175,6 @@ IDI_ICON1               ICON                    "HISSToolsGranular.ico"
 // Generated from the TEXTINCLUDE 3 resource.
 //
 #include "..\config.h"
-ROBOTTO_FN TTF ROBOTTO_FN
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 
