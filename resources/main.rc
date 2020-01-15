@@ -149,7 +149,6 @@ END
 3 TEXTINCLUDE 
 BEGIN
     "#include ""..\\config.h""\r\n"
-    "ROBOTTO_FN TTF ROBOTTO_FN\0"
 END
 
 #endif    // APSTUDIO_INVOKED
