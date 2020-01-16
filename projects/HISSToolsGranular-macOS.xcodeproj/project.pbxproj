@@ -87,9 +87,9 @@
 		4F63697220A463090022C370 /* IControls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F63695920A463090022C370 /* IControls.cpp */; };
 		4F63697320A463090022C370 /* IControls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F63695920A463090022C370 /* IControls.cpp */; };
 		4F6369DD20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4F6369DE20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; };
-		4F6369DF20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; };
-		4F6369E020A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; };
+		4F6369DE20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4F6369DF20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4F6369E020A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4F6369E120A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; };
 		4F6369E220A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		4F6369E320A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6369DC20A464BB0022C370 /* IGraphicsNanoVG_src.m */; };
@@ -113,7 +113,6 @@
 		4F815919205D50EB00393585 /* memorystream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8157E0205D50EA00393585 /* memorystream.cpp */; };
 		4F81591A205D50EB00393585 /* pluginview.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8157E2205D50EA00393585 /* pluginview.cpp */; };
 		4F81591E205D50EB00393585 /* macmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8157E8205D50EA00393585 /* macmain.cpp */; };
-		4F81591F205D50EB00393585 /* pluginfactoryvst3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8157E9205D50EA00393585 /* pluginfactoryvst3.cpp */; };
 		4F815973205D50EB00393585 /* vstinitiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F81588D205D50EB00393585 /* vstinitiids.cpp */; };
 		4F81597C205D50EB00393585 /* baseiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158BF205D50EB00393585 /* baseiids.cpp */; };
 		4F81597D205D50EB00393585 /* fbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158C1205D50EB00393585 /* fbuffer.cpp */; };
@@ -330,6 +329,9 @@
 		B8D0830E231DA7A400913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8D0830F231DA7AE00913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8D08310231DA7B300913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
+		B8F3700A23D11B4000291018 /* pluginfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700923D11B3E00291018 /* pluginfactory.cpp */; };
+		B8F3700C23D11B5700291018 /* commoniids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700B23D11B5700291018 /* commoniids.cpp */; };
+		B8F3701023D11B7800291018 /* IPlugVST3_ProcessorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700E23D11B7500291018 /* IPlugVST3_ProcessorBase.cpp */; };
 		B8F5C9F8228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
 		B8F5C9F9228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
 		B8F5C9FA228825F000BAA6F8 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */; };
@@ -824,6 +826,11 @@
 		B81BF0F821F3A588002C1DA6 /* HISSTools_Pointers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Pointers.hpp; sourceTree = "<group>"; };
 		B81BF0F921F3A588002C1DA6 /* HISSTools_ThreadSafety.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_ThreadSafety.hpp; sourceTree = "<group>"; };
 		B81BF0FA21F3A588002C1DA6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		B8F3700923D11B3E00291018 /* pluginfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pluginfactory.cpp; path = ../../../Dependencies/IPlug/VST3_SDK/public.sdk/source/main/pluginfactory.cpp; sourceTree = "<group>"; };
+		B8F3700B23D11B5700291018 /* commoniids.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = commoniids.cpp; path = ../../../Dependencies/IPlug/VST3_SDK/public.sdk/source/common/commoniids.cpp; sourceTree = "<group>"; };
+		B8F3700D23D11B7500291018 /* IPlugVST3_ControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ControllerBase.h; path = ../../../IPlug/VST3/IPlugVST3_ControllerBase.h; sourceTree = "<group>"; };
+		B8F3700E23D11B7500291018 /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../../IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; };
+		B8F3700F23D11B7500291018 /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../../IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; };
 		B8F5C9F5228825EF00BAA6F8 /* IGraphicsCoreText.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IGraphicsCoreText.mm; path = ../../../IGraphics/Platforms/IGraphicsCoreText.mm; sourceTree = "<group>"; };
 		B8F5C9F7228825EF00BAA6F8 /* IGraphicsCoreText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGraphicsCoreText.h; path = ../../../IGraphics/Platforms/IGraphicsCoreText.h; sourceTree = "<group>"; };
 		B8F8E9D521F484B2004392AA /* LICE_For_Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LICE_For_Text.cpp; sourceTree = "<group>"; };
@@ -894,6 +901,8 @@
 		089C166AFE841209C02AAC07 /* IPlugExample */ = {
 			isa = PBXGroup;
 			children = (
+				B8F3700B23D11B5700291018 /* commoniids.cpp */,
+				B8F3700923D11B3E00291018 /* pluginfactory.cpp */,
 				B81BF0D621F3A588002C1DA6 /* HISSTools_PluginLib */,
 				B81BF08E21F3A4C6002C1DA6 /* src */,
 				52FBBED30D0CF143001C8B8A /* config.h */,
@@ -1086,6 +1095,9 @@
 				4FFBB8F320863B0900DDD0E7 /* IPlugVST3_Controller.h */,
 				4FFBB8F520863B0900DDD0E7 /* IPlugVST3_Processor.cpp */,
 				4FFBB8F420863B0900DDD0E7 /* IPlugVST3_Processor.h */,
+				B8F3700D23D11B7500291018 /* IPlugVST3_ControllerBase.h */,
+				B8F3700E23D11B7500291018 /* IPlugVST3_ProcessorBase.cpp */,
+				B8F3700F23D11B7500291018 /* IPlugVST3_ProcessorBase.h */,
 			);
 			name = VST3;
 			sourceTree = "<group>";
@@ -2370,8 +2382,10 @@
 				4FDAC0EC207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				B81BF0CE21F3A4C7002C1DA6 /* Waveform.cpp in Sources */,
 				4F3862F12014BBEC0009F402 /* HISSToolsGranular.cpp in Sources */,
-				4F81591F205D50EB00393585 /* pluginfactoryvst3.cpp in Sources */,
+				B8F3700C23D11B5700291018 /* commoniids.cpp in Sources */,
+				B8F3700A23D11B4000291018 /* pluginfactory.cpp in Sources */,
 				B81BF0B621F3A4C7002C1DA6 /* Granular.cpp in Sources */,
+				B8F3701023D11B7800291018 /* IPlugVST3_ProcessorBase.cpp in Sources */,
 				4F63696F20A463090022C370 /* IControls.cpp in Sources */,
 				4F815973205D50EB00393585 /* vstinitiids.cpp in Sources */,
 				4F81597E205D50EB00393585 /* fdebug.cpp in Sources */,
