@@ -60,7 +60,7 @@ public:
     panelFillCS->addStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
     panelFillCS->addStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
     
-    HISSTools_Color_Spec *shadowCS = new HISSTools_Color_Spec(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
+    HISSTools_Color_Spec shadowCS(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
     HISSTools_Shadow *shadowSpec = new HISSTools_Shadow(shadowCS, 4, 4, 6);
     
     addColorSpec("PanelFill", "upper", panelFillCS);
