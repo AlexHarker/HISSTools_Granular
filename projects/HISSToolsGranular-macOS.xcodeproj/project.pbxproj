@@ -242,7 +242,6 @@
 		4FFBB90520863B0E00DDD0E7 /* baseiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158BF205D50EB00393585 /* baseiids.cpp */; };
 		4FFBB90620863B0E00DDD0E7 /* IPlugTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FDAC0E6207D76C600299363 /* IPlugTimer.cpp */; };
 		4FFBB90720863B0E00DDD0E7 /* HISSToolsGranular.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* HISSToolsGranular.cpp */; };
-		4FFBB90820863B0E00DDD0E7 /* pluginfactoryvst3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8157E9205D50EA00393585 /* pluginfactoryvst3.cpp */; };
 		4FFBB90920863B0E00DDD0E7 /* vstinitiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F81588D205D50EB00393585 /* vstinitiids.cpp */; };
 		4FFBB90A20863B0E00DDD0E7 /* fdebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158C5205D50EB00393585 /* fdebug.cpp */; };
 		4FFBB90C20863B0E00DDD0E7 /* IPlugAPIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F78D8ED13B63BA40032E0F3 /* IPlugAPIBase.cpp */; };
@@ -342,6 +341,7 @@
 		B8D0830E231DA7A400913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8D0830F231DA7AE00913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8D08310231DA7B300913E5B /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
+		B8E42C8523D1F30D00FFE184 /* commoniids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700B23D11B5700291018 /* commoniids.cpp */; };
 		B8F3700A23D11B4000291018 /* pluginfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700923D11B3E00291018 /* pluginfactory.cpp */; };
 		B8F3700C23D11B5700291018 /* commoniids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700B23D11B5700291018 /* commoniids.cpp */; };
 		B8F3701023D11B7800291018 /* IPlugVST3_ProcessorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F3700E23D11B7500291018 /* IPlugVST3_ProcessorBase.cpp */; };
@@ -596,8 +596,6 @@
 		4F8157E3205D50EA00393585 /* pluginview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pluginview.h; sourceTree = "<group>"; };
 		4F8157E7205D50EA00393585 /* macexport.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = macexport.exp; sourceTree = "<group>"; };
 		4F8157E8205D50EA00393585 /* macmain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = macmain.cpp; sourceTree = "<group>"; };
-		4F8157E9205D50EA00393585 /* pluginfactoryvst3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pluginfactoryvst3.cpp; sourceTree = "<group>"; };
-		4F8157EA205D50EA00393585 /* pluginfactoryvst3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pluginfactoryvst3.h; sourceTree = "<group>"; };
 		4F81587E205D50EA00393585 /* vstaudioeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vstaudioeffect.cpp; sourceTree = "<group>"; };
 		4F81587F205D50EA00393585 /* vstaudioeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vstaudioeffect.h; sourceTree = "<group>"; };
 		4F815880205D50EA00393585 /* vstaudioprocessoralgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vstaudioprocessoralgo.h; sourceTree = "<group>"; };
@@ -860,8 +858,8 @@
 		B81BF0F821F3A588002C1DA6 /* HISSTools_Pointers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Pointers.hpp; sourceTree = "<group>"; };
 		B81BF0F921F3A588002C1DA6 /* HISSTools_ThreadSafety.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_ThreadSafety.hpp; sourceTree = "<group>"; };
 		B81BF0FA21F3A588002C1DA6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		B8F3700923D11B3E00291018 /* pluginfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pluginfactory.cpp; path = ../../../Dependencies/IPlug/VST3_SDK/public.sdk/source/main/pluginfactory.cpp; sourceTree = "<group>"; };
-		B8F3700B23D11B5700291018 /* commoniids.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = commoniids.cpp; path = ../../../Dependencies/IPlug/VST3_SDK/public.sdk/source/common/commoniids.cpp; sourceTree = "<group>"; };
+		B8F3700923D11B3E00291018 /* pluginfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pluginfactory.cpp; sourceTree = "<group>"; };
+		B8F3700B23D11B5700291018 /* commoniids.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = commoniids.cpp; sourceTree = "<group>"; };
 		B8F3700D23D11B7500291018 /* IPlugVST3_ControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ControllerBase.h; path = ../../../IPlug/VST3/IPlugVST3_ControllerBase.h; sourceTree = "<group>"; };
 		B8F3700E23D11B7500291018 /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../../IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; };
 		B8F3700F23D11B7500291018 /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../../IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; };
@@ -935,8 +933,6 @@
 		089C166AFE841209C02AAC07 /* IPlugExample */ = {
 			isa = PBXGroup;
 			children = (
-				B8F3700B23D11B5700291018 /* commoniids.cpp */,
-				B8F3700923D11B3E00291018 /* pluginfactory.cpp */,
 				B81BF0D621F3A588002C1DA6 /* HISSTools_PluginLib */,
 				B81BF08E21F3A4C6002C1DA6 /* src */,
 				52FBBED30D0CF143001C8B8A /* config.h */,
@@ -1390,6 +1386,7 @@
 		4F8157DF205D50EA00393585 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				B8F3700B23D11B5700291018 /* commoniids.cpp */,
 				4F8157E0205D50EA00393585 /* memorystream.cpp */,
 				4F8157E1205D50EA00393585 /* memorystream.h */,
 				4F8157E2205D50EA00393585 /* pluginview.cpp */,
@@ -1403,8 +1400,7 @@
 			children = (
 				4F8157E7205D50EA00393585 /* macexport.exp */,
 				4F8157E8205D50EA00393585 /* macmain.cpp */,
-				4F8157E9205D50EA00393585 /* pluginfactoryvst3.cpp */,
-				4F8157EA205D50EA00393585 /* pluginfactoryvst3.h */,
+				B8F3700923D11B3E00291018 /* pluginfactory.cpp */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -2598,7 +2594,6 @@
 				B81BF0D121F3A4C7002C1DA6 /* Waveform.cpp in Sources */,
 				B81BF0B921F3A4C7002C1DA6 /* Granular.cpp in Sources */,
 				4FFBB90720863B0E00DDD0E7 /* HISSToolsGranular.cpp in Sources */,
-				4FFBB90820863B0E00DDD0E7 /* pluginfactoryvst3.cpp in Sources */,
 				4FFBB90920863B0E00DDD0E7 /* vstinitiids.cpp in Sources */,
 				4FFBB90A20863B0E00DDD0E7 /* fdebug.cpp in Sources */,
 				B81BF0B021F3A4C7002C1DA6 /* FrameLib_RandGen.cpp in Sources */,
@@ -2613,6 +2608,7 @@
 				4FFBB91320863B0E00DDD0E7 /* vstpresetfile.cpp in Sources */,
 				4FFBB91520863B0E00DDD0E7 /* timer.cpp in Sources */,
 				4FFBB91720863B0E00DDD0E7 /* funknown.cpp in Sources */,
+				B8E42C8523D1F30D00FFE184 /* commoniids.cpp in Sources */,
 				4FFBB91820863B0E00DDD0E7 /* vstbus.cpp in Sources */,
 				4FFBB91920863B0E00DDD0E7 /* IPlugPluginBase.cpp in Sources */,
 				4FFBB91A20863B0E00DDD0E7 /* macmain.cpp in Sources */,
