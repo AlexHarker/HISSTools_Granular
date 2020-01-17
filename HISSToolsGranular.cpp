@@ -63,6 +63,11 @@ public:
     HISSTools_Color_Spec shadowCS(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
     HISSTools_Shadow *shadowSpec = new HISSTools_Shadow(shadowCS, 4, 4, 6);
     
+    HISSTools_Color_Spec dialTextShadowCS(HISSTools_Color(0.00, 0.00, 0.00, 1.0));
+    HISSTools_Shadow *dialTextShadowSpec = new HISSTools_Shadow(shadowCS, 0, 0, 3);
+    
+    addShadow("DialValue", dialTextShadowSpec);
+
     addColorSpec("PanelFill", "upper", panelFillCS);
     addColorSpec("PanelFill", "main", panelFillCS);
     addColorSpec("PanelFill", "thick", blackCS);
