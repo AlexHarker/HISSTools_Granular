@@ -22,6 +22,19 @@
 			name = All;
 			productName = "AllOSX_32&64_intel";
 		};
+		B8E42C7923D1EC8A00FFE184 /* AllPlugs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "AllPlugs" */;
+			buildPhases = (
+			);
+			dependencies = (
+				B8E42C8023D1EC9300FFE184 /* PBXTargetDependency */,
+				B8E42C8223D1EC9400FFE184 /* PBXTargetDependency */,
+				B8E42C8423D1EC9600FFE184 /* PBXTargetDependency */,
+			);
+			name = AllPlugs;
+			productName = AllPlugs;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -413,6 +426,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4FC3EFC32086C0A600BD11FA;
 			remoteInfo = VST3C;
+		};
+		B8E42C7F23D1EC9300FFE184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F20EEC8132C69FE0030E34C;
+			remoteInfo = VST2;
+		};
+		B8E42C8123D1EC9400FFE184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F9828AA140A9EB700F3FCC1;
+			remoteInfo = VST3;
+		};
+		B8E42C8323D1EC9600FFE184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F3AE17812C0E5E2001FD7A4;
+			remoteInfo = AU;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -2047,6 +2081,11 @@
 					4FFBB8F820863B0E00DDD0E7 = {
 						DevelopmentTeam = 686EDA2T8T;
 					};
+					B8E42C7923D1EC8A00FFE184 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 686EDA2T8T;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "HISSToolsGranular-macOS" */;
@@ -2079,6 +2118,7 @@
 				4FFBB8F820863B0E00DDD0E7 /* VST3P */,
 				4F39075F2013EBA300DDA490 /* AUv3 */,
 				4FC3EFC32086C0A600BD11FA /* VST3C */,
+				B8E42C7923D1EC8A00FFE184 /* AllPlugs */,
 			);
 		};
 /* End PBXProject section */
@@ -2637,6 +2677,21 @@
 			isa = PBXTargetDependency;
 			target = 4FC3EFC32086C0A600BD11FA /* VST3C */;
 			targetProxy = 4FC3EFD22086C46800BD11FA /* PBXContainerItemProxy */;
+		};
+		B8E42C8023D1EC9300FFE184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F20EEC8132C69FE0030E34C /* VST2 */;
+			targetProxy = B8E42C7F23D1EC9300FFE184 /* PBXContainerItemProxy */;
+		};
+		B8E42C8223D1EC9400FFE184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F9828AA140A9EB700F3FCC1 /* VST3 */;
+			targetProxy = B8E42C8123D1EC9400FFE184 /* PBXContainerItemProxy */;
+		};
+		B8E42C8423D1EC9600FFE184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F3AE17812C0E5E2001FD7A4 /* AU */;
+			targetProxy = B8E42C8323D1EC9600FFE184 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3656,6 +3711,30 @@
 			};
 			name = Tracer;
 		};
+		B8E42C7A23D1EC8A00FFE184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B8E42C7B23D1EC8A00FFE184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B8E42C7C23D1EC8A00FFE184 /* Tracer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Tracer;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3755,6 +3834,16 @@
 				4FFBB93820863B0E00DDD0E7 /* Debug */,
 				4FFBB93920863B0E00DDD0E7 /* Release */,
 				4FFBB93A20863B0E00DDD0E7 /* Tracer */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "AllPlugs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8E42C7A23D1EC8A00FFE184 /* Debug */,
+				B8E42C7B23D1EC8A00FFE184 /* Release */,
+				B8E42C7C23D1EC8A00FFE184 /* Tracer */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
