@@ -68,6 +68,8 @@ public:
     
     addShadow("DialValue", dialTextShadowSpec);
 
+    addDimension("DialValuePromptRatio", "widePrompt", 0.75);
+    
     addColorSpec("PanelFill", "upper", panelFillCS);
     addColorSpec("PanelFill", "main", panelFillCS);
     addColorSpec("PanelFill", "thick", blackCS);
@@ -134,7 +136,7 @@ private:
 void HISSToolsGranular::AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options)
 {
   WDL_String val(options);
-  WDL_String var("small");
+  WDL_String var("small widePrompt");
   
   var.Append(" ");
   var.Append(options);
@@ -146,7 +148,7 @@ void HISSToolsGranular::AddDualControl(IGraphics* graphics, double x, double y, 
 void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions)
 {
   WDL_String val(mainOptions);
-  WDL_String var("small");
+  WDL_String var("small widePrompt");
   
   val.Append(" ");
   val.Append(options);
@@ -308,7 +310,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     AddBiPolarDualControl(pGraphics, kCol2X, kRow2Y, kGain, kGainRand, "4", "gain");
     pGraphics->AttachControl(new HISSTools_Value(kDistortionType, kCol2X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
     
-    AddDualControl(pGraphics, kCol3X, kRow2Y, kFilterFreq, kFilterFreqRand, "5");
+    AddDualControl(pGraphics, kCol3X, kRow2Y, kFilterFreq, kFilterFreqRand, "5 widePrompt");
     pGraphics->AttachControl(new HISSTools_Value(kFilterType, kCol3X, kRow3Y, kValueW, kValueH, "spacious", &designScheme));
     AddDualControl(pGraphics, kCol4X, kRow2Y, kFilterResonance, kFilterResonanceRand, "5");
     
