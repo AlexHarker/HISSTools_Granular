@@ -45,7 +45,7 @@ const int PLUG_TYPE_IDS_AS[2] = {'EFA1', 'EFA2'}; // AudioSuite
 #define AAX_PLUG_CATEGORY_STR "Effect"
 #define AAX_DOES_AUDIOSUITE 1
 
-#define VST3_SUBCATEGORY "Instrument"
+#define VST3_SUBCATEGORY "Effect"
 
 #define APP_ENABLE_SYSEX 0
 #define APP_ENABLE_MIDICLOCK 0
