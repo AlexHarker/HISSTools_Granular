@@ -4,7 +4,7 @@ BASEDIR=$(dirname $0)
 
 cd $BASEDIR/..
 
-if [ -d build-mac ] 
+if [ -d build-mac ]
 then
   sudo rm -f -R -f build-mac
 fi
@@ -23,9 +23,9 @@ VERSION=`echo | grep PLUG_VERSION_HEX config.h`
 VERSION=${VERSION//\#define PLUG_VERSION_HEX }
 VERSION=${VERSION//\'}
 MAJOR_VERSION=$(($VERSION & 0xFFFF0000))
-MAJOR_VERSION=$(($MAJOR_VERSION >> 16)) 
+MAJOR_VERSION=$(($MAJOR_VERSION >> 16))
 MINOR_VERSION=$(($VERSION & 0x0000FF00))
-MINOR_VERSION=$(($MINOR_VERSION >> 8)) 
+MINOR_VERSION=$(($MINOR_VERSION >> 8))
 BUG_FIX=$(($VERSION & 0x000000FF))
 
 FULL_VERSION=$MAJOR_VERSION"."$MINOR_VERSION"."$BUG_FIX
@@ -82,13 +82,13 @@ echo ""
 
 ./scripts/update_installer_version.py $DEMO
 
-echo "touching source to force recompile" 
+echo "touching source to force recompile"
 touch *.cpp
 
 #---------------------------------------------------------------------------------------------------------
 
 #remove existing dist folder
-#if [ -d installer/dist ] 
+#if [ -d installer/dist ]
 #then
 #  rm -R installer/dist
 #fi
@@ -96,39 +96,39 @@ touch *.cpp
 #mkdir installer/dist
 
 #remove existing binaries
-if [ -d $APP ] 
+if [ -d $APP ]
 then
   sudo rm -f -R -f $APP
 fi
 
-if [ -d $AU ] 
+if [ -d $AU ]
 then
   sudo rm -f -R $AU
 fi
 
-if [ -d $VST2 ] 
+if [ -d $VST2 ]
 then
   sudo rm -f -R $VST2
 fi
 
-if [ -d $VST3 ] 
+if [ -d $VST3 ]
 then
   sudo rm -f -R $VST3
 fi
 
-if [ -d "${AAX}" ] 
+if [ -d "${AAX}" ]
 then
   sudo rm -f -R "${AAX}"
 fi
 
-if [ -d "${AAX_FINAL}" ] 
+if [ -d "${AAX_FINAL}" ]
 then
   sudo rm -f -R "${AAX_FINAL}"
 fi
 
 #---------------------------------------------------------------------------------------------------------
 
-# build xcode project. Change target to build individual formats 
+# build xcode project. Change target to build individual formats
 
 xcodebuild -project ./projects/$PLUGIN_NAME-macOS.xcodeproj -xcconfig ./config/$PLUGIN_NAME-mac.xcconfig DEMO_VERSION=$DEMO -target "All" -configuration Release 2> ./build-mac.log
 
@@ -182,7 +182,7 @@ echo "code sign AAX binary"
 #echo "code signing app for appstore"
 #echo ""
 #codesign -f -s "3rd Party Mac Developer Application: ""${CERT_ID}" $APP --entitlements resources/$PLUGIN_NAME.entitlements
- 
+
 #echo "building pkg for app store"
 #echo ""
 #productbuild \
@@ -211,7 +211,7 @@ echo "code-sign installer for Gatekeeper on 10.8"
 echo ""
 mv "${PKG}" "${PKG_US}"
 productsign --sign "Developer ID Installer: ""${CERT_ID}" "${PKG_US}" "${PKG}"
-                   
+
 rm -R -f "${PKG_US}"
 
 #set installer icon
@@ -243,7 +243,7 @@ sudo rm -R -f installer/build-mac/
 # cp -R $VST3 installer/dist/$PLUGIN_NAME.vst3
 # cp -R $AAX installer/dist/$PLUGIN_NAME.aaxplugin
 # cp -R $APP installer/dist/$PLUGIN_NAME.app
-# 
+#
 # echo "zipping binaries..."
 # echo ""
 # ditto -c -k installer/dist installer/$PLUGIN_NAME-mac.zip

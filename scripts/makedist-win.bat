@@ -1,7 +1,7 @@
 echo off
 
 REM - batch file to build MSVS project and zip the resulting binaries (or make installer)
-REM - updating version numbers requires python and python path added to %PATH% env variable 
+REM - updating version numbers requires python and python path added to %PATH% env variable
 REM - zipping requires 7zip in %ProgramFiles%\7-Zip\7z.exe
 REM - building installer requires innotsetup in "%ProgramFiles(x86)%\Inno Setup 5\iscc"
 REM - AAX codesigning requires wraptool tool added to %PATH% env variable and aax.key/.crt in .\..\..\..\Certificates\
@@ -9,30 +9,35 @@ REM - AAX codesigning requires wraptool tool added to %PATH% env variable and aa
 if %1 == 1 (echo Making HISSToolsGranular Windows DEMO VERSION distribution ...) else (echo Making HISSToolsGranular Windows FULL VERSION distribution ...)
 
 echo "touching source"
-cd ..\source\
-copy /b *.cpp+,,
+
+copy /b ..\*.cpp+,,
 
 echo ------------------------------------------------------------------
 echo Updating version numbers ...
-cd..
-call python scripts\prepare_resources.py %1
-call python scripts\update_installer_version.py %1
+
+call python prepare_resources-win.py %1
+call python update_installer_version.py %1
+
+cd ..\
 
 echo ------------------------------------------------------------------
 echo Building ...
 
 if exist "%ProgramFiles(x86)%" (goto 64-Bit) else (goto 32-Bit)
 
+if not defined DevEnvDir (
 :32-Bit
 echo 32-Bit O/S detected
-call "%ProgramFiles%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_x64 8.1
+call "%ProgramFiles%\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_x64
 goto END
 
 :64-Bit
 echo 64-Bit Host O/S detected
-call "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_x64 8.1
+call "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_x64
 goto END
 :END
+)
+
 
 REM - set preprocessor macros like this, for instance to enable demo build:
 if %1 == 1 (
@@ -47,7 +52,7 @@ REM - Could build individual targets like this:
 REM - msbuild HISSToolsGranular-app.vcxproj /p:configuration=release /p:platform=win32
 
 echo Building 32 bit binaries...
-msbuild HISSToolsGranular.sln /p:configuration=release /p:platform=win32 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly 
+msbuild HISSToolsGranular.sln /p:configuration=release /p:platform=win32 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly
 
 echo Building 64 bit binaries...
 msbuild HISSToolsGranular.sln /p:configuration=release /p:platform=x64 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly;append
@@ -95,5 +100,3 @@ echo ------------------------------------------------------------------
 echo Printing log file to console...
 
 type build-win.log
-
-pause

@@ -7,13 +7,15 @@ import plistlib, os, datetime, fileinput, glob, sys, string, shutil
 scriptpath = os.path.dirname(os.path.realpath(__file__))
 projectpath = os.path.abspath(os.path.join(scriptpath, os.pardir))
 
-sys.path.insert(0, projectpath + '/../../scripts/')
+IPLUG2_ROOT = "../../.."
+
+sys.path.insert(0, os.path.join(os.getcwd(), IPLUG2_ROOT + '/scripts'))
 
 from parse_config import parse_config, parse_xcconfig
 
 def replacestrs(filename, s, r):
   files = glob.glob(filename)
-  
+
   for line in fileinput.input(files,inplace=1):
     string.find(line, s)
     line = line.replace(s, r)
@@ -22,15 +24,15 @@ def replacestrs(filename, s, r):
 def main():
 
   config = parse_config(projectpath)
-    
+
   today = datetime.date.today()
-  
+
   CFBundleGetInfoString = config['BUNDLE_NAME'] + " v" + config['FULL_VER_STR'] + " " + config['PLUG_COPYRIGHT_STR']
   CFBundleVersion = config['FULL_VER_STR']
 
   print "update_version.py - setting version to " + config['FULL_VER_STR']
   print "Updating plist version info..."
-  
+
   plistpath = scriptpath + "/resources/HISSToolsGranular-VST2-Info.plist"
   vst2 = plistlib.readPlist(plistpath)
   vst2['CFBundleGetInfoString'] = CFBundleGetInfoString
@@ -38,7 +40,7 @@ def main():
   vst2['CFBundleShortVersionString'] = CFBundleVersion
   plistlib.writePlist(vst2, plistpath)
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
-  
+
   plistpath = scriptpath + "/resources/HISSToolsGranular-AU-Info.plist"
   au = plistlib.readPlist(plistpath)
   au['CFBundleGetInfoString'] = CFBundleGetInfoString
@@ -46,7 +48,7 @@ def main():
   au['CFBundleShortVersionString'] = CFBundleVersion
   plistlib.writePlist(au, plistpath)
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
-  
+
   plistpath = scriptpath + "/resources/HISSToolsGranular-VST3-Info.plist"
   vst3 = plistlib.readPlist(plistpath)
   vst3['CFBundleGetInfoString'] = CFBundleGetInfoString
@@ -54,7 +56,7 @@ def main():
   vst3['CFBundleShortVersionString'] = CFBundleVersion
   plistlib.writePlist(vst3, plistpath)
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
-  
+
   plistpath = scriptpath + "/resources/HISSToolsGranular-macOS-Info.plist"
   app = plistlib.readPlist(plistpath)
   app['CFBundleGetInfoString'] = CFBundleGetInfoString
@@ -62,7 +64,7 @@ def main():
   app['CFBundleShortVersionString'] = CFBundleVersion
   plistlib.writePlist(app, plistpath)
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
-  
+
   plistpath = scriptpath + "/resources/HISSToolsGranular-AAX-Info.plist"
   aax = plistlib.readPlist(plistpath)
   aax['CFBundleGetInfoString'] = CFBundleGetInfoString
@@ -72,18 +74,18 @@ def main():
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
 
   print "Updating Mac Installer version info..."
-  
+
   plistpath = scriptpath + "/installer/HISSToolsGranular.pkgproj"
   installer = plistlib.readPlist(plistpath)
-  
+
   for x in range(0,5):
     installer['PACKAGES'][x]['PACKAGE_SETTINGS']['VERSION'] = config['FULL_VER_STR']
-  
+
   plistlib.writePlist(installer, plistpath)
   replacestrs(plistpath, "//Apple//", "//Apple Computer//");
-  
+
   print "Updating Windows Installer version info..."
-  
+
   for line in fileinput.input(scriptpath + "/installer/HISSToolsGranular.iss",inplace=1):
     if "AppVersion" in line:
       line="AppVersion=" + config['FULL_VER_STR'] + "\n"

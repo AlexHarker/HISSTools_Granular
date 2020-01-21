@@ -4,7 +4,7 @@ scriptpath = os.path.dirname(os.path.realpath(__file__))
 projectpath = os.path.abspath(os.path.join(scriptpath, os.pardir))
 
 MajorStr = ""
-MinorStr = "" 
+MinorStr = ""
 BugfixStr = ""
 BUNDLE_NAME = ""
 
@@ -14,17 +14,17 @@ def  main():
     sys.exit(1)
   else:
     demo=int(sys.argv[1])
-   
+
   installer = "\installer\HISSToolsGranular Installer.exe"
-   
+
   if demo:
     installer = "\installer\HISSToolsGranular Demo Installer.exe"
-   
+
   FILES_TO_ZIP = [
     projectpath + installer,
     projectpath + "\installer\changelog.txt",
     projectpath + "\installer\known-issues.txt",
-    projectpath + "\manual\HISSToolsGranular manual.pdf" 
+    projectpath + "\manual\HISSToolsGranular manual.pdf"
   ]
 
   # extract values from config.h
@@ -37,17 +37,17 @@ def  main():
       MINOR = PLUG_VER & 0x0000FF00
       MINORSTR = str(MINOR >> 8)
       BUGFIXSTR = str(PLUG_VER & 0x000000FF)
-    
+
     if "#define BUNDLE_NAME " in line:
       BUNDLE_NAME = string.lstrip(line, "#define BUNDLE_NAME ")
 
   FULLVERSIONSTR = MAJORSTR + "." + MINORSTR + "." + BUGFIXSTR
 
   ZIPNAME = "HISSToolsGranular-v" + FULLVERSIONSTR + "-win.zip"
-  
+
   if demo:
     ZIPNAME = "HISSToolsGranular-v" + FULLVERSIONSTR + "-win-demo.zip"
-  
+
   zf = zipfile.ZipFile(projectpath + "\installer\/" + ZIPNAME, mode="w")
 
   for f in FILES_TO_ZIP:
