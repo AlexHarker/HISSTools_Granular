@@ -323,7 +323,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     
     // Finalise Graphics
     
-    pGraphics->HandleMouseOver(true);
+    pGraphics->EnableMouseOver(true);
     //pGraphics->SetStrictDrawing(false);
   }
 }
