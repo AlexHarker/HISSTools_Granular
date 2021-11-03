@@ -34,6 +34,7 @@
 
 #define PLUG_WIDTH 945
 #define PLUG_HEIGHT 645
+#define PLUG_HOST_RESIZE 0
 
 #if defined(AAX_API) && !defined(_PIDS_)
 #define _PIDS_
