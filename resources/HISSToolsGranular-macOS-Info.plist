@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>HISSToolsGranular.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.uk.AlexHarker.app.HISSToolsGranular</string>
+	<string>com.AlexHarker.app.HISSToolsGranular</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

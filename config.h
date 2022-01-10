@@ -11,7 +11,7 @@
 
 #define BUNDLE_NAME "HISSToolsGranular"
 #define BUNDLE_MFR "AlexHarker"
-#define BUNDLE_DOMAIN "co.uk"
+#define BUNDLE_DOMAIN "com"
 
 #define SHARED_RESOURCES_SUBPATH "HISSToolsGranular"
 
