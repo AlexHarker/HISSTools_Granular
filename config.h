@@ -13,6 +13,8 @@
 #define BUNDLE_MFR "AlexHarker"
 #define BUNDLE_DOMAIN "co.uk"
 
+#define SHARED_RESOURCES_SUBPATH "HISSToolsGranular"
+
 #define AUV2_ENTRY HISSToolsGranular_Entry
 #define AUV2_ENTRY_STR "HISSToolsGranular_Entry"
 #define AUV2_FACTORY HISSToolsGranular_Factory
@@ -45,8 +47,6 @@ const int PLUG_TYPE_IDS_AS[2] = {'EFA1', 'EFA2'}; // AudioSuite
 #define AAX_PLUG_NAME_STR "HISSToolsGranular\nIPEF"
 #define AAX_PLUG_CATEGORY_STR "Effect"
 #define AAX_DOES_AUDIOSUITE 1
-
-#define SHARED_RESOURCES_SUBPATH "HISSToolsGranular"
 
 #define VST3_SUBCATEGORY "Effect"
 
