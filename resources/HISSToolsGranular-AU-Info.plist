@@ -30,7 +30,7 @@
 	<key>CFBundleExecutable</key>
 	<string>HISSToolsGranular</string>
 	<key>CFBundleGetInfoString</key>
-	<string>HISSToolsGranular v1.0.0  "Copyright 2018 Alex Harker</string>
+	<string>HISSToolsGranular v1.0.0  "Copyright 2018-2022 Alex Harker</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.uk.AlexHarker.audiounit.HISSToolsGranular</string>
 	<key>CFBundleInfoDictionaryVersion</key>
