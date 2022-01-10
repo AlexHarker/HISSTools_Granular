@@ -63,4 +63,5 @@
       <Value>$(CREATE_BUNDLE_SCRIPT)</Value>
     </BuildMacro>
   </ItemGroup>
-</Project>
+</Project>
+
