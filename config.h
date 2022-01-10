@@ -6,7 +6,7 @@
 #define PLUG_MFR_ID 'AHAR'
 #define PLUG_URL_STR "www.alexanderjharker.co.uk"
 #define PLUG_EMAIL_STR "A.Harker@hud.ac.uk"
-#define PLUG_COPYRIGHT_STR  "Copyright 2018 Alex Harker"
+#define PLUG_COPYRIGHT_STR  "Copyright 2018-2022 Alex Harker"
 #define PLUG_CLASS_NAME HISSToolsGranular
 
 #define BUNDLE_NAME "HISSToolsGranular"
@@ -45,6 +45,8 @@ const int PLUG_TYPE_IDS_AS[2] = {'EFA1', 'EFA2'}; // AudioSuite
 #define AAX_PLUG_NAME_STR "HISSToolsGranular\nIPEF"
 #define AAX_PLUG_CATEGORY_STR "Effect"
 #define AAX_DOES_AUDIOSUITE 1
+
+#define SHARED_RESOURCES_SUBPATH "HISSToolsGranular"
 
 #define VST3_SUBCATEGORY "Effect"
 
