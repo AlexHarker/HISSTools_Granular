@@ -11,7 +11,7 @@
 #include "List.h"
 #include "Buffer.h"
 #include "SallenAndKey.h"
-#include "FrameLib_RandGen.h"
+#include "HISSTools_Library/RandomGenerator.hpp"
 
 // Filter Class
 
@@ -260,7 +260,7 @@ private:
     
     double randomBounds(Bounds bounds)
     {
-        return mGen.randDouble(bounds.mLo, bounds.mHi);
+        return mGen.rand_double(bounds.mLo, bounds.mHi);
     }
     
     void setActive(Grain& grain);
@@ -276,7 +276,7 @@ private:
     Filter::Type mFilterType;
     Nonlinear::Type mNonlinearType;
     
-    FrameLib_RandGen mGen;
+    random_generator<> mGen;
     
     StereoBuffer mBuffer;
     Window mHannWindow;

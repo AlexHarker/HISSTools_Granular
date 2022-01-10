@@ -1,8 +1,10 @@
 
 #include "Granular.h"
 #include "Nonlinear.h"
-#include "IAudioFile.h"
-#include "WindowFunctions.hpp"
+#include "HISSTools_Library/AudioFile/IAudioFile.h"
+#include "HISSTools_Library/WindowFunctions.hpp"
+
+using namespace window_functions;
 
 // Filter Class
 
@@ -110,24 +112,15 @@ void Panner::process(double *ioL, double* ioR, double numSamps)
 
 // Window Class
 
-IndexedWindowFunctions<double* > mWindowFunc;
+indexed_generator
+<double, hann<double>, triangle<double>, sine<double>, kaiser<double>, tukey<double>> mWindowFunc;
 
 void Window::set(Type type)
 {
-    IndexedWindowFunctions<double*>::WindowTypes indexType = IndexedWindowFunctions<double*>::kWindowHann;
-    
-    switch(type)
-    {
-        case kTriangle:     indexType = IndexedWindowFunctions<double*>::kWindowTriangle;   break;
-        case kHann:         indexType = IndexedWindowFunctions<double*>::kWindowHann;       break;
-        case kCosine:       indexType = IndexedWindowFunctions<double*>::kWindowCosine;     break;
-        case kKaiser:       indexType = IndexedWindowFunctions<double*>::kWindowKaiser;     break;
-        case kTukey:        indexType = IndexedWindowFunctions<double*>::kWindowTukey;      break;
-    }
-    
-    setInterpType(kInterpLinear);
+    window_functions::params params;
+    setInterpType(InterpType::Linear);
     resize(sLength + 2);
-    mWindowFunc.calculate(indexType, data(), 4096, 4097);
+    mWindowFunc(type, data(), 4096, 0, 4097, params);
     
     for (int i = 0; i < 4097; i++)
         data()[i] = sqrt(data()[i]);
@@ -378,7 +371,7 @@ void Granular::initGrain(Grain& grain, bool forceSilent, double sampleRate)
 {
     // Variables
     
-    if (forceSilent || mGen.randDouble() > mDensity)
+    if (forceSilent || mGen.rand_double() > mDensity)
     {
         silentGrain(grain, 1.0, sampleRate);
         return;
@@ -397,7 +390,7 @@ void Granular::initGrain(Grain& grain, bool forceSilent, double sampleRate)
     const double volDB = randomBounds(mVol);
     const double distDB = randomBounds(mDrive);
     const double pan = randomBounds(mPan);
-    const double freq = std::min(mFilterFreq.mLo * pitchToSpeed(mGen.randDouble(-1.0, 1.0) * mFilterFreq.mHi), 20000.0);
+    const double freq = std::min(mFilterFreq.mLo * pitchToSpeed(mGen.rand_double(-1.0, 1.0) * mFilterFreq.mHi), 20000.0);
     const double resParam = randomBounds(mFilterResonance);
     
     // Engine Values
@@ -432,7 +425,7 @@ void Granular::reset(double sampleRate)
     mFreeList.clear();
     
     for (auto it = mGrains.begin(); it != mGrains.end(); it++)
-        silentGrain(*it, mGen.randDouble(), sampleRate);
+        silentGrain(*it, mGen.rand_double(), sampleRate);
     
     mCloudTillNext = 0.0;
 }

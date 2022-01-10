@@ -2,7 +2,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "TableReader.hpp"
+#include "HISSTools_Library/TableReader.hpp"
 #include "IPlugStructs.h"
 
 // Buffer
@@ -12,7 +12,7 @@ class Buffer
 {
     struct Fetch : table_fetcher<T>
     {
-        Fetch(const T *data, intptr_t size) : table_fetcher<T>(1.0), mData(data), mSize(size) {}
+        Fetch(const T *data, intptr_t size) : table_fetcher<T>(1.0, size), mData(data), mSize(size) {}
         
         T operator()(intptr_t offset)
         {
@@ -28,7 +28,7 @@ class Buffer
     
 public:
     
-    Buffer() : mBuffer(NULL), mSize(0), mInterpType(kInterpCubicHermite) {}
+    Buffer() : mBuffer(NULL), mSize(0), mInterpType(InterpType::CubicHermite) {}
     
     void read(double* output, double* positions, int numSamps, double amp)
     {
