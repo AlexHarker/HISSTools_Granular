@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>HISSToolsGranular</string>
 	<key>CFBundleGetInfoString</key>
-	<string>HISSToolsGranular v1.0.0  "Copyright 2018 Alex Harker</string>
+	<string>HISSToolsGranular v1.0.0  "Copyright 2018-2022 Alex Harker</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.uk.AlexHarker.app.HISSToolsGranular.AUv3</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -26,8 +26,6 @@
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
-			<key>AudioComponentBundle</key>
-			<string>com.AlexHarker.app.HISSToolsGranular.AUv3Framework</string>
 			<key>AudioComponents</key>
 			<array>
 				<dict>
