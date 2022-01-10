@@ -9,7 +9,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>HISSToolsGranular v1.0.0  "Copyright 2018-2022 Alex Harker</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.uk.AlexHarker.app.HISSToolsGranular.AUv3</string>
+	<string>com.AlexHarker.app.HISSToolsGranular.AUv3</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

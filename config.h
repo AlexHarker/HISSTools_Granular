@@ -11,7 +11,7 @@
 
 #define BUNDLE_NAME "HISSToolsGranular"
 #define BUNDLE_MFR "AlexHarker"
-#define BUNDLE_DOMAIN "co.uk"
+#define BUNDLE_DOMAIN "com"
 
 #define AUV2_ENTRY HISSToolsGranular_Entry
 #define AUV2_ENTRY_STR "HISSToolsGranular_Entry"
