@@ -162,7 +162,7 @@ void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, dou
 }
 
 HISSToolsGranular::HISSToolsGranular(const InstanceInfo &info)
-: Plugin(info, MakeConfig(kNumParams, kNumPrograms)), mWaveformL(nullptr), mWaveformR(nullptr)
+: iplug::Plugin(info, MakeConfig(kNumParams, kNumPrograms)), mWaveformL(nullptr), mWaveformR(nullptr)
 {
   TRACE;
   
@@ -573,4 +573,3 @@ int HISSToolsGranular::UnserializeState(const IByteChunk& chunk, int pos)
   
   return pos;
 }
-

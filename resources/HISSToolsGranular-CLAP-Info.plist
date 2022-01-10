@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>HISSToolsGranular</string>
+	<key>CFBundleGetInfoString</key>
+	<string>HISSToolsGranular v1.0.0  &quot;Copyright 2018 Alex Harker</string>
+	<key>CFBundleIdentifier</key>
+	<string>co.uk.AlexHarker.clap.HISSToolsGranular</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>HISSToolsGranular</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>HTGn</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.11.0</string>
+</dict>
+</plist>
