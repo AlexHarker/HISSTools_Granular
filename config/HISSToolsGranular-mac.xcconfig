@@ -49,7 +49,8 @@ ARCHS = x86_64 arm64
 GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO
 
 // Flags to pass to compiler for all builds
-GCC_CFLAGS = -Wno-write-strings -mfpmath=sse -msse -msse2 -msse3 -mavx
+GCC_CFLAGS[arch=x86_64] = -Wno-write-strings -mfpmath=sse -msse -msse2 -msse3
+GCC_CFLAGS[arch=arm64] = -Wno-write-strings
 
 MACOSX_DEPLOYMENT_TARGET = 10.9
 
