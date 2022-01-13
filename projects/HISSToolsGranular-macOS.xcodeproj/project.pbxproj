@@ -33,17 +33,18 @@
 			name = Info_Plists;
 			productName = Info_Plists;
 		};
-		B8E42C7923D1EC8A00FFE184 /* AllPlugs */ = {
+		B8E42C7923D1EC8A00FFE184 /* Finished Plugs */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "AllPlugs" */;
+			buildConfigurationList = B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "Finished Plugs" */;
 			buildPhases = (
+				B8F4826C2790913E00ACBF03 /* ShellScript */,
 			);
 			dependencies = (
 				B8E42C8023D1EC9300FFE184 /* PBXTargetDependency */,
 				B8E42C8223D1EC9400FFE184 /* PBXTargetDependency */,
 				B8E42C8423D1EC9600FFE184 /* PBXTargetDependency */,
 			);
-			name = AllPlugs;
+			name = "Finished Plugs";
 			productName = AllPlugs;
 		};
 /* End PBXAggregateTarget section */
@@ -2108,6 +2109,7 @@
 			targets = (
 				B8D31D89278C6593009A9F2E /* Info_Plists */,
 				4F78DAF113B643600032E0F3 /* All */,
+				B8E42C7923D1EC8A00FFE184 /* Finished Plugs */,
 				4FD16A0813B63081001D0217 /* APP */,
 				4F20EEC8132C69FE0030E34C /* VST2 */,
 				4F9828AA140A9EB700F3FCC1 /* VST3 */,
@@ -2116,7 +2118,6 @@
 				4FFBB8F820863B0E00DDD0E7 /* VST3P */,
 				4F39075F2013EBA300DDA490 /* AUv3 */,
 				4FC3EFC32086C0A600BD11FA /* VST3C */,
-				B8E42C7923D1EC8A00FFE184 /* AllPlugs */,
 			);
 		};
 /* End PBXProject section */
@@ -2318,6 +2319,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "python ../scripts/prepare_info_plists.py\n";
+		};
+		B8F4826C2790913E00ACBF03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "../scripts/dist-mac-main.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3894,7 +3913,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "AllPlugs" */ = {
+		B8E42C7E23D1EC8A00FFE184 /* Build configuration list for PBXAggregateTarget "Finished Plugs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8E42C7A23D1EC8A00FFE184 /* Debug */,
