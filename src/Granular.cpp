@@ -77,7 +77,7 @@ void Nonlinear::process(double* io, int numSamps)
 
 void scale(double x, double& a, double& b)
 {
-    double scaleFactor = ( a || b) ? x / (a + b) : 0.0;
+    double scaleFactor = (a || b) ? x / (a + b) : 0.0;
     a *= scaleFactor;
     b *= scaleFactor;
 }
