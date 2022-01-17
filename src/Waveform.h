@@ -18,7 +18,7 @@ class Waveform : public IControl
     
 public:
     
-    Waveform(HISSToolsGranular *plug, double x, double y, double w, double h) : IControl(HISSTools_Bounds(x, y, x + w, y + h)), mPlug(plug)
+    Waveform(HISSToolsGranular *plug, double x, double y, double w, double h) : IControl(HISSTools_Bounds(x, y, w, h)), mPlug(plug)
     {
         mData.resize(static_cast<size_t>(w * 2));
         SetSelect(0., 0.);
