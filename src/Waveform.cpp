@@ -1,7 +1,6 @@
 
 #include "Waveform.h"
 #include <algorithm>
-#include <HISSTools_VecLib.hpp>
 #include "HISSToolsGranular.h"
 
 void Waveform::Draw(IGraphics& graphics)
@@ -48,7 +47,7 @@ void Waveform::Draw(IGraphics& graphics)
     
     if (mCache)
     {
-        float width = std::max(1.0, (mSelectR - mSelectL) * mRECT.W());
+        float width = std::max(1.f, static_cast<float>(mSelectR - mSelectL) * mRECT.W());
         
         vecDraw.renderGroup(mCache);
         
