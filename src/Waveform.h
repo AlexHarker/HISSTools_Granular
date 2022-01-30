@@ -4,6 +4,7 @@
 
 #include <vector>
 #include "IControl.h"
+#include <HISSTools_VecLib.hpp>
 
 // Forward declaration
 
@@ -17,9 +18,9 @@ class Waveform : public IControl
     
 public:
     
-    Waveform(HISSToolsGranular *plug, double x, double y, double w, double h) : IControl(IRECT(x, y, x + w, y + h)), mPlug(plug)
+    Waveform(HISSToolsGranular *plug, double x, double y, double w, double h) : IControl(HISSTools_Bounds(x, y, w, h)), mPlug(plug)
     {
-        mData.resize(w * 2);
+        mData.resize(static_cast<size_t>(w * 2));
         SetSelect(0., 0.);
     }
     
@@ -36,7 +37,7 @@ public:
     
 private:
     
-    double Normalise(float x) { return std::min(1.f, std::max(0.f, (x - mRECT.L) / mRECT.W())); }
+    double Normalise(double x) { return std::min(1.0, std::max(0.0, (x - mRECT.L) / mRECT.W())); }
     
     HISSToolsGranular *mPlug;
     std::vector<float> mData;

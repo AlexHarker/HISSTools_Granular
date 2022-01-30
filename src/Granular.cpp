@@ -77,7 +77,7 @@ void Nonlinear::process(double* io, int numSamps)
 
 void scale(double x, double& a, double& b)
 {
-    double scaleFactor = ( a || b) ? x / (a + b) : 0.0;
+    double scaleFactor = (a || b) ? x / (a + b) : 0.0;
     a *= scaleFactor;
     b *= scaleFactor;
 }
@@ -339,7 +339,7 @@ Granular::Granular()
     setPan(0.3, 0.7);
     setFilterFreq(-48, 48);
     setFilterResonance(0.1, 0.9);
-    mMaxVoices = 70.0;
+    mMaxVoices = 70;
 }
 
 double Granular::chooseDuration()

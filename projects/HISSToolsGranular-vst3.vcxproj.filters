@@ -143,20 +143,17 @@
     <ClCompile Include="..\..\..\IGraphics\IGraphicsEditorDelegate.cpp">
       <Filter>IGraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\IAudioFile.cpp">
+    <ClCompile Include="..\src\Granular.cpp">
       <Filter>DSP</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Waveform.cpp">
       <Filter>DSP</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\BaseAudioFile.cpp">
-      <Filter>DSP</Filter>
+    <ClCompile Include="..\src\HISSTools_Library\AudioFile\BaseAudioFile.cpp">
+      <Filter>HISSTools_Library</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\FrameLib_RandGen.cpp">
-      <Filter>DSP</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Granular.cpp">
-      <Filter>DSP</Filter>
+    <ClCompile Include="..\src\HISSTools_Library\AudioFile\IAudioFile.cpp">
+      <Filter>HISSTools_Library</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -393,10 +390,10 @@
     <ClInclude Include="..\..\..\IGraphics\IGraphicsEditorDelegate.h">
       <Filter>IGraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\IAudioFile.h">
+    <ClInclude Include="..\src\Buffer.h">
       <Filter>DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Interpolation.hpp">
+    <ClInclude Include="..\src\Granular.h">
       <Filter>DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\src\List.h">
@@ -408,28 +405,7 @@
     <ClInclude Include="..\src\SallenAndKey.h">
       <Filter>DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\SIMDSupport.hpp">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TableReader.hpp">
-      <Filter>DSP</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Waveform.h">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\WindowFunctions.hpp">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\BaseAudioFile.h">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Buffer.h">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FrameLib_RandGen.h">
-      <Filter>DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Granular.h">
       <Filter>DSP</Filter>
     </ClInclude>
   </ItemGroup>
@@ -492,7 +468,10 @@
       <UniqueIdentifier>{5f06b03e-5093-46c0-9513-efb4e494c857}</UniqueIdentifier>
     </Filter>
     <Filter Include="DSP">
-      <UniqueIdentifier>{1fe2b540-fce7-47cf-85e7-0ae8ae371cc6}</UniqueIdentifier>
+      <UniqueIdentifier>{7569d0b7-ba50-4549-bd65-39dd31953495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HISSTools_Library">
+      <UniqueIdentifier>{345c0138-cc9b-4e22-8f4c-e31664683ec5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

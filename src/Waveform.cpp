@@ -1,7 +1,6 @@
 
 #include "Waveform.h"
 #include <algorithm>
-#include <HISSTools_VecLib.hpp>
 #include "HISSToolsGranular.h"
 
 void Waveform::Draw(IGraphics& graphics)
@@ -10,7 +9,7 @@ void Waveform::Draw(IGraphics& graphics)
     
     float WR = mRECT.W() / mData.size();
     float MH = mRECT.MH();
-    float HH = (mRECT.H() / 2.0) * 0.9;
+    float HH = (mRECT.H() / 2.f) * 0.9f;
     
     HISSTools_Color_Spec bgcolor(HISSTools_Color(0.8, 0.8, 0.8, 1.0));
     HISSTools_Color_Spec fgcolor(HISSTools_Color(0.1, 0.1, 0.1, 1.0));
@@ -48,7 +47,7 @@ void Waveform::Draw(IGraphics& graphics)
     
     if (mCache)
     {
-        float width = std::max(1.0, (mSelectR - mSelectL) * mRECT.W());
+        float width = std::max(1.f, static_cast<float>(mSelectR - mSelectL) * mRECT.W());
         
         vecDraw.renderGroup(mCache);
         

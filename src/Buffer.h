@@ -12,7 +12,7 @@ class Buffer
 {
     struct Fetch : table_fetcher<T>
     {
-        Fetch(const T *data, intptr_t size) : table_fetcher<T>(1.0, size), mData(data), mSize(size) {}
+        Fetch(const T *data, intptr_t size) : table_fetcher<T>(size, 1.0), mData(data), mSize(size) {}
         
         T operator()(intptr_t offset)
         {

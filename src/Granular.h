@@ -211,7 +211,7 @@ public:
     const float* getBufferL()   { return mBuffer.getL(); }
     const float* getBufferR()   { return mBuffer.getR(); }
     
-    double getBufferLength() { return mBuffer.getLength(); }
+    int getBufferLength() { return mBuffer.getLength(); }
     double getBufferDuration() { return mBuffer.getDuration(); }
     
     bool save(iplug::IByteChunk& chunk) const;
