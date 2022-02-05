@@ -503,7 +503,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
   }
 }
 
-
 void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
 {
   switch (paramIdx)
