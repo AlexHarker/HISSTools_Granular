@@ -298,11 +298,6 @@
     <ClInclude Include="..\..\..\IGraphics\Controls\IVKeyboardControl.h" />
     <ClInclude Include="..\..\..\IGraphics\Controls\IVMeterControl.h" />
     <ClInclude Include="..\..\..\IGraphics\Controls\IVScopeControl.h" />
-    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsAGG.h" />
-    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsAGG_src.h" />
-    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsCairo.h" />
-    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice.h" />
-    <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsLice_src.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.h" />
     <ClInclude Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.h" />
     <ClInclude Include="..\..\..\IGraphics\IControl.h" />
@@ -345,12 +340,12 @@
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_View.h" />
     <ClInclude Include="..\HISSToolsGranular.h" />
     <ClInclude Include="..\resources\resource.h" />
-    <ClInclude Include="..\src\Buffer.h" />
-    <ClInclude Include="..\src\Granular.h" />
-    <ClInclude Include="..\src\List.h" />
-    <ClInclude Include="..\src\Nonlinear.h" />
-    <ClInclude Include="..\src\SallenAndKey.h" />
-    <ClInclude Include="..\src\Waveform.h" />
+    <ClInclude Include="..\source\Buffer.h" />
+    <ClInclude Include="..\source\Granular.h" />
+    <ClInclude Include="..\source\List.h" />
+    <ClInclude Include="..\source\Nonlinear.h" />
+    <ClInclude Include="..\source\SallenAndKey.h" />
+    <ClInclude Include="..\source\Waveform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Dependencies\IPlug\VST3_SDK\base\source\baseiids.cpp" />
@@ -383,30 +378,6 @@
     <ClCompile Include="..\..\..\IGraphics\Controls\IControls.cpp" />
     <ClCompile Include="..\..\..\IGraphics\Controls\IPopupMenuControl.cpp" />
     <ClCompile Include="..\..\..\IGraphics\Controls\ITextEntryControl.cpp" />
-    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsAGG.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsCairo.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsLice.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsNanoVG.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">true</ExcludedFromBuild>
@@ -436,10 +407,10 @@
     <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3.cpp" />
     <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
-    <ClCompile Include="..\src\Granular.cpp" />
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\BaseAudioFile.cpp" />
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\IAudioFile.cpp" />
-    <ClCompile Include="..\src\Waveform.cpp" />
+    <ClCompile Include="..\source\Granular.cpp" />
+    <ClCompile Include="..\source\HISSTools_Library\AudioFile\BaseAudioFile.cpp" />
+    <ClCompile Include="..\source\HISSTools_Library\AudioFile\IAudioFile.cpp" />
+    <ClCompile Include="..\source\Waveform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
