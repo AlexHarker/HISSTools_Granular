@@ -3,29 +3,6 @@
 #include "IPlug_include_in_plug_src.h"
 #include "HISSTools_Controls.hpp"
 
-// Denormals
-
-class DenormalHandling
-{
-#if defined(__i386__) || defined(__x86_64__)
-public:
-  
-  DenormalHandling() : mMXCSR(_mm_getcsr())
-  {
-    _mm_setcsr(mMXCSR | _MM_FLUSH_ZERO_ON);
-  }
-  
-  ~DenormalHandling()
-  {
-    _mm_setcsr(mMXCSR);
-  }
-  
-private:
-  
-  unsigned int mMXCSR;
-#endif
-};
-
 // Visual Design
 
 class Design : public HISSTools_Design_Scheme
@@ -240,7 +217,7 @@ HISSToolsGranular::~HISSToolsGranular() {}
 void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFrames)
 {
   WDL_MutexLock lock(&mMutex);
-  DenormalHandling denormals;
+  SIMDDenormals denormals;
   
   mGranular.processBlock(outputs[0], outputs[1], nFrames, GetSampleRate());
 }
@@ -502,7 +479,6 @@ void HISSToolsGranular::OnParamChange(int paramIdx, EParamSource source, int sam
       break;
   }
 }
-
 
 void HISSToolsGranular::OnParamChangeUI(int paramIdx, EParamSource source)
 {

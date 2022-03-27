@@ -3,8 +3,8 @@
 
 #include "IPlug_include_in_plug_hdr.h"
 
-#include "src/Granular.h"
-#include "src/Waveform.h"
+#include "source/Granular.h"
+#include "source/Waveform.h"
 
 const int kNumPrograms = 1;
 

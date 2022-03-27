@@ -1037,7 +1037,7 @@
 			isa = PBXGroup;
 			children = (
 				B81BF0D621F3A588002C1DA6 /* HISSTools_PluginLib */,
-				B81BF08E21F3A4C6002C1DA6 /* src */,
+				B81BF08E21F3A4C6002C1DA6 /* source */,
 				52FBBED30D0CF143001C8B8A /* config.h */,
 				4F3862EE2014BBEC0009F402 /* HISSToolsGranular.h */,
 				4F3862ED2014BBEC0009F402 /* HISSToolsGranular.cpp */,
@@ -1813,7 +1813,7 @@
 			path = AudioFile;
 			sourceTree = "<group>";
 		};
-		B81BF08E21F3A4C6002C1DA6 /* src */ = {
+		B81BF08E21F3A4C6002C1DA6 /* source */ = {
 			isa = PBXGroup;
 			children = (
 				B81999FF278C7306001F43E8 /* HISSTools_Library */,
@@ -1826,8 +1826,8 @@
 				B81BF09521F3A4C7002C1DA6 /* Granular.h */,
 				B81BF09421F3A4C7002C1DA6 /* Granular.cpp */,
 			);
-			name = src;
-			path = ../src;
+			name = source;
+			path = ../source;
 			sourceTree = "<group>";
 		};
 		B81BF0D621F3A588002C1DA6 /* HISSTools_PluginLib */ = {
