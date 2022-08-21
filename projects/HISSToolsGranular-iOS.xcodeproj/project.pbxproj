@@ -319,7 +319,7 @@
 		4FFF107720A0E5A500D3092F /* wdlendian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wdlendian.h; path = ../../../WDL/wdlendian.h; sourceTree = "<group>"; };
 		4FFF108220A0FB1400D3092F /* common-ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "common-ios.xcconfig"; path = "../../../common-ios.xcconfig"; sourceTree = "<group>"; };
 		4FFF108420A1036200D3092F /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../config.h; sourceTree = "<group>"; };
-		4FFF108720A1036200D3092F /* HISSToolsGranular.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HISSToolsGranular.cpp; path = ../HISSToolsGranular.cpp; sourceTree = "<group>"; };
+		4FFF108720A1036200D3092F /* HISSToolsGranular.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = HISSToolsGranular.cpp; path = ../HISSToolsGranular.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		4FFF108820A1036200D3092F /* HISSToolsGranular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HISSToolsGranular.h; path = ../HISSToolsGranular.h; sourceTree = "<group>"; };
 		91236D0D1B08F42B00734C5E /* HISSToolsGranular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HISSToolsGranular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91236D551B08F52D00734C5E /* HISSToolsGranularFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HISSToolsGranularFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
