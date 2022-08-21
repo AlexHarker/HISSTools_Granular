@@ -131,8 +131,11 @@ public:
   
 private:
   
+  void GUIUpdateBuffer();
   void GUIUpdateSelection();
   void GUIGrayOutControl(int paramIdx, bool gray);
+  
+  Waveform *GetWaveform(int tag);
   
   void AddDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options);
   void AddBiPolarDualControl(IGraphics* graphics, double x, double y, int idx, int idxRand, const char *options, const char *mainOptions = "");
@@ -141,8 +144,6 @@ private:
   void LayoutUI(IGraphics* pGraphics) override;
   
   WDL_Mutex mMutex;
-  Waveform* mWaveformL;
-  Waveform* mWaveformR;
   Granular mGranular;
 };
 

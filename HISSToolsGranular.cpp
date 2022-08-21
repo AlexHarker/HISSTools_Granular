@@ -3,6 +3,14 @@
 #include "IPlug_include_in_plug_src.h"
 #include "HISSTools_Controls.hpp"
 
+// GUI Labels
+
+enum GUILabels
+{
+  kLabelWaveformL,
+  kLabelWaveformR
+};
+
 // Visual Design
 
 class Design : public HISSTools_Design_Scheme
@@ -139,7 +147,7 @@ void HISSToolsGranular::AddBiPolarDualControl(IGraphics* graphics, double x, dou
 }
 
 HISSToolsGranular::HISSToolsGranular(const InstanceInfo &info)
-: Plugin(info, MakeConfig(kNumParams, kNumPrograms)), mWaveformL(nullptr), mWaveformR(nullptr)
+: Plugin(info, MakeConfig(kNumParams, kNumPrograms))
 {
   TRACE;
   
@@ -250,9 +258,6 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     const double w1Y = kWaveformY + kWaveformOutline;
     const double w2Y = w1Y + wH;
     
-    mWaveformL = new Waveform(this, wX, w1Y, wW, wH);
-    mWaveformR = new Waveform(this, wX, w2Y, wW, wH);
-    
     // Voice Control
     
     pGraphics->AttachControl(new HISSTools_Value(kMode, kVoiceColX, kVoiceRow1Y, kValueWL, kValueHL, "above spacious", &designScheme));
@@ -265,8 +270,9 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     pGraphics->AttachControl(new HISSTools_Button(kActive, kRateActiveX, kBeneathWavefromY, kActiveW, kValueH, "alt tight spacious", &designScheme));
     
     pGraphics->AttachControl(new HISSTools_GFileSelector(this, kWaveformX, kBeneathWavefromY, kWaveformW, kValueH, EFileAction::Open, "", "aif aiff wav", "tight", &designScheme));
-    pGraphics->AttachControl(mWaveformL);
-    pGraphics->AttachControl(mWaveformR);
+    
+    pGraphics->AttachControl(new Waveform(this, wX, w1Y, wW, wH), kLabelWaveformL);
+    pGraphics->AttachControl(new Waveform(this, wX, w2Y, wW, wH), kLabelWaveformR);
     
     // Dials
     
@@ -295,8 +301,7 @@ void HISSToolsGranular::LayoutUI(IGraphics* pGraphics)
     
     pGraphics->AttachControl(new HISSTools_TextBlock(kNameX, kNameY, kNameW, kNameH, "HISSTools Granular", kHAlignCenter, kVAlignCenter, "name", &designScheme));
     
-    mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
-    mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+    GUIUpdateBuffer();
     
     // Finalise Graphics
     
@@ -316,6 +321,20 @@ void HISSToolsGranular::SelectFromGUI(double click, double drag)
   SendParameterValueFromAPI(kOffsetRand, offsetRand, true);
 }
 
+Waveform *HISSToolsGranular::GetWaveform(int tag)
+{
+  return GetUI()->GetControlWithTag(tag)->As<Waveform>();
+}
+
+void HISSToolsGranular::GUIUpdateBuffer()
+{
+  if (!GetUI())
+    return;
+  
+  GetWaveform(kLabelWaveformL)->Set(mGranular.getBufferL(), mGranular.getBufferLength());
+  GetWaveform(kLabelWaveformR)->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+}
+
 void HISSToolsGranular::GUIUpdateSelection()
 {
   if (!GetUI())
@@ -324,8 +343,8 @@ void HISSToolsGranular::GUIUpdateSelection()
   double L = GetParam(kOffset)->Value() / 100.0;
   double R = L + (GetParam(kOffsetRand)->Value() / (1000.0 * mGranular.getBufferDuration()));
   
-  mWaveformL->SetSelect(L, R);
-  mWaveformR->SetSelect(L, R);
+  GetWaveform(kLabelWaveformL)->SetSelect(L, R);
+  GetWaveform(kLabelWaveformR)->SetSelect(L, R);
 }
 
 void HISSToolsGranular::GUIGrayOutControl(int paramIdx, bool gray)
@@ -518,8 +537,7 @@ void HISSToolsGranular::SelectFile(const char *file)
   WDL_String str(file);
   
   mGranular.load(str.Get());
-  mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
-  mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
+  GUIUpdateBuffer();
   GUIUpdateSelection();
 }
 
@@ -541,11 +559,7 @@ int HISSToolsGranular::UnserializeState(const IByteChunk& chunk, int pos)
   pos = UnserializeParams(chunk, pos);
   pos = mGranular.recall(chunk, pos);
   
-  if (mWaveformL && mWaveformR)
-  {
-    mWaveformL->Set(mGranular.getBufferL(), mGranular.getBufferLength());
-    mWaveformR->Set(mGranular.getBufferR(), mGranular.getBufferLength());
-  }
+  GUIUpdateBuffer();
   
   return pos;
 }
