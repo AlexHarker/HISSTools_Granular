@@ -47,6 +47,7 @@ jobs:
       - name: Get the VST2 SDK
         shell: bash
         run: |
+             mkdir temp
              curl -L --max-redirs 10 https://www.steinberg.net/vst3sdk --output temp/vst3sdk.zip
              unzip temp/vst3sdk.zip
              mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/aeffect.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffect.h
