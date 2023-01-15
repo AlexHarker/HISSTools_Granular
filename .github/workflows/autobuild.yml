@@ -59,8 +59,6 @@ jobs:
         with:
           name: deploy-win-hirt
           path: "hirt/HISSTools_Packaging/HISSTools Impulse Response Toolbox (HIRT)/externals/HIRT_externals_WIN/"
-      - name: Build mac plugins
-        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
       - name: Setup keychain and identities
         shell: bash
         env:  
@@ -82,32 +80,7 @@ jobs:
              security import "$CERTPATH" -P "$CERT_PWD" -A -t cert -f pkcs12 -k "$KEYCHAINPATH" -T /usr/bin/codesign
              security set-key-partition-list -S apple-tool:,apple:, -s -k "$KEYCHAINPATH" -D "$CERT_BASE64" -t private "$KEYCHAINPATH"
              xcrun notarytool store-credentials "HIRT-NOTARIZE" --apple-id $APPLE_ID --team-id $TEAM_ID --password $APP_SPECIFIC_PWD
-      - name: Mac builds notarization
-        shell: bash
-        # install fd /cd to package make temp folder with mxos / sign mxos / copy to folder / zip / notarize upload / deleete temps / staple
-        run: |
-             brew install fd
-             cd hirt/HISSTools_Packaging
-             mkdir -p Notarization
-             fd $MXO_GLOB -E .git -I
-             fd $MXO_GLOB -E .git -I -x codesign --force --timestamp --sign "Developer ID Application" {}
-             fd $MXO_GLOB -E .git -I -x ditto {} Notarization/{/} 
-             /usr/bin/ditto -c -k --keepParent Notarization Notarization.zip
-             xcrun notarytool submit Notarization.zip --keychain-profile "HIRT-NOTARIZE" --wait
-             rm -rf Notarization Notarization.zip
-             fd $MXO_GLOB -E .git -I -x xcrun stapler staple {}  
-      - name: Make zip
-        run: |
-             mkdir build/
-             cd hirt/HISSTools_Packaging/
-             zip -r ../../build/HISSTools_Impulse_Response_Toolbox.zip "HISSTools Impulse Response Toolbox (HIRT)"
-      - name: Make release
-        uses: "softprops/action-gh-release@v1"
-        with:
-          prerelease: contains( ${{ github.ref_name }}, "RC")
-          fail_on_unmatched_files: true
-          files: build/HISSTools_Impulse_Response_Toolbox.zip
-          target_commitish: ${{ github.sha }}
-          body: This is an automated build of the HIRT Package. 
-          generate_release_notes: true
+      - name: Build mac plugins
+        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
+  
     
