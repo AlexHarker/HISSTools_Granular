@@ -25,7 +25,7 @@ jobs:
           repository: steinbergmedia/vst3sdk
           submodules: recursive
           path: "iPlug2/Dependencies/IPlug/VST3_SDK"
-      - name: Download iPlug2 Mac Dependencies
+      - name: Download iPlug2 Windows Dependencies
         shell: bash
         run: |
              cd iPlug2/Dependencies
@@ -41,7 +41,9 @@ jobs:
           repository: 'AlexHarker/HISSTools_PluginLib'
           path: "iPlug2/Projects/HISSTools_PluginLib"
       - name: Build Windows Plugins
-        run: cd temp
+        run: |
+             msbuild "iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular.sln" /t:HISSToolsGranular-vst2;HISSToolsGranular-vst3 /p:configuration="release" /p:platform=win32 /v:q /clp:ErrorsOnly /nologo /m
+             msbuild "iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular.sln" /t:HISSToolsGranular-vst2;HISSToolsGranular-vst3 /p:configuration="release" /p:platform=x64 /v:q /clp:ErrorsOnly /nologo /m
       - name: Upload Windows Builds
         uses: actions/upload-artifact@v3
         with:
