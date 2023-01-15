@@ -49,7 +49,7 @@ jobs:
         run: |
              mkdir temp
              curl -L --max-redirs 10 https://www.steinberg.net/vst3sdk --output temp/vst3sdk.zip
-             unzip temp/vst3sdk.zip
+             unzip temp/vst3sdk.zip -d temp
              mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/aeffect.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffect.h
              mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/aeffectx.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffectx.h
       - name: Checkout VST3 SDK
