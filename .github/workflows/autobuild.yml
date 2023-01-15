@@ -2,39 +2,51 @@ name: build-github
 on: workflow_dispatch
 jobs:
   deploy-win:
-    if: false
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
-      - name: Checkout max-sdk-base
+      - name: Checkout iPlug2
         uses: actions/checkout@v3
         with:
-          repository: 'Cycling74/max-sdk-base'
-          path: "max-sdk-base"
-      - name: Checkout main repo
+          repository: 'iPlug2/iPlug2'
+          path: "iPlug2"
+      - name: Get the VST2 SDK
+        shell: bash
+        run: |
+             mkdir temp
+             curl -L --max-redirs 10 https://www.steinberg.net/vst3sdk --output temp/vst3sdk.zip
+             unzip temp/vst3sdk.zip -d temp
+             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/aeffect.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffect.h
+             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/aeffectx.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffectx.h
+      - name: Checkout VST3 SDK
         uses: actions/checkout@v3
         with:
-          path: "hirt"
-      - name: Checkout convolution reverb specific externals
+          repository: steinbergmedia/vst3sdk
+          submodules: recursive
+          path: "iPlug2/Dependencies/IPlug/VST3_SDK"
+      - name: Download iPlug2 Mac Dependencies
+        shell: bash
+        run: |
+             cd iPlug2/Dependencies
+             ./download-prebuilt-libs.sh
+      - name: Checkout Main Repo
         uses: actions/checkout@v3
         with:
-            repository: 'AlexHarker/M4L_Convolution_Reverb_Externals'
-            path: "m4l"
-      - name: Build windows externals
-        run: | 
-             msbuild "m4l/M4L_Convolution_Reverb_Externals.sln" /p:configuration="Release" /p:platform=x64 /v:q /clp:ErrorsOnly /nologo /m
-             msbuild "hirt/HISSTools_IR_Toolbox.sln" /p:configuration="Release" /p:platform=x64 /v:q /clp:ErrorsOnly /nologo /m
-      - name: Upload windows builds
+          submodules: recursive
+          path: "iPlug2/Projects/HISSTools_Granular"
+      - name: Checkout HISSTools PluginLib
+        uses: actions/checkout@v3
+        with:
+          repository: 'AlexHarker/HISSTools_PluginLib'
+          path: "iPlug2/Projects/HISSTools_PluginLib"
+      - name: Build Windows Plugins
+        run: cd temp
+      - name: Upload Windows Builds
         uses: actions/upload-artifact@v3
         with:
-          name: deploy-win-hirt
-          path: "hirt/HISSTools_Packaging/HISSTools Impulse Response Toolbox (HIRT)/externals/HIRT_externals_WIN/"
-      - name: Upload windows convolution reverb specific builds
-        uses: actions/upload-artifact@v3
-        with:
-          name: deploy-win-m4l
-          path: m4l/build-win
+          name: deploy-win
+          path: ""
   deploy-mac:
     runs-on: macos-latest
     #needs: deploy-win
