@@ -1,5 +1,5 @@
 name: build-github
-on: workflow-dispatch
+on: workflow_dispatch
 jobs:
   deploy-win:
     if: false
