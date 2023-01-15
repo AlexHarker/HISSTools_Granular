@@ -50,6 +50,11 @@ jobs:
           repository: steinbergmedia/vst3sdk
           submodules: recursive
           path: "iPlug2/Dependencies/IPlug/VST3_SDK"
+      - name: Download iPlug2 mac Dependencies
+        shell: bash
+        run: |
+             cd iPlug2/Dependencies
+             ./download-prebuilt-libs.sh
       - name: Checkout main repo
         uses: actions/checkout@v3
         with:
