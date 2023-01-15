@@ -58,6 +58,7 @@ jobs:
       - name: Checkout Main Repo
         uses: actions/checkout@v3
         with:
+          submodules: recursive
           path: "iPlug2/Projects/HISSTools_Granular"
       - name: Checkout HISSTools PluginLib
         uses: actions/checkout@v3
