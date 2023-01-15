@@ -50,12 +50,12 @@ jobs:
           repository: steinbergmedia/vst3sdk
           submodules: recursive
           path: "iPlug2/Dependencies/IPlug/VST3_SDK"
-      - name: Download iPlug2 mac Dependencies
+      - name: Download iPlug2 Mac Dependencies
         shell: bash
         run: |
              cd iPlug2/Dependencies
              ./download-prebuilt-libs.sh
-      - name: Checkout main repo
+      - name: Checkout Main Repo
         uses: actions/checkout@v3
         with:
           path: "iPlug2/Projects/HISSTools_Granular"
@@ -70,7 +70,7 @@ jobs:
         with:
           name: deploy-win-hirt
           path: "hirt/HISSTools_Packaging/HISSTools Impulse Response Toolbox (HIRT)/externals/HIRT_externals_WIN/"
-      - name: Setup keychain and identities
+      - name: Setup Keychain and Identities
         shell: bash
         env:  
           TEAM_ID: ${{ secrets.TEAM_ID }}
@@ -91,7 +91,7 @@ jobs:
              security import "$CERTPATH" -P "$CERT_PWD" -A -t cert -f pkcs12 -k "$KEYCHAINPATH" -T /usr/bin/codesign
              security set-key-partition-list -S apple-tool:,apple:, -s -k "$KEYCHAINPATH" -D "$CERT_BASE64" -t private "$KEYCHAINPATH"
              xcrun notarytool store-credentials "HIRT-NOTARIZE" --apple-id $APPLE_ID --team-id $TEAM_ID --password $APP_SPECIFIC_PWD
-      - name: Build mac plugins
+      - name: Build Mac Plugins
         run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
   
     
