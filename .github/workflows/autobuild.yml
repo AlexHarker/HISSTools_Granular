@@ -37,7 +37,7 @@ jobs:
           path: m4l/build-win
   deploy-mac:
     runs-on: macos-latest
-    needs: deploy-win
+    #needs: deploy-win
     steps:
       - name: Checkout iPlug2
         uses: actions/checkout@v3
