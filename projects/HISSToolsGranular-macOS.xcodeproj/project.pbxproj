@@ -576,7 +576,7 @@
 		4F78D8D213B63B5D0032E0F3 /* aeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aeffect.h; sourceTree = "<group>"; };
 		4F78D8D313B63B5D0032E0F3 /* aeffectx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aeffectx.h; sourceTree = "<group>"; };
 		4F78D8E613B63BA40032E0F3 /* IPlug_include_in_plug_hdr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlug_include_in_plug_hdr.h; path = ../../../IPlug/IPlug_include_in_plug_hdr.h; sourceTree = SOURCE_ROOT; };
-		4F78D8E813B63BA40032E0F3 /* IPlug_include_in_plug_src.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlug_include_in_plug_src.h; path = ../../../IPlug/IPlug_include_in_plug_src.h; sourceTree = SOURCE_ROOT; };
+		4F78D8E813B63BA40032E0F3 /* IPlug_include_in_plug_src.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlug_include_in_plug_src.h; path = ../../../IPlug/IPlug_include_in_plug_src.h; sourceTree = SOURCE_ROOT; tabWidth = 2; };
 		4F78D8EC13B63BA40032E0F3 /* IPlugAPIBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlugAPIBase.h; path = ../../../IPlug/IPlugAPIBase.h; sourceTree = SOURCE_ROOT; };
 		4F78D8ED13B63BA40032E0F3 /* IPlugAPIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugAPIBase.cpp; path = ../../../IPlug/IPlugAPIBase.cpp; sourceTree = SOURCE_ROOT; };
 		4F78D8FA13B63BA50032E0F3 /* IPlugLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlugLogger.h; path = ../../../IPlug/IPlugLogger.h; sourceTree = SOURCE_ROOT; };
@@ -785,7 +785,7 @@
 		4FDA1E102012CDB30027C868 /* resource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = resource.h; path = ../resources/resource.h; sourceTree = "<group>"; };
 		4FDA600620B586AC00C49ABA /* HISSToolsGranular-mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "HISSToolsGranular-mac.xcconfig"; path = "../config/HISSToolsGranular-mac.xcconfig"; sourceTree = "<group>"; };
 		4FDAC0E6207D76C600299363 /* IPlugTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugTimer.cpp; path = ../../../IPlug/IPlugTimer.cpp; sourceTree = "<group>"; };
-		4FDAC0E8207D76C600299363 /* IPlugQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlugQueue.h; path = ../../../IPlug/IPlugQueue.h; sourceTree = "<group>"; };
+		4FDAC0E8207D76C600299363 /* IPlugQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugQueue.h; path = ../../../IPlug/IPlugQueue.h; sourceTree = "<group>"; tabWidth = 2; };
 		4FDAC0E9207D76C600299363 /* IPlugTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPlugTimer.h; path = ../../../IPlug/IPlugTimer.h; sourceTree = "<group>"; };
 		4FEFB7ED208496C800515434 /* IPlugWeb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugWeb.cpp; path = ../../../IPlug/WEB/IPlugWeb.cpp; sourceTree = "<group>"; };
 		4FEFB7EE208496C800515434 /* IPlugWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugWeb.h; path = ../../../IPlug/WEB/IPlugWeb.h; sourceTree = "<group>"; };
