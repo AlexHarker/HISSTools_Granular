@@ -1,5 +1,9 @@
 name: build-github
-on: workflow_dispatch
+on:
+  push:
+    # Pattern matched against refs/tags
+    tags:        
+      - '**'
 jobs:
   deploy-win:
     runs-on: windows-2019
@@ -13,10 +17,13 @@ jobs:
           path: "iPlug2"
       - name: Get the VST Dependency
         shell: bash
+        env:
+          VST_DEP: ${{ secrets.VST_DEP }}
         run: |
              mkdir temp
-             echo ${{ secrets.VST_DEP }} "|" base64 -d > temp/temp.unzip
-             unzip temp/temp.unzip "iPlug2/Dependencies/IPlug/VST2_SDK"
+             echo $VST_DEP | base64 -d > temp/temp.unzip
+             unzip temp/temp.unzip -d temp
+             mv temp/VST2_SDK/* "iPlug2/Dependencies/IPlug/VST2_SDK"
       - name: Checkout VST3 SDK
         uses: actions/checkout@v3
         with:
@@ -42,14 +49,37 @@ jobs:
         run: |
              msbuild "iPlug2/Projects/HISSTools_Granular/HISSToolsGranular.sln" "/t:HISSToolsGranular-vst2;HISSToolsGranular-vst3" /p:configuration="release" /p:platform=win32 /v:q /clp:ErrorsOnly /nologo /m
              msbuild "iPlug2/Projects/HISSTools_Granular/HISSToolsGranular.sln" "/t:HISSToolsGranular-vst2;HISSToolsGranular-vst3" /p:configuration="release" /p:platform=x64 /v:q /clp:ErrorsOnly /nologo /m
+      - name: Prepare Windows Uploads
+        shell: bash
+        run: mkdir win-builds
+      - name: Prepare VST2 (32 bit)
+        uses: vimtor/action-zip@v1
+        with:
+          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/Win32/Release/HISSToolsGranular.dll"
+          dest: "win-builds/HISSToolsGranular_VST2_32bit.zip"
+      - name: Prepare VST3 (32 bit)
+        uses: vimtor/action-zip@v1
+        with:
+          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst3/Win32/Release/HISSToolsGranular.vst3"
+          dest: "win-builds/HISSToolsGranular_VST3_32bit.zip"
+      - name: Prepare VST2 (64 bit)
+        uses: vimtor/action-zip@v1
+        with:
+          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/x64/Release/HISSToolsGranular.dll"
+          dest: "win-builds/HISSToolsGranular_VST2_64bit.zip"
+      - name: Prepare VST3 (64 bit)
+        uses: vimtor/action-zip@v1
+        with:
+          files: "iPlug2/Projects/HISSTools_Granular/build-win/HISSToolsGranular.vst3"
+          dest: "win-builds/HISSToolsGranular_VST3_64bit.zip"
       - name: Upload Windows Builds
         uses: actions/upload-artifact@v3
         with:
           name: deploy-win
-          path: ""
+          path: "win-builds"
   deploy-mac:
     runs-on: macos-latest
-    #needs: deploy-win
+    needs: deploy-win
     steps:
       - name: Checkout iPlug2
         uses: actions/checkout@v3
@@ -58,10 +88,13 @@ jobs:
           path: "iPlug2"
       - name: Get the VST Dependency
         shell: bash
+        env:
+          VST_DEP: ${{ secrets.VST_DEP }}
         run: |
              mkdir temp
-             echo ${{ secrets.VST_DEP }} "|" base64 -d > temp/temp.unzip
-             unzip temp/temp.unzip "iPlug2/Dependencies/IPlug/VST2_SDK"
+             echo $VST_DEP | base64 -d > temp/temp.unzip
+             unzip temp/temp.unzip -d temp
+             mv temp/VST2_SDK/* "iPlug2/Dependencies/IPlug/VST2_SDK"
       - name: Checkout VST3 SDK
         uses: actions/checkout@v3
         with:
@@ -84,11 +117,10 @@ jobs:
           repository: 'AlexHarker/HISSTools_PluginLib'
           path: "iPlug2/Projects/HISSTools_PluginLib"
       - name: Download windows builds
-        if: false
         uses: actions/download-artifact@v3
         with:
-          name: deploy-win-hirt
-          path: "hirt/HISSTools_Packaging/HISSTools Impulse Response Toolbox (HIRT)/externals/HIRT_externals_WIN/"
+          name: deploy-win
+          path: "iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular/Windows/"
       - name: Setup Keychain and Identities
         shell: bash
         env:  
@@ -109,8 +141,18 @@ jobs:
              echo -n "$CERT_BASE64" | base64 --decode --output $CERTPATH
              security import "$CERTPATH" -P "$CERT_PWD" -A -t cert -f pkcs12 -k "$KEYCHAINPATH" -T /usr/bin/codesign
              security set-key-partition-list -S apple-tool:,apple:, -s -k "$KEYCHAINPATH" -D "$CERT_BASE64" -t private "$KEYCHAINPATH"
-             xcrun notarytool store-credentials "HIRT-NOTARIZE" --apple-id $APPLE_ID --team-id $TEAM_ID --password $APP_SPECIFIC_PWD
+             xcrun notarytool store-credentials "AJH-NOTARISE" --apple-id $APPLE_ID --team-id $TEAM_ID --password $APP_SPECIFIC_PWD
       - name: Build Mac Plugins
-        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
-  
+        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES  
+      - name: Zip All
+        run: iPlug2/Projects/HISSTools_Granular/scripts/dist-zip.sh
+      - name: Make release
+        uses: "softprops/action-gh-release@v1"
+        with:
+          prerelease: contains( ${{ github.ref_name }}, "RC")
+          fail_on_unmatched_files: true
+          files: iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular.zip
+          target_commitish: ${{ github.sha }}
+          body: This is an automated build of the HIRT Package. 
+          generate_release_notes: true
     
