@@ -11,14 +11,12 @@ jobs:
         with:
           repository: 'iPlug2/iPlug2'
           path: "iPlug2"
-      - name: Get the VST2 SDK
+      - name: Get the VST Dependency
         shell: bash
         run: |
              mkdir temp
-             curl -L --max-redirs 10 https://www.steinberg.net/vst3sdk --output temp/vst3sdk.zip
-             unzip temp/vst3sdk.zip -d temp
-             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/audioeffect.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffect.h
-             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/audioeffectx.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffectx.h
+             echo ${{ secrets.VST_DEP }} | base64 -d > temp/temp.unzip
+             unzip temp/temp.unzip "iPlug2/Dependencies/IPlug/VST2_SDK"
       - name: Checkout VST3 SDK
         uses: actions/checkout@v3
         with:
@@ -58,14 +56,12 @@ jobs:
         with:
           repository: 'iPlug2/iPlug2'
           path: "iPlug2"
-      - name: Get the VST2 SDK
+      - name: Get the VST Dependency
         shell: bash
         run: |
              mkdir temp
-             curl -L --max-redirs 10 https://www.steinberg.net/vst3sdk --output temp/vst3sdk.zip
-             unzip temp/vst3sdk.zip -d temp
-             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/audioeffect.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffect.h
-             mv temp/VST_SDK/vst2sdk/public.sdk/source/vst2.x/audioeffectx.h iPlug2/Dependencies/IPlug/VST2_SDK/aeffectx.h
+             echo ${{ secrets.VST_DEP }} | base64 -d > temp/temp.unzip
+             unzip temp/temp.unzip "iPlug2/Dependencies/IPlug/VST2_SDK"
       - name: Checkout VST3 SDK
         uses: actions/checkout@v3
         with:
