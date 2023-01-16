@@ -116,7 +116,7 @@ jobs:
         with:
           repository: 'AlexHarker/HISSTools_PluginLib'
           path: "iPlug2/Projects/HISSTools_PluginLib"
-      - name: Download windows builds
+      - name: Download Windows Builds
         uses: actions/download-artifact@v3
         with:
           name: deploy-win
