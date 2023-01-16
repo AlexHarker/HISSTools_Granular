@@ -70,7 +70,7 @@ jobs:
       - name: Prepare VST3 (64 bit)
         uses: vimtor/action-zip@v1
         with:
-          files: "iPlug2/Projects/HISSTools_Granular/build-win/HISSToolsGranular.vst3"
+          files: "iPlug2/Projects/HISSTools_Granular/build-win/HISSToolsGranular.vst3/"
           dest: "win-builds/HISSToolsGranular_VST3_64bit.zip"
       - name: Upload Windows Builds
         uses: actions/upload-artifact@v3
@@ -153,6 +153,6 @@ jobs:
           fail_on_unmatched_files: true
           files: iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular.zip
           target_commitish: ${{ github.sha }}
-          body: This is an automated build of the HIRT Package. 
+          body: This is an automated build of HISSTools_Granular. 
           generate_release_notes: true
     
