@@ -850,7 +850,6 @@
 		B81BF0F221F3A588002C1DA6 /* HISSTools_VecLib_Structs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_VecLib_Structs.hpp; sourceTree = "<group>"; };
 		B81BF0F421F3A588002C1DA6 /* HISSTools_Controls.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Controls.hpp; sourceTree = "<group>"; };
 		B81BF0F521F3A588002C1DA6 /* HISSTools_Design_Scheme.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Design_Scheme.hpp; sourceTree = "<group>"; };
-		B81BF0F721F3A588002C1DA6 /* HISSTools_Atomic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Atomic.hpp; sourceTree = "<group>"; };
 		B81BF0F821F3A588002C1DA6 /* HISSTools_Pointers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_Pointers.hpp; sourceTree = "<group>"; };
 		B81BF0F921F3A588002C1DA6 /* HISSTools_ThreadSafety.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HISSTools_ThreadSafety.hpp; sourceTree = "<group>"; };
 		B81BF0FA21F3A588002C1DA6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -1799,7 +1798,6 @@
 		B81BF0F621F3A588002C1DA6 /* HISSTools_Utility */ = {
 			isa = PBXGroup;
 			children = (
-				B81BF0F721F3A588002C1DA6 /* HISSTools_Atomic.hpp */,
 				B81BF0F821F3A588002C1DA6 /* HISSTools_Pointers.hpp */,
 				B81BF0F921F3A588002C1DA6 /* HISSTools_ThreadSafety.hpp */,
 			);

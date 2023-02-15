@@ -7,7 +7,7 @@ AUDIO_PATH="$HOME/Library/Audio/Plug-Ins"
 
 if [ ! -d "$EXPORT_PATH" ]
 then
-  mkdir "$EXPORT_PATH"
+  mkdir -p "$EXPORT_PATH"
 fi
 
 if [ ! -d "$EXPORT_PATH/OSX" ]
