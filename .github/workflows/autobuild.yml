@@ -2,7 +2,7 @@ name: build-github
 on:
   push:
     # Pattern matched against refs/tags
-    tags:        
+    tags:
       - '**'
 jobs:
   deploy-win:
@@ -123,7 +123,7 @@ jobs:
           path: "iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular/Windows/"
       - name: Setup Keychain and Identities
         shell: bash
-        env:  
+        env:
           TEAM_ID: ${{ secrets.TEAM_ID }}
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APP_SPECIFIC_PWD: ${{ secrets.APP_SPECIFIC_PWD }}
@@ -143,7 +143,7 @@ jobs:
              security set-key-partition-list -S apple-tool:,apple:, -s -k "$KEYCHAINPATH" -D "$CERT_BASE64" -t private "$KEYCHAINPATH"
              xcrun notarytool store-credentials "AJH-NOTARISE" --apple-id $APPLE_ID --team-id $TEAM_ID --password $APP_SPECIFIC_PWD
       - name: Build Mac Plugins
-        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES  
+        run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
       - name: Zip All
         run: iPlug2/Projects/HISSTools_Granular/scripts/dist-zip.sh
       - name: Make release
@@ -153,6 +153,5 @@ jobs:
           fail_on_unmatched_files: true
           files: iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular.zip
           target_commitish: ${{ github.sha }}
-          body: This is an automated build of HISSTools_Granular. 
+          body: This is an automated build of HISSTools_Granular.
           generate_release_notes: true
-    
