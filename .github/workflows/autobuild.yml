@@ -149,7 +149,7 @@ jobs:
       - name: Make release
         uses: "softprops/action-gh-release@v1"
         with:
-          prerelease: contains( ${{ github.ref_name }}, "RC")
+          prerelease: contains( ${{ github.ref_name }}, 'rc')
           fail_on_unmatched_files: true
           files: iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular.zip
           target_commitish: ${{ github.sha }}
