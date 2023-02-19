@@ -18,14 +18,19 @@ ipch/
 *.mode1v3
 *.db
 *.LSOverride
-*xcuserdata/
+*.xcworkspace
 xcuserdata/
+*.xcuserdata/
+*.xcuserdatad/
 *.xcschememanagement.plist
-build-*
+build*
 ipch/*
 gui/*
 
 Icon?
 .DS_Stor*
 
-.vs/*
+## VS
+.vs/
+*.tlog/
+*.user
