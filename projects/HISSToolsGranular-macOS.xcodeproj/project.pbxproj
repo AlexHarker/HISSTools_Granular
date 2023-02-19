@@ -2016,14 +2016,8 @@
 			attributes = {
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					4F20EEC8132C69FE0030E34C = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
-					};
 					4F39075F2013EBA300DDA490 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
@@ -2033,19 +2027,7 @@
 							};
 						};
 					};
-					4F3AE17812C0E5E2001FD7A4 = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
-					};
 					4F78DAF113B643600032E0F3 = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
-					};
-					4F9828AA140A9EB700F3FCC1 = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
-					};
-					4FB600121567CB0A0020189A = {
 						DevelopmentTeam = 76XBB8EK7J;
 						ProvisioningStyle = Manual;
 					};
@@ -2055,8 +2037,6 @@
 						ProvisioningStyle = Manual;
 					};
 					4FD16A0813B63081001D0217 = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
@@ -2065,10 +2045,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					4FFBB8F820863B0E00DDD0E7 = {
-						DevelopmentTeam = 76XBB8EK7J;
-						ProvisioningStyle = Manual;
 					};
 					B8D31D89278C6593009A9F2E = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -2755,11 +2731,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 76XBB8EK7J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				EXECUTABLE_EXTENSION = "";
@@ -2837,11 +2813,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 76XBB8EK7J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_EXTENSION = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2897,6 +2873,7 @@
 		4F20EF30132C69FE0030E34C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST2_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -2906,6 +2883,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST2-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WARNING_CFLAGS = "-Wno-main";
 				WRAPPER_EXTENSION = vst;
@@ -2915,6 +2893,7 @@
 		4F20EF31132C69FE0030E34C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST2_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -2924,6 +2903,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST2-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WARNING_CFLAGS = "-Wno-main";
 				WRAPPER_EXTENSION = vst;
@@ -2933,6 +2913,7 @@
 		4F20EF32132C69FE0030E34C /* Tracer */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST2_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -2942,6 +2923,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST2-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WARNING_CFLAGS = "-Wno-main";
 				WRAPPER_EXTENSION = vst;
@@ -2963,7 +2945,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EXECUTABLE_EXTENSION = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2989,6 +2971,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlexHarker.standalone.HISSToolsGranular.AUv3;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -3010,7 +2993,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				EXECUTABLE_EXTENSION = "";
@@ -3037,6 +3020,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlexHarker.standalone.HISSToolsGranular.AUv3;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -3058,7 +3042,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				EXECUTABLE_EXTENSION = "";
@@ -3085,6 +3069,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlexHarker.standalone.HISSToolsGranular.AUv3;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = appex;
@@ -3094,6 +3079,7 @@
 		4F3AE1DD12C0E5E2001FD7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(AU_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3108,6 +3094,7 @@
 				);
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I $CA_SDK/AudioUnits/AUPublic/AUBase";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.audiounit.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REZ_SEARCH_PATHS = (
 					/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers,
 					$CA_SDK/AudioUnits/AUPublic/AUBase,
@@ -3120,6 +3107,7 @@
 		4F3AE1DE12C0E5E2001FD7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(AU_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3134,6 +3122,7 @@
 				);
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I $CA_SDK/AudioUnits/AUPublic/AUBase";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.audiounit.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REZ_SEARCH_PATHS = (
 					/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers,
 					$CA_SDK/AudioUnits/AUPublic/AUBase,
@@ -3146,6 +3135,7 @@
 		4F3AE1DF12C0E5E2001FD7A4 /* Tracer */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(AU_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3160,6 +3150,7 @@
 				);
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I $CA_SDK/AudioUnits/AUPublic/AUBase";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.audiounit.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REZ_SEARCH_PATHS = (
 					/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers,
 					$CA_SDK/AudioUnits/AUPublic/AUBase,
@@ -3199,6 +3190,7 @@
 		4F9828DD140A9EB700F3FCC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3212,6 +3204,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3220,6 +3213,7 @@
 		4F9828DE140A9EB700F3FCC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3233,6 +3227,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3241,6 +3236,7 @@
 		4F9828DF140A9EB700F3FCC1 /* Tracer */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3254,6 +3250,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3264,6 +3261,7 @@
 			baseConfigurationReference = 4F4CC38C1549B92900A9EA21 /* AAXLibrary_common_debug.xcconfig */;
 			buildSettings = {
 				AAX_SDK_ROOT = "$(AAX_SDK)";
+				CODE_SIGN_IDENTITY = "-";
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(AAX_PATH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3295,6 +3293,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.aax.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = "$(BASE_SDK_MAC)";
 				SKIP_INSTALL = NO;
 				SYMROOT = "../build-mac";
@@ -3312,6 +3311,7 @@
 			baseConfigurationReference = 4F4CC38D1549B92900A9EA21 /* AAXLibrary_common_release.xcconfig */;
 			buildSettings = {
 				AAX_SDK_ROOT = "$(AAX_SDK)";
+				CODE_SIGN_IDENTITY = "-";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = NO;
@@ -3353,6 +3353,7 @@
 					1500,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.aax.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = "$(BASE_SDK_MAC)";
 				SKIP_INSTALL = NO;
 				SYMROOT = "../build-mac";
@@ -3370,6 +3371,7 @@
 			baseConfigurationReference = 4F4CC38D1549B92900A9EA21 /* AAXLibrary_common_release.xcconfig */;
 			buildSettings = {
 				AAX_SDK_ROOT = "$(AAX_SDK)";
+				CODE_SIGN_IDENTITY = "-";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = NO;
@@ -3411,6 +3413,7 @@
 					1500,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.aax.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = "$(BASE_SDK_MAC)";
 				SKIP_INSTALL = NO;
 				SYMROOT = "../build-mac";
@@ -3524,7 +3527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DSTROOT = "$(APP_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_APP_DEFS)",
@@ -3553,7 +3556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DSTROOT = "$(APP_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_APP_DEFS)",
@@ -3582,7 +3585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HISSToolsGranular-macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DSTROOT = "$(APP_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_APP_DEFS)",
@@ -3610,6 +3613,7 @@
 		4FFBB93820863B0E00DDD0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3623,6 +3627,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3631,6 +3636,7 @@
 		4FFBB93920863B0E00DDD0E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3644,6 +3650,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3652,6 +3659,7 @@
 		4FFBB93A20863B0E00DDD0E7 /* Tracer */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				DSTROOT = "$(VST3_PATH)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
@@ -3665,6 +3673,7 @@
 				);
 				INFOPLIST_FILE = "../resources/HISSToolsGranular-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexHarker.vst3.${BINARY_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = vst3;
 			};
@@ -3695,10 +3704,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 76XBB8EK7J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_EXTENSION = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
