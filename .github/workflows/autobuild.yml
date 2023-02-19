@@ -53,22 +53,22 @@ jobs:
         shell: bash
         run: mkdir win-builds
       - name: Prepare VST2 (32 bit)
-        uses: vimtor/action-zip@v1
+        uses: vimtor/action-zip@v1.1
         with:
           files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/Win32/Release/HISSToolsGranular.dll"
           dest: "win-builds/HISSToolsGranular_VST2_32bit.zip"
       - name: Prepare VST3 (32 bit)
-        uses: vimtor/action-zip@v1
+        uses: vimtor/action-zip@v1.1
         with:
           files: "iPlug2/Projects/HISSTools_Granular/build-win/vst3/Win32/Release/HISSToolsGranular.vst3"
           dest: "win-builds/HISSToolsGranular_VST3_32bit.zip"
       - name: Prepare VST2 (64 bit)
-        uses: vimtor/action-zip@v1
+        uses: vimtor/action-zip@v1.1
         with:
           files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/x64/Release/HISSToolsGranular.dll"
           dest: "win-builds/HISSToolsGranular_VST2_64bit.zip"
       - name: Prepare VST3 (64 bit)
-        uses: vimtor/action-zip@v1
+        uses: vimtor/action-zip@v1.1
         with:
           files: "iPlug2/Projects/HISSTools_Granular/build-win/HISSToolsGranular.vst3/"
           dest: "win-builds/HISSToolsGranular_VST3_64bit.zip"
