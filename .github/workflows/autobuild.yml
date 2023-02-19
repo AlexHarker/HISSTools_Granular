@@ -53,25 +53,29 @@ jobs:
         shell: bash
         run: mkdir win-builds
       - name: Prepare VST2 (32 bit)
-        uses: vimtor/action-zip@v1.1
+        uses: thedoctor0/zip-release@0.7.1
         with:
-          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/Win32/Release/HISSToolsGranular.dll"
-          dest: "win-builds/HISSToolsGranular_VST2_32bit.zip"
+          path: "HISSToolsGranular.dll"
+          directory: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/Win32/Release/"
+          filename: "../../../../../../../win-builds/HISSToolsGranular_VST2_32bit.zip"
       - name: Prepare VST3 (32 bit)
-        uses: vimtor/action-zip@v1.1
+        uses: thedoctor0/zip-release@0.7.1
         with:
-          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst3/Win32/Release/HISSToolsGranular.vst3"
-          dest: "win-builds/HISSToolsGranular_VST3_32bit.zip"
+          path: "HISSToolsGranular.vst3"
+          directory: "iPlug2/Projects/HISSTools_Granular/build-win/vst3/Win32/Release/"
+          filename: "../../../../../../../win-builds/HISSToolsGranular_VST3_32bit.zip"
       - name: Prepare VST2 (64 bit)
-        uses: vimtor/action-zip@v1.1
+        uses: thedoctor0/zip-release@0.7.1
         with:
-          files: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/x64/Release/HISSToolsGranular.dll"
-          dest: "win-builds/HISSToolsGranular_VST2_64bit.zip"
+          path: "HISSToolsGranular.dll"
+          directory: "iPlug2/Projects/HISSTools_Granular/build-win/vst2/x64/Release/"
+          filename: "../../../../../../../win-builds/HISSToolsGranular_VST2_64bit.zip"
       - name: Prepare VST3 (64 bit)
-        uses: vimtor/action-zip@v1.1
+        uses: thedoctor0/zip-release@0.7.1
         with:
-          files: "iPlug2/Projects/HISSTools_Granular/build-win/HISSToolsGranular.vst3/"
-          dest: "win-builds/HISSToolsGranular_VST3_64bit.zip"
+          path: "HISSToolsGranular.vst3/"
+          directory: "iPlug2/Projects/HISSTools_Granular/build-win/"
+          filename: "../../../../win-builds/HISSToolsGranular_VST3_64bit.zip"
       - name: Upload Windows Builds
         uses: actions/upload-artifact@v3
         with:
