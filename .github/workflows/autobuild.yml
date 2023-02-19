@@ -121,8 +121,6 @@ jobs:
           path: "iPlug2/Projects/HISSTools_PluginLib"
       - name: Download Windows Builds
         uses: actions/download-artifact@v3
-      - name: Testing
-        run: test -f ${{ env.release_notes }} && echo "FILE exists."
         with:
           name: deploy-win
           path: "iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular/Windows/"
