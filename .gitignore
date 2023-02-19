@@ -18,11 +18,9 @@ ipch/
 *.mode1v3
 *.db
 *.LSOverride
-*.xcworkspace
 xcuserdata/
 *.xcuserdata/
 *.xcuserdatad/
-*.xcschememanagement.plist
 build*
 ipch/*
 gui/*
