@@ -1,0 +1,9 @@
+This is an automated build of the HISSTools Granular plugin.
+This is a stable release version.
+Download the zip below to install the plugin.
+
+Changes since the last release:
+
+- fixed bug where the plugin could crash when the GUI was closed
+- reduced binary sizes on Mac
+- updated manual
