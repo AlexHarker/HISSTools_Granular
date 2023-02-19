@@ -17,7 +17,7 @@ Formats / OS:
 To Install the Plugin:
 ---------------------------------
 - Automated builds of the plugin can be found on the [releases](https://github.com/AlexHarker/HISSTools_Granular/releases) page of GitHub (the latest version is at the top).
-- If you do not need to build you are advised to download the official builds linked above, rather than to download the source code / repository available directly from the frontpage of the repo on GitHub.
+- If you do not **need** to build from source you are strongly advised to download the official builds linked above, rather than to download the source code / repository available directly from the frontpage of the repo on GitHub.
 
 To Build the Plugin:
 ---------------------------------
