@@ -152,8 +152,9 @@ jobs:
       - name: Zip All
         run: iPlug2/Projects/HISSTools_Granular/scripts/dist-zip.sh
       - name: "Check Release Notes Existence"
-          uses: andstor/file-existence-action@v2
-          id: release_notes_check
+        uses: andstor/file-existence-action@v2
+        id: release_notes_check
+        with:
           files: ${{ env.release_notes }}
       - name: Make release
         uses: "softprops/action-gh-release@v1"
