@@ -118,10 +118,8 @@ def main():
     NSEXTENSIONPOINTIDENTIFIER  = "com.apple.AudioUnit"
 
   plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-macOS-AUv3-Info.plist"
-
   with open(plistpath, 'rb') as fp:
     auv3 = plistlib.load(fp)
-  
   auv3['CFBundleExecutable'] = config['BUNDLE_NAME']
   auv3['CFBundleGetInfoString'] = CFBundleGetInfoString
   auv3['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".app." + config['BUNDLE_NAME'] + ".AUv3"
