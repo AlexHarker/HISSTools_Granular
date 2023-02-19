@@ -81,7 +81,8 @@ jobs:
     runs-on: macos-11
     needs: deploy-win
     env:
-      testing-version: ${{ endsWith(github.ref_name, 'rc') }}
+      release_notes: ${{ github.workspace }}/iPlug2/Projects/HISSTools_Granular/.github/releases/release-notes-${{ github.ref_name }}.txt
+      testing_version: ${{ endsWith(github.ref_name, 'rc') }}
     steps:
       - name: Checkout iPlug2
         uses: actions/checkout@v3
@@ -120,6 +121,8 @@ jobs:
           path: "iPlug2/Projects/HISSTools_PluginLib"
       - name: Download Windows Builds
         uses: actions/download-artifact@v3
+      - name: Testing
+        run: test -f ${{ env.release_notes }} && echo "FILE exists."
         with:
           name: deploy-win
           path: "iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular/Windows/"
@@ -148,6 +151,10 @@ jobs:
         run: xcodebuild -project 'iPlug2/Projects/HISSTools_Granular/projects/HISSToolsGranular-macOS.xcodeproj' -scheme 'Finished Plugs' -destination 'platform=OS X,arch=x86_64' -configuration Deployment -quiet build CODE_SIGNING_ALLOWED=YES
       - name: Zip All
         run: iPlug2/Projects/HISSTools_Granular/scripts/dist-zip.sh
+      - name: "Check Release Notes Existence"
+          uses: andstor/file-existence-action@v2
+          id: release_notes_check
+          files: ${{ env.release_notes }}
       - name: Make release
         uses: "softprops/action-gh-release@v1"
         with:
@@ -155,5 +162,9 @@ jobs:
           fail_on_unmatched_files: true
           files: iPlug2/Projects/HISSTools_Granular/build-mac/HISSTools_Granular.zip
           target_commitish: ${{ github.sha }}
-          body: This is an automated build of the HISSTools Granular plugin. ${{ env.testing-version && 'This version is intended for further testing (not a stable version).' || 'This is a stable release version.' }} Download the zip below to install the plugin.
+          body_path: ${{ steps.release_notes_check.outputs.files_exists == 'true' && env.release_notes || '' }}
+          body: |
+                This is an automated build of the HISSTools Granular plugin.
+                ${{ env.testing_version == 'true' && 'This version is intended for further testing (not a stable version).' || 'This is a stable release version.' }}
+                Download the zip below to install the plugin.
           generate_release_notes: true
