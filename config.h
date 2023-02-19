@@ -1,12 +1,12 @@
 #define PLUG_NAME "HISSTools Granular"
 #define PLUG_MFR "Alex Harker"
-#define PLUG_VERSION_HEX 0x00010000
-#define PLUG_VERSION_STR "1.0.0"
+#define PLUG_VERSION_HEX 0x00010001
+#define PLUG_VERSION_STR "1.0.1"
 #define PLUG_UNIQUE_ID 'HTGn'
 #define PLUG_MFR_ID 'AHAR'
 #define PLUG_URL_STR "www.alexanderjharker.co.uk"
 #define PLUG_EMAIL_STR "A.Harker@hud.ac.uk"
-#define PLUG_COPYRIGHT_STR  "Copyright 2018-2022 Alex Harker"
+#define PLUG_COPYRIGHT_STR  "Copyright 2018-2023 Alex Harker"
 #define PLUG_CLASS_NAME HISSToolsGranular
 
 #define BUNDLE_NAME "HISSToolsGranular"
