@@ -23,7 +23,7 @@ To Build the Plugin:
 ---------------------------------
 - You will require a fully setup version of [iPlug 2](https://github.com/iPlug2/iPlug2).
 - This repo is designed to be placed in a subfolder of the iPlug 2 repository (e.g. iPlug2/Projects).
-- The [HISSTools_PlugiLib](https://github.com/AlexHarker/HISSTools_PluginLib) repo is also required to be placed next to this one before building (e.g. iPlug2/Projects).
+- The [HISSTools_PluginLib](https://github.com/AlexHarker/HISSTools_PluginLib) repo is also required to be placed next to this one before building (e.g. iPlug2/Projects).
 - You will need to make sure that the HISSTools_Library submodule is correctly initialised (which can be done with ```git submodule update --init``` if you have already pulled the repository and you did not pull in a manner that already handled this).
 - The supplied Xcode workspace and Visual Studio solution should then build the valid plugin formats (AUv2 / VST2 / VST3) correctly.
 
