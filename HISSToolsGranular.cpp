@@ -110,7 +110,7 @@ public:
   
 private:
   
-  void reportToPlug() override
+  void ReportToPlug() override
   {
     mPlug->SelectFile(GetLastSelectedFileForPlug().Get());
   }
