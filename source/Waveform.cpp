@@ -21,40 +21,40 @@ void Waveform::Draw(IGraphics& graphics)
     
     // Background fill
     
-    vecDraw.setColor(&bgcolor);
-    vecDraw.fillRect(mRECT.L, mRECT.T, mRECT.W(),  mRECT.H());
+    vecDraw.SetColor(&bgcolor);
+    vecDraw.FillRect(mRECT.L, mRECT.T, mRECT.W(),  mRECT.H());
     
     // Waveform
     
     if (!graphics.CheckLayer(mCache))
     {
-        vecDraw.startGroup(mRECT);
-        vecDraw.setColor(&fgcolor);
-        vecDraw.startMultiLine(mRECT.L, mRECT.MH(), 0.5);
+        vecDraw.StartGroup(mRECT);
+        vecDraw.SetColor(&fgcolor);
+        vecDraw.StartMultiLine(mRECT.L, mRECT.MH(), 0.5);
         
         for (int i = 0; i < mData.size(); i++)
         {
             float span = mData[i] * HH;
             float x = i * WR + mRECT.L;
             
-            vecDraw.continueMultiLine(x, MH + span);
-            vecDraw.continueMultiLine(x, MH - span);
+            vecDraw.ContinueMultiLine(x, MH + span);
+            vecDraw.ContinueMultiLine(x, MH - span);
         }
         
-        vecDraw.finishMultiLine();
-        mCache = vecDraw.endGroup();
+        vecDraw.FinishMultiLine();
+        mCache = vecDraw.EndGroup();
     }
     
     if (mCache)
     {
         float width = std::max(1.f, static_cast<float>(mSelectR - mSelectL) * mRECT.W());
         
-        vecDraw.renderGroup(mCache);
+        vecDraw.RenderGroup(mCache);
         
         // Selection fill
         
-        vecDraw.setColor(&hlcolor);
-        vecDraw.fillRect(mRECT.L + mSelectL * mRECT.W(), mRECT.T, width,  mRECT.H());
+        vecDraw.SetColor(&hlcolor);
+        vecDraw.FillRect(mRECT.L + mSelectL * mRECT.W(), mRECT.T, width,  mRECT.H());
     }
 }
 

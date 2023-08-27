@@ -34,16 +34,16 @@ public:
     HISSTools_LICE_VGradient* activeFillCS = new HISSTools_LICE_VGradient;
     HISSTools_LICE_VGradient* activeOffFillCS = new HISSTools_LICE_VGradient;
     
-    activeOffFillCS->addStop(HISSTools_Color(0.415, 0.415, 0.415, 1.0), 0.0);
-    activeOffFillCS->addStop(HISSTools_Color(0.169, 0.169, 0.169, 1.0), 1.0);
+    activeOffFillCS->AddStop(HISSTools_Color(0.415, 0.415, 0.415, 1.0), 0.0);
+    activeOffFillCS->AddStop(HISSTools_Color(0.169, 0.169, 0.169, 1.0), 1.0);
     
-    activeFillCS->addStop(HISSTools_Color(0.6, 0.6, 0.6, 1.0), 0);
-    activeFillCS->addStop(HISSTools_Color(0.3, 0.3, 0.3, 1.0), 1.);
+    activeFillCS->AddStop(HISSTools_Color(0.6, 0.6, 0.6, 1.0), 0);
+    activeFillCS->AddStop(HISSTools_Color(0.3, 0.3, 0.3, 1.0), 1.);
     
     HISSTools_LICE_VGradient* panelFillCS = new HISSTools_LICE_VGradient;
-    panelFillCS->addStop(HISSTools_Color(0.4, 0.4, 0.4, 0.4), 0.0);
-    panelFillCS->addStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
-    panelFillCS->addStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
+    panelFillCS->AddStop(HISSTools_Color(0.4, 0.4, 0.4, 0.4), 0.0);
+    panelFillCS->AddStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
+    panelFillCS->AddStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
     
     HISSTools_Color_Spec shadowCS(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
     HISSTools_Shadow *shadowSpec = new HISSTools_Shadow(shadowCS, 4, 4, 6);
