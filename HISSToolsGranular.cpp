@@ -34,16 +34,16 @@ public:
     HISSTools_LICE_VGradient* activeFillCS = new HISSTools_LICE_VGradient;
     HISSTools_LICE_VGradient* activeOffFillCS = new HISSTools_LICE_VGradient;
     
-    activeOffFillCS->addStop(HISSTools_Color(0.415, 0.415, 0.415, 1.0), 0.0);
-    activeOffFillCS->addStop(HISSTools_Color(0.169, 0.169, 0.169, 1.0), 1.0);
+    activeOffFillCS->AddStop(HISSTools_Color(0.415, 0.415, 0.415, 1.0), 0.0);
+    activeOffFillCS->AddStop(HISSTools_Color(0.169, 0.169, 0.169, 1.0), 1.0);
     
-    activeFillCS->addStop(HISSTools_Color(0.6, 0.6, 0.6, 1.0), 0);
-    activeFillCS->addStop(HISSTools_Color(0.3, 0.3, 0.3, 1.0), 1.);
+    activeFillCS->AddStop(HISSTools_Color(0.6, 0.6, 0.6, 1.0), 0);
+    activeFillCS->AddStop(HISSTools_Color(0.3, 0.3, 0.3, 1.0), 1.);
     
     HISSTools_LICE_VGradient* panelFillCS = new HISSTools_LICE_VGradient;
-    panelFillCS->addStop(HISSTools_Color(0.4, 0.4, 0.4, 0.4), 0.0);
-    panelFillCS->addStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
-    panelFillCS->addStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
+    panelFillCS->AddStop(HISSTools_Color(0.4, 0.4, 0.4, 0.4), 0.0);
+    panelFillCS->AddStop(HISSTools_Color(0.2, 0.2, 0.2, 0.5), 0.94);
+    panelFillCS->AddStop(HISSTools_Color(0.075, 0.075, 0.075, 0.6), 1.0);
     
     HISSTools_Color_Spec shadowCS(HISSTools_Color(0.00, 0.00, 0.00, 0.90));
     HISSTools_Shadow *shadowSpec = new HISSTools_Shadow(shadowCS, 4, 4, 6);
@@ -51,50 +51,50 @@ public:
     HISSTools_Color_Spec dialTextShadowCS(HISSTools_Color(0.00, 0.00, 0.00, 1.0));
     HISSTools_Shadow *dialTextShadowSpec = new HISSTools_Shadow(shadowCS, 0, 0, 3);
     
-    addShadow("DialValue", dialTextShadowSpec);
+    AddShadow("DialValue", dialTextShadowSpec);
 
-    addDimension("DialValuePromptRatio", "widePrompt", 0.75);
+    AddDimension("DialValuePromptRatio", "widePrompt", 0.75);
     
-    addColorSpec("PanelFill", "upper", panelFillCS);
-    addColorSpec("PanelFill", "main", panelFillCS);
-    addColorSpec("PanelFill", "thick", blackCS);
+    AddColorSpec("PanelFill", "upper", panelFillCS);
+    AddColorSpec("PanelFill", "main", panelFillCS);
+    AddColorSpec("PanelFill", "thick", blackCS);
     
-    addColorSpec("ButtonHandleLabelOff", "alt", greyCS);
-    addColorSpec("ButtonHandleOff", "alt", activeOffFillCS);
-    addColorSpec("ButtonHandleOn", "alt", activeFillCS);
+    AddColorSpec("ButtonHandleLabelOff", "alt", greyCS);
+    AddColorSpec("ButtonHandleOff", "alt", activeOffFillCS);
+    AddColorSpec("ButtonHandleOn", "alt", activeFillCS);
     
-    addShadow("TextBlock", "name", shadowSpec);
+    AddShadow("TextBlock", "name", shadowSpec);
     
     HISSTools_Color_Spec *textColor = new HISSTools_Color_Spec(0.9, 0.9, 0.9, 0.80);
     HISSTools_Text *nameTxt = new HISSTools_Text(42, "Arial Bold");
     
-    addColorSpec("TextBlock", "name", textColor);
-    addTextStyle("TextBlock", "name", nameTxt);
+    AddColorSpec("TextBlock", "name", textColor);
+    AddTextStyle("TextBlock", "name", nameTxt);
     
-    addColorSpec("DialIndicator", "1", col1);
-    addColorSpec("DialIndicator", "2", col2);
-    addColorSpec("DialIndicator", "3", col3);
-    addColorSpec("DialIndicator", "4", col4);
-    addColorSpec("DialIndicator", "5", col5);
-    addColorSpec("DialIndicator", "6", col6);
-    addColorSpec("DialIndicator", "7", col7);
+    AddColorSpec("DialIndicator", "1", col1);
+    AddColorSpec("DialIndicator", "2", col2);
+    AddColorSpec("DialIndicator", "3", col3);
+    AddColorSpec("DialIndicator", "4", col4);
+    AddColorSpec("DialIndicator", "5", col5);
+    AddColorSpec("DialIndicator", "6", col6);
+    AddColorSpec("DialIndicator", "7", col7);
     
-    addDimension("PanelRoundnessTL","tighter", 5);
-    addDimension("PanelRoundnessTR","tighter", 5);
-    addDimension("PanelRoundnessBL","tighter", 5);
-    addDimension("PanelRoundnessBR","tighter", 5);
+    AddDimension("PanelRoundnessTL","tighter", 5);
+    AddDimension("PanelRoundnessTR","tighter", 5);
+    AddDimension("PanelRoundnessBL","tighter", 5);
+    AddDimension("PanelRoundnessBR","tighter", 5);
     
-    addDimension("DialRefValue", "gain", 2.0/7.0);
-    addDimension("DialRefValue", "vol", 6.0/7.0);
+    AddDimension("DialRefValue", "gain", 2.0/7.0);
+    AddDimension("DialRefValue", "vol", 6.0/7.0);
     
-    addDimension("ValueTextArea", "spacious", 25);
+    AddDimension("ValueTextArea", "spacious", 25);
     
-    addFlag("ValueDrawTriangle", "small", false);
-    addFlag("ValueDrawLabel", "nolabel", false);
+    AddFlag("ValueDrawTriangle", "small", false);
+    AddFlag("ValueDrawLabel", "nolabel", false);
     
-    addFlag("ValueLabelBelow", true);
-    addFlag("ValueLabelBelow", "above", false);
-    addFlag("DialDrawValOnlyOnMO", true);
+    AddFlag("ValueLabelBelow", true);
+    AddFlag("ValueLabelBelow", "above", false);
+    AddFlag("DialDrawValOnlyOnMO", true);
   }
 };
 
@@ -110,7 +110,7 @@ public:
   
 private:
   
-  void reportToPlug() override
+  void ReportToPlug() override
   {
     mPlug->SelectFile(GetLastSelectedFileForPlug().Get());
   }
