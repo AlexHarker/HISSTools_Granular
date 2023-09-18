@@ -411,8 +411,6 @@
     <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
     <ClCompile Include="..\src\Granular.cpp" />
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\BaseAudioFile.cpp" />
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\IAudioFile.cpp" />
     <ClCompile Include="..\src\Waveform.cpp" />
   </ItemGroup>
   <ItemGroup>

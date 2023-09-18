@@ -59,12 +59,6 @@
     <ClCompile Include="..\..\..\IGraphics\Drawing\IGraphicsSkia.cpp">
       <Filter>IGraphics\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\BaseAudioFile.cpp">
-      <Filter>HISSTools_Library</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HISSTools_Library\AudioFile\IAudioFile.cpp">
-      <Filter>HISSTools_Library</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Granular.cpp">
       <Filter>DSP</Filter>
     </ClCompile>
@@ -265,9 +259,6 @@
     </Filter>
     <Filter Include="IGraphics\Controls">
       <UniqueIdentifier>{3c740de7-2371-4065-bf3d-5af9193c7b7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="HISSTools_Library">
-      <UniqueIdentifier>{06a9b599-cccd-4231-af24-9c1f78138c82}</UniqueIdentifier>
     </Filter>
     <Filter Include="DSP">
       <UniqueIdentifier>{ae5b58fc-8f68-46dd-a545-43943a4b9888}</UniqueIdentifier>

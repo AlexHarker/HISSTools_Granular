@@ -12,7 +12,7 @@ BINARY_NAME = HISSToolsGranular
 
 // ------------------------------
 // HEADER AND LIBRARY SEARCH PATHS
-EXTRA_INC_PATHS = $(IGRAPHICS_INC_PATHS) $(SRCROOT)/../../HISSTools_PluginLib/HISSTools_Graphics
+EXTRA_INC_PATHS = $(IGRAPHICS_INC_PATHS) $(SRCROOT)/../../HISSTools_PluginLib/HISSTools_Graphics $(SRCROOT)/../source/HISSTools_Library/include
 EXTRA_LIB_PATHS = $(IGRAPHICS_LIB_PATHS)
 EXTRA_LNK_FLAGS = -framework Metal $(IGRAPHICS_LNK_FLAGS) //$(SRCROOT)/../../../lice.a
 

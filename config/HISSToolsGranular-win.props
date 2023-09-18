@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
     <IPLUG2_ROOT>$(ProjectDir)..\..\..</IPLUG2_ROOT>
-    <DEPENDENCIES_ROOT>$(ProjectDir)..\dependencies\build</DEPENDENCIES_ROOT>
+    <HISSTOOLS_LIBRARY_PATH>$(ProjectDir)..\source\HISSTools_Library\include</HISSTOOLS_LIBRARY_PATH>
     <HISSTOOLS_PLUGINLIB_PATH>$(ProjectDir)..\..\HISSTools_PluginLib</HISSTOOLS_PLUGINLIB_PATH>
     <HISSTOOLS_PLUGIN_PATHS>$(HISSTOOLS_PLUGINLIB_PATH)\HISSTools_Graphics;$(HISSTOOLS_PLUGINLIB_PATH)\HISSTools_UI;</HISSTOOLS_PLUGIN_PATHS>
     <BINARY_NAME>HISSToolsGranular</BINARY_NAME>
@@ -22,7 +22,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(EXTRA_INC_PATHS);$(IPLUG_INC_PATHS);$(IGRAPHICS_INC_PATHS);$(GLAD_GL2_PATHS);$(HISSTOOLS_PLUGIN_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EXTRA_INC_PATHS);$(IPLUG_INC_PATHS);$(IGRAPHICS_INC_PATHS);$(GLAD_GL2_PATHS);$(HISSTOOLS_PLUGIN_PATHS);$(HISSTOOLS_LIBRARY_PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>$(EXTRA_ALL_DEFS);_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>

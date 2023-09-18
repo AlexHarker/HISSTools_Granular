@@ -335,8 +335,6 @@
     <ClCompile Include="..\..\..\IPlug\VST2\IPlugVST2.cpp" />
     <ClCompile Include="..\HISSToolsGranular.cpp" />
     <ClCompile Include="..\source\Granular.cpp" />
-    <ClCompile Include="..\source\HISSTools_Library\AudioFile\BaseAudioFile.cpp" />
-    <ClCompile Include="..\source\HISSTools_Library\AudioFile\IAudioFile.cpp" />
     <ClCompile Include="..\source\Waveform.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -278,20 +278,6 @@
 		4FFBB93020863B0E00DDD0E7 /* fbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158C1205D50EB00393585 /* fbuffer.cpp */; };
 		4FFBB93420863B0E00DDD0E7 /* coreiids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8158E0205D50EB00393585 /* coreiids.cpp */; };
 		4FFBB93520863B0E00DDD0E7 /* vstnoteexpressiontypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F81588E205D50EB00393585 /* vstnoteexpressiontypes.cpp */; };
-		B8199B74278C7362001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B75278C7366001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B76278C7369001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B77278C736C001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B78278C736F001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B79278C7373001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B7A278C7379001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B7B278C737E001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B7C278C7381001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B7D278C7385001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B7E278C738C001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B7F278C738F001F43E8 /* IAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B65278C7307001F43E8 /* IAudioFile.cpp */; };
-		B8199B80278C7393001F43E8 /* BaseAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */; };
-		B8199B81278C7395001F43E8 /* OAudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8199B64278C7307001F43E8 /* OAudioFile.cpp */; };
 		B81BF0AA21F3A4C7002C1DA6 /* Buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = B81BF09121F3A4C7002C1DA6 /* Buffer.h */; };
 		B81BF0B421F3A4C7002C1DA6 /* Granular.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF09421F3A4C7002C1DA6 /* Granular.cpp */; };
 		B81BF0B521F3A4C7002C1DA6 /* Granular.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81BF09421F3A4C7002C1DA6 /* Granular.cpp */; };
@@ -806,18 +792,6 @@
 		4FFBB94120863E9300DDD0E7 /* IPlugVST3_Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Parameter.h; path = ../../../IPlug/VST3/IPlugVST3_Parameter.h; sourceTree = "<group>"; };
 		4FFF72B8214BB71400839091 /* main.rc */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.rc; path = ../resources/main.rc; sourceTree = "<group>"; };
 		52FBBED30D0CF143001C8B8A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../config.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
-		B8199B2D278C7307001F43E8 /* SIMDSupport.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SIMDSupport.hpp; sourceTree = "<group>"; };
-		B8199B2E278C7307001F43E8 /* WindowFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WindowFunctions.hpp; sourceTree = "<group>"; };
-		B8199B31278C7307001F43E8 /* Interpolation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interpolation.hpp; sourceTree = "<group>"; };
-		B8199B32278C7307001F43E8 /* Allocator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Allocator.hpp; sourceTree = "<group>"; };
-		B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAudioFile.cpp; sourceTree = "<group>"; };
-		B8199B61278C7307001F43E8 /* BaseAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAudioFile.h; sourceTree = "<group>"; };
-		B8199B62278C7307001F43E8 /* OAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAudioFile.h; sourceTree = "<group>"; };
-		B8199B63278C7307001F43E8 /* IAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAudioFile.h; sourceTree = "<group>"; };
-		B8199B64278C7307001F43E8 /* OAudioFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OAudioFile.cpp; sourceTree = "<group>"; };
-		B8199B65278C7307001F43E8 /* IAudioFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IAudioFile.cpp; sourceTree = "<group>"; };
-		B8199B66278C7307001F43E8 /* TableReader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TableReader.hpp; sourceTree = "<group>"; };
-		B8199B82278C74D6001F43E8 /* RandomGenerator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RandomGenerator.hpp; sourceTree = "<group>"; };
 		B81BF09121F3A4C7002C1DA6 /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
 		B81BF09421F3A4C7002C1DA6 /* Granular.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Granular.cpp; sourceTree = "<group>"; };
 		B81BF09521F3A4C7002C1DA6 /* Granular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Granular.h; sourceTree = "<group>"; };
@@ -855,6 +829,7 @@
 		B81BF0FA21F3A588002C1DA6 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		B83F9A2E27962307002D1873 /* IGraphicsSkia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IGraphicsSkia.cpp; sourceTree = "<group>"; };
 		B83F9A2F27962307002D1873 /* IGraphicsSkia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGraphicsSkia.h; sourceTree = "<group>"; };
+		B853F8952AB601C60025BAB0 /* HISSTools_Library */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HISSTools_Library; sourceTree = "<group>"; };
 		B8F3700923D11B3E00291018 /* pluginfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pluginfactory.cpp; sourceTree = "<group>"; };
 		B8F3700B23D11B5700291018 /* commoniids.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = commoniids.cpp; sourceTree = "<group>"; };
 		B8F3700D23D11B7500291018 /* IPlugVST3_ControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ControllerBase.h; path = ../../../IPlug/VST3/IPlugVST3_ControllerBase.h; sourceTree = "<group>"; };
@@ -1677,37 +1652,10 @@
 			name = WDL;
 			sourceTree = "<group>";
 		};
-		B81999FF278C7306001F43E8 /* HISSTools_Library */ = {
-			isa = PBXGroup;
-			children = (
-				B8199B5F278C7307001F43E8 /* AudioFile */,
-				B8199B32278C7307001F43E8 /* Allocator.hpp */,
-				B8199B31278C7307001F43E8 /* Interpolation.hpp */,
-				B8199B82278C74D6001F43E8 /* RandomGenerator.hpp */,
-				B8199B2D278C7307001F43E8 /* SIMDSupport.hpp */,
-				B8199B66278C7307001F43E8 /* TableReader.hpp */,
-				B8199B2E278C7307001F43E8 /* WindowFunctions.hpp */,
-			);
-			path = HISSTools_Library;
-			sourceTree = "<group>";
-		};
-		B8199B5F278C7307001F43E8 /* AudioFile */ = {
-			isa = PBXGroup;
-			children = (
-				B8199B61278C7307001F43E8 /* BaseAudioFile.h */,
-				B8199B60278C7307001F43E8 /* BaseAudioFile.cpp */,
-				B8199B63278C7307001F43E8 /* IAudioFile.h */,
-				B8199B65278C7307001F43E8 /* IAudioFile.cpp */,
-				B8199B62278C7307001F43E8 /* OAudioFile.h */,
-				B8199B64278C7307001F43E8 /* OAudioFile.cpp */,
-			);
-			path = AudioFile;
-			sourceTree = "<group>";
-		};
 		B81BF08E21F3A4C6002C1DA6 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				B81999FF278C7306001F43E8 /* HISSTools_Library */,
+				B853F8952AB601C60025BAB0 /* HISSTools_Library */,
 				B81BF09121F3A4C7002C1DA6 /* Buffer.h */,
 				B81BF09921F3A4C7002C1DA6 /* List.h */,
 				B81BF09A21F3A4C7002C1DA6 /* Nonlinear.h */,
@@ -2321,8 +2269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B77278C736C001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B76278C7369001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4FDAC0EB207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				4F63696E20A463090022C370 /* IControls.cpp in Sources */,
 				4F03A5AD20A4621100EBDFFB /* IGraphics.cpp in Sources */,
@@ -2350,8 +2296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B81278C7395001F43E8 /* OAudioFile.cpp in Sources */,
-				B8199B80278C7393001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4FB1F59520E4B015004157C8 /* IGraphicsMac_view.mm in Sources */,
 				4F03A5B120A4621100EBDFFB /* IGraphics.cpp in Sources */,
 				4FAEBD30209DAF76002E6392 /* IPlugAUv3.mm in Sources */,
@@ -2381,8 +2325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B7B278C737E001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B7A278C7379001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4F03A5AF20A4621100EBDFFB /* IGraphics.cpp in Sources */,
 				4F6369E020A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */,
 				4F6369EE20A466470022C370 /* IControl.cpp in Sources */,
@@ -2412,8 +2354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B79278C7373001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B78278C736F001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4F81597C205D50EB00393585 /* baseiids.cpp in Sources */,
 				4FDAC0EC207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				B81BF0CE21F3A4C7002C1DA6 /* Waveform.cpp in Sources */,
@@ -2472,8 +2412,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B7D278C7385001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B7C278C7381001F43E8 /* BaseAudioFile.cpp in Sources */,
 				B81BF0D021F3A4C7002C1DA6 /* Waveform.cpp in Sources */,
 				B81BF0B821F3A4C7002C1DA6 /* Granular.cpp in Sources */,
 				4F3862F32014BBEC0009F402 /* HISSToolsGranular.cpp in Sources */,
@@ -2527,8 +2465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B75278C7366001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B74278C7362001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4F10D3D9203A6719003EF82A /* RtMidi.cpp in Sources */,
 				4F6369DD20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */,
 				4F6369EB20A466470022C370 /* IControl.cpp in Sources */,
@@ -2572,8 +2508,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8199B7F278C738F001F43E8 /* IAudioFile.cpp in Sources */,
-				B8199B7E278C738C001F43E8 /* BaseAudioFile.cpp in Sources */,
 				4FFBB90520863B0E00DDD0E7 /* baseiids.cpp in Sources */,
 				4FFBB90620863B0E00DDD0E7 /* IPlugTimer.cpp in Sources */,
 				B81BF0D121F3A4C7002C1DA6 /* Waveform.cpp in Sources */,

@@ -11,7 +11,7 @@
 #include "List.h"
 #include "Buffer.h"
 #include "SallenAndKey.h"
-#include "HISSTools_Library/RandomGenerator.hpp"
+#include <random_generator.hpp>
 
 // Filter Class
 
@@ -276,7 +276,7 @@ private:
     Filter::Type mFilterType;
     Nonlinear::Type mNonlinearType;
     
-    random_generator<> mGen;
+    htl::random_generator<> mGen;
     
     StereoBuffer mBuffer;
     Window mHannWindow;

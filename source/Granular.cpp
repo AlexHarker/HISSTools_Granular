@@ -1,10 +1,8 @@
 
 #include "Granular.h"
 #include "Nonlinear.h"
-#include "HISSTools_Library/AudioFile/IAudioFile.h"
-#include "HISSTools_Library/WindowFunctions.hpp"
-
-using namespace window_functions;
+#include <audio_file/in_file.hpp>
+#include <window.hpp>
 
 // Filter Class
 
@@ -112,13 +110,18 @@ void Panner::process(double *ioL, double* ioR, double numSamps)
 
 // Window Class
 
-indexed_generator
-<double, hann<double>, triangle<double>, sine<double>, kaiser<double>, tukey<double>> mWindowFunc;
+htl::window::indexed_generator<double,
+                               htl::window::hann<double>,
+                               htl::window::triangle<double>,
+                               htl::window::sine<double>,
+                               htl::window::kaiser<double>,
+                               htl::window::tukey<double>>
+                               mWindowFunc;
 
 void Window::set(Type type)
 {
-    window_functions::params params;
-    setInterpType(InterpType::Linear);
+    htl::window::params params;
+    setInterpType(htl::interp_type::linear);
     resize(sLength + 2);
     mWindowFunc(type, data(), 4096, 0, 4097, params);
     
@@ -130,9 +133,9 @@ void Window::set(Type type)
 
 void StereoBuffer::load(const char *path)
 {
-    HISSTools::IAudioFile file(path);
+    htl::in_audio_file file(path);
     
-    if (!file.isOpen())
+    if (!file.is_open())
     {
         clear();
         return;
@@ -140,20 +143,20 @@ void StereoBuffer::load(const char *path)
     
     // Clip length to prevent the user loading stupidly long files in full
     
-    int length = std::min(file.getFrames(), uint32_t(30000000));
+    uintptr_t length = std::min(file.frames(), uintptr_t(30000000));
     
     mBuffers[0].resize(length);
     mBuffers[1].resize(length);
     
-    file.readChannel(mBuffers[0].data(), length, 0);
+    file.read_channel(mBuffers[0].data(), length, 0);
     file.seek();
     
-    if (file.getChannels() > 1)
-        file.readChannel(mBuffers[1].data(), length, 1);
+    if (file.channels() > 1)
+        file.read_channel(mBuffers[1].data(), length, 1);
     else
         mBuffers[1] = mBuffers[0];
     
-    mSampleRate = file.getSamplingRate();
+    mSampleRate = file.sampling_rate();
 }
 
 void StereoBuffer::read(double* output, double *positions, int numSamps, int chan)
@@ -193,8 +196,8 @@ int StereoBuffer::recall(const iplug::IByteChunk &storage, int pos)
 
 Grain::Grain()
 {
-    mBuffer = NULL;
-    mWindow = NULL;
+    mBuffer = nullptr;
+    mWindow = nullptr;
     mPhase = 1.0;
     mPhaseIncr = 1.0;
     mOffset = 0.0;

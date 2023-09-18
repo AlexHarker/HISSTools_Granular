@@ -2,7 +2,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "HISSTools_Library/TableReader.hpp"
+#include <table_reader.hpp>
 #include "IPlugStructs.h"
 
 // Buffer
@@ -10,9 +10,9 @@
 template <class T>
 class Buffer
 {
-    struct Fetch : table_fetcher<T>
+    struct Fetch : htl::table_fetcher<T>
     {
-        Fetch(const T *data, intptr_t size) : table_fetcher<T>(size, 1.0), mData(data), mSize(size) {}
+        Fetch(const T *data, intptr_t size) : htl::table_fetcher<T>(size, 1.0), mData(data), mSize(size) {}
         
         T operator()(intptr_t offset)
         {
@@ -28,14 +28,14 @@ class Buffer
     
 public:
     
-    Buffer() : mBuffer(NULL), mSize(0), mInterpType(InterpType::CubicHermite) {}
+    Buffer() : mSize(0), mInterpType(htl::interp_type::cubic_hermite) {}
     
     void read(double* output, double* positions, int numSamps, double amp)
     {
         table_read(Fetch(data(), mSize), output, positions, numSamps, amp, mInterpType);
     }
     
-    void setInterpType(InterpType type) { mInterpType = type; }
+    void setInterpType(htl::interp_type type) { mInterpType = type; }
     void clear() { mSize = 0; }
     T* data() { return mBuffer.data(); }
     const T* data() const { return mBuffer.data(); }
@@ -69,7 +69,7 @@ private:
     
     std::vector<T> mBuffer;
     int mSize;
-    InterpType mInterpType;
+    htl::interp_type mInterpType;
 };
 
 #endif

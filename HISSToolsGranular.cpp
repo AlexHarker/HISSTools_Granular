@@ -3,6 +3,8 @@
 #include "IPlug_include_in_plug_src.h"
 #include "HISSTools_Controls.hpp"
 
+#include <simd_support.hpp>
+
 // GUI Labels
 
 enum GUILabels
@@ -225,7 +227,7 @@ HISSToolsGranular::~HISSToolsGranular() {}
 void HISSToolsGranular::ProcessBlock(double** inputs, double** outputs, int nFrames)
 {
   WDL_MutexLock lock(&mMutex);
-  SIMDDenormals denormals;
+  htl::simd_denormals denormals;
   
   mGranular.processBlock(outputs[0], outputs[1], nFrames, GetSampleRate());
 }

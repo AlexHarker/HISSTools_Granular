@@ -140,12 +140,6 @@
     <ClCompile Include="..\source\Waveform.cpp">
       <Filter>DSP</Filter>
     </ClCompile>
-    <ClCompile Include="..\source\HISSTools_Library\AudioFile\BaseAudioFile.cpp">
-      <Filter>HISSTools_Library</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\HISSTools_Library\AudioFile\IAudioFile.cpp">
-      <Filter>HISSTools_Library</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../config.h" />
@@ -445,9 +439,6 @@
     </Filter>
     <Filter Include="DSP">
       <UniqueIdentifier>{7569d0b7-ba50-4549-bd65-39dd31953495}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="HISSTools_Library">
-      <UniqueIdentifier>{345c0138-cc9b-4e22-8f4c-e31664683ec5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
