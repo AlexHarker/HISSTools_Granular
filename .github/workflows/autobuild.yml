@@ -82,7 +82,7 @@ jobs:
           name: deploy-win
           path: "win-builds"
   deploy-mac:
-    runs-on: macos-11
+    runs-on: macos-latest
     needs: deploy-win
     env:
       release_notes: ${{ github.workspace }}/iPlug2/Projects/HISSTools_Granular/.github/releases/release-notes-${{ github.ref_name }}.txt
