@@ -52,5 +52,5 @@ GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO
 GCC_CFLAGS[arch=x86_64] = -Wno-write-strings -mfpmath=sse -msse -msse2 -msse3
 GCC_CFLAGS[arch=arm64] = -Wno-write-strings
 
-MACOSX_DEPLOYMENT_TARGET = 10.9
+MACOSX_DEPLOYMENT_TARGET = 10.13
 
